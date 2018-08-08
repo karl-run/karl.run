@@ -37,7 +37,6 @@ module.exports = {
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
           'gatsby-remark-autolink-headers',
-          'gatsby-plugin-styled-components',
         ],
       },
     },
@@ -52,6 +51,7 @@ module.exports = {
     `gatsby-plugin-feed`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
