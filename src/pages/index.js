@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import Bio from '../components/bio/Bio'
 import Layout from '../components/layout'
 
+import './../styles/global'
 import 'prismjs/themes/prism.css'
 
 class BlogIndex extends React.Component {

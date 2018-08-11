@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
+import get from 'lodash/get'
 
 import Layout from '../components/layout'
 
@@ -8,8 +9,8 @@ import { BlogStyles, BlogCard } from './blogPostStyles'
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.propsdata.site.siteMetadata.title
+    const post = get(this, 'props.data.markdownRemark')
+    const siteTitle = get(this, 'propsdata.site.siteMetadata.title')
     const { previous, next } = this.props.pageContext
 
     return (

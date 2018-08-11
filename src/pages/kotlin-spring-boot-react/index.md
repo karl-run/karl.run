@@ -11,7 +11,7 @@ date: 2018-05-07 23:06:48
 ---
 
 
-![](header.png)
+![](./header.png)
 
 In this post we will cover a simple way to get started with developing a full-stack application using Spring Boot 2 with Kotlin, that builds and bundles a React-application and serves it statically. The react application will use [create-react-app](https://github.com/facebook/create-react-app) for a painful way to setup and develop a SPA (single page application).
 
@@ -33,7 +33,7 @@ tl;dr: You're not interested in the details and you just want to get started? Cl
 
 The quickest and easiest way to get started with a Spring Boot application is to use [Spring Initializr](https://start.spring.io/). Let's go through the following options.
 
-![Spring Initializr](/2018/05/07/kotlin-spring-boot-react/1.png)
+![Spring Initializr](./1.png)
 
 1.  Whether or not you want to use Gradle or Maven to build this project is up to you, but in this tutorial we will use Gradle.
 2.  Select `Kotlin` as a programming language.

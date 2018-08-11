@@ -1,9 +1,8 @@
 import React from 'react'
 import { Spring } from 'react-spring'
 
-import { Content } from './layoutStyles'
-
 import Header from './header/Header'
+import Content from './content/Content'
 
 class Template extends React.Component {
   render() {
@@ -16,13 +15,13 @@ class Template extends React.Component {
         <Spring
           from={{ height: isRoot ? 200 : 500 }}
           to={{ height: isRoot ? 500 : 200 }}
-          render={Header}
-        />
-        <Spring
-          from={{ paddingTop: isRoot ? 200 : 500 }}
-          to={{ paddingTop: isRoot ? 500 : 200 }}
         >
-          {styles => <Content>{children}</Content>}
+          {({ height }) => (
+            <>
+              <Header height={height} />
+              <Content top={height}>{children}</Content>
+            </>
+          )}
         </Spring>
       </div>
     )
