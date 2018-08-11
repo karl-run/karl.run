@@ -1,18 +1,15 @@
 import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
-import get from 'lodash/get'
 
-import Bio from '../components/Bio'
 import Layout from '../components/layout'
-import { rhythm, scale } from '../utils/typography'
 
 import { BlogStyles, BlogCard } from './blogPostStyles'
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const siteTitle = this.propsdata.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
     return (
@@ -20,27 +17,10 @@ class BlogPostTemplate extends React.Component {
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <BlogCard>
           <h1>{post.frontmatter.title}</h1>
-          <p
-            style={{
-              ...scale(-1 / 5),
-              display: 'block',
-              marginBottom: rhythm(1),
-              marginTop: rhythm(-1),
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
+          <p>{post.frontmatter.date}</p>
           <BlogStyles dangerouslySetInnerHTML={{ __html: post.html }} />
         </BlogCard>
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
+        <ul>
           {previous && (
             <li>
               <Link to={previous.fields.slug} rel="prev">
