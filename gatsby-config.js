@@ -15,6 +15,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Open+Sans:300,400,700`],
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [

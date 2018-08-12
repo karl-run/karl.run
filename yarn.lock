@@ -4544,6 +4544,10 @@ gatsby-plugin-google-analytics@next:
   dependencies:
     "@babel/runtime" "7.0.0-beta.52"
 
+gatsby-plugin-google-fonts@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/gatsby-plugin-google-fonts/-/gatsby-plugin-google-fonts-0.0.4.tgz#dc1402a71f27c3ae6caee10777d10adadf74bd7c"
+
 gatsby-plugin-offline@next:
   version "2.0.0-beta.9"
   resolved "https://registry.npmjs.org/gatsby-plugin-offline/-/gatsby-plugin-offline-2.0.0-beta.9.tgz#411d204d65d55e9c2194d8709628ed1a55382d8e"
