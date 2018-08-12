@@ -13,12 +13,12 @@ class Template extends React.Component {
     return (
       <div>
         <Spring
-          from={{ height: isRoot ? 200 : 500 }}
-          to={{ height: isRoot ? 500 : 200 }}
+          from={{ height: isRoot ? 150 : 200 }}
+          to={{ height: isRoot ? 200 : 150 }}
         >
           {({ height }) => (
             <>
-              <Header height={height} />
+              <Header height={height} isRoot={isRoot} />
               <Content top={height}>{children}</Content>
             </>
           )}
