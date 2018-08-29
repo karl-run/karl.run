@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "karl.run",
+  "description": "karl.run website",
+  "version": "0.0.1",
+  "author": "Karl O. <k@rl.run>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.5.1",
     "gatsby": "^2.0.0-rc.1",
