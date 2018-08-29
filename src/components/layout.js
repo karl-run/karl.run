@@ -1,31 +1,49 @@
 import React from 'react'
-import { Spring } from 'react-spring'
+import { graphql, StaticQuery } from 'gatsby'
+import Helmet from 'react-helmet'
+import styled from 'styled-components'
 
-import Header from './header/Header'
-import Content from './content/Content'
+import Header from './structure/Header'
 
-class Template extends React.Component {
-  render() {
-    const { location, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    const isRoot = location.pathname === rootPath
+import './baseStyles'
 
-    return (
+const RootContainer = styled.div`
+  margin: '0 auto';
+  max-width: 960;
+  padding: '0px 1.0875rem 1.45rem';
+  padding-top: 0;
+`
+
+const Layout = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            version
+          }
+        }
+      }
+    `}
+  >
+    {({ site }) => (
       <div>
-        <Spring
-          from={{ height: isRoot ? 150 : 200 }}
-          to={{ height: isRoot ? 200 : 150 }}
-        >
-          {({ height }) => (
-            <>
-              <Header height={height} isRoot={isRoot} />
-              <Content top={height}>{children}</Content>
-            </>
-          )}
-        </Spring>
+        <Helmet
+          title={site.siteMetadata.title}
+          meta={[
+            { name: 'description', content: 'Sample' },
+            { name: 'keywords', content: 'sample, something' },
+          ]}
+        />
+        <Header
+          siteTitle={site.siteMetadata.title}
+          version={site.siteMetadata.version}
+        />
+        <RootContainer>{children}</RootContainer>
       </div>
-    )
-  }
-}
+    )}
+  </StaticQuery>
+)
 
-export default Template
+export default Layout

@@ -1,6 +1,5 @@
 ---
-title: >-
-  Spring Boot with Kotlin bundled with a React application as a single
+title: Spring Boot with Kotlin bundled with a React application as a single
   deployable actifact.
 tags:
   - spring boot
@@ -9,7 +8,6 @@ tags:
   - spek
 date: 2018-05-07 23:06:48
 ---
-
 
 ![](./header.png)
 
@@ -179,18 +177,18 @@ Now let's make a request to our backend! In `web/App.js`, let's add a state to s
 ```jsx
 class App extends Component {
   state = {
-    message: null
-  };
+    message: null,
+  }
 
   componentDidMount() {
     // Make a GET-request to our backend
-    fetch("/api/hello")
+    fetch('/api/hello')
       // Map the result to a JSON-object
       .then(response => response.json())
       // Put the message in the state
       .then(response => {
-        this.setState({ message: response.message });
-      });
+        this.setState({ message: response.message })
+      })
   }
 
   render() {
@@ -198,7 +196,7 @@ class App extends Component {
       <div className="App">
         <p>Message from backend: {this.state.message}</p>
       </div>
-    );
+    )
   }
 }
 ```
@@ -353,7 +351,7 @@ object ExampleServiceSpec : Spek({
 })
 ```
 
-A Spek-test consists of a root-describe, which can have more describes nested under itself, and/or one to many `it`. The `it` blocks are where the actual assertions will take place. Build a logical structure that builds natural flowing sentences. For example 
+A Spek-test consists of a root-describe, which can have more describes nested under itself, and/or one to many `it`. The `it` blocks are where the actual assertions will take place. Build a logical structure that builds natural flowing sentences. For example
 
 ```kotlin
 describe("a boat") {
@@ -382,7 +380,7 @@ object ExampleControllerSpec : Spek({
     describe("a very good controller") {
         // Create a mock of ExampleService
         val mockedExampleService = mock<ExampleService> {
-            /* Define that when getSomeValue is invoked, return this 
+            /* Define that when getSomeValue is invoked, return this
                value instead of executing the original code */
             on { getSomeValue() } doReturn ExampleService.ExampleResponse("Mocked Message Wahoo!")
         }

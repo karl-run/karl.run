@@ -1,59 +1,26 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
-
-import Bio from '../components/bio/Bio'
+import { graphql } from 'gatsby'
 import Layout from '../components/layout'
+import BlogList from '../components/blog/BlogList';
 
-import './../styles/global'
-import 'prismjs/themes/prism.css'
+export default ({ data }) => (
+  <Layout>
+    <BlogList entries={data.allMarkdownRemark.edges} />
+  </Layout>
+)
 
-class BlogIndex extends React.Component {
-  render() {
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const posts = this.props.data.allMarkdownRemark.edges
-
-    return (
-      <Layout location={this.props.location}>
-        <Helmet title={siteTitle} />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3>
-                <Link to={node.fields.slug}>{title}</Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })}
-      </Layout>
-    )
-  }
-}
-
-export default BlogIndex
-
-export const pageQuery = graphql`
+export const query = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
       edges {
         node {
-          excerpt
-          fields {
-            slug
-          }
+          id
           frontmatter {
-            date(formatString: "DD MMMM, YYYY")
             title
+            date(formatString: "DD MMMM, YYYY")
           }
+          excerpt
         }
       }
     }

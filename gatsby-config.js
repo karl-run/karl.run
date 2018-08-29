@@ -1,62 +1,28 @@
+const pkg = require('./package.json')
+
 module.exports = {
   siteMetadata: {
     title: 'karl.run',
-    author: 'Karl O.',
-    description: 'karl.run website and blog',
-    siteUrl: 'https://karl.run',
+    version: pkg.version,
   },
-  pathPrefix: '/',
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
+        name: 'src',
+        path: `${__dirname}/src/`,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`Open+Sans:300,400,700`],
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 590,
-            },
-          },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-prismjs',
-            options: {},
-          },
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-          'gatsby-remark-autolink-headers',
-        ],
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
-    `gatsby-plugin-feed`,
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
+    'gatsby-transformer-remark',
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Open Sans'],
+        },
+      },
+    },
   ],
 }

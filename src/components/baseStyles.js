@@ -5,12 +5,7 @@ injectGlobal`
   ${reset}
 
   html {
-    font-family: 'Open Sans';
-    background-color: white;
-  }
-
-  body {
-    margin: 0;
+    font-family: "Open Sans"
   }
 
   h1, h2, h3, h4, h5, h6 {
