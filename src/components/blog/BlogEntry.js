@@ -18,7 +18,7 @@ const Timestamp = styled.div`
 export default ({ entry }) => {
   return (
     <div>
-      <BlogHeader>{entry.frontmatter.title}</BlogHeader>
+      <BlogHeader><a href={entry.fields.slug}>{entry.frontmatter.title}</a></BlogHeader>
       <Timestamp>{entry.frontmatter.date}</Timestamp>
       <Excerpt>{entry.excerpt}</Excerpt>
     </div>

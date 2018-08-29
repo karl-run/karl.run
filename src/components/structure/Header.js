@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 
 const Outer = styled.div`
-  background: rebeccapurple;
+  background: #36a398;
   margin-bottom: 1.45rem;
   margin: 0 auto;
   max-width: 960;
