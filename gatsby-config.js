@@ -10,10 +10,24 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'src',
-        path: `${__dirname}/src/`,
+        path: `${__dirname}/src`,
       },
     },
-    'gatsby-transformer-remark',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          'gatsby-remark-prismjs',
+          'gatsby-remark-copy-linked-files',
+          {
+            resolve: 'gatsby-remark-images',
+            options: { maxWidth: 590 },
+          },
+        ],
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {

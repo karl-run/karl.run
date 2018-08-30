@@ -5,8 +5,6 @@ import styled from 'styled-components'
 
 import Header from './structure/Header'
 
-import './baseStyles'
-
 const RootContainer = styled.div`
   margin: '0 auto';
   max-width: 960;

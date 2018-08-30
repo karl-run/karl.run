@@ -32,14 +32,18 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      const posts = result.data.allMarkdownRemark.edges;
+      posts.forEach(({ node }, index) => {
+        const previous = index === posts.length - 1 ? null : posts[index + 1].node;
+        const next = index === 0 ? null : posts[index - 1].node;
+
         createPage({
           path: node.fields.slug,
           component: path.resolve(`./src/templates/BlogPost.js`),
           context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
             slug: node.fields.slug,
+            next,
+            previous
           },
         })
       })
