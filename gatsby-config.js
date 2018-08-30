@@ -21,6 +21,7 @@ module.exports = {
         plugins: [
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
+          'gatsby-remark-autolink-headers',
           {
             resolve: 'gatsby-remark-images',
             options: { maxWidth: 590 },

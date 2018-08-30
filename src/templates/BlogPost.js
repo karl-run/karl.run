@@ -12,7 +12,7 @@ export default ({ data: { markdownRemark, site } }) => {
         meta={[{ name: 'description', content: site.title }]} // Todo description
         title={`${markdownRemark.frontmatter.title} | ${site.siteMetadata.title}`}
       />
-      <h1>{markdownRemark.frontmatter.title}</h1>
+      <h2>{markdownRemark.frontmatter.title}</h2>
       <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
     </Layout>
   )
