@@ -6,7 +6,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: 'pages/posts' })
     const datePrefix = node.frontmatter.date.substring(0, 10).replace(/-/g, '/')
-    console.log('ya', `${datePrefix}/${slug}`)
 
     createNodeField({
       node,

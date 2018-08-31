@@ -10,9 +10,6 @@ const Excerpt = styled.div``
 export default ({ entry }) => {
   const frontmatter = entry.frontmatter
 
-  console.log(frontmatter);
-  
-
   return (
     <div>
       <Card>
