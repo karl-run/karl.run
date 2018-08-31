@@ -19,8 +19,9 @@ jobs:
         - yarn build
     - stage: deploy
       script:
-        - now && now alias
+        - now --token $NOW_TOKEN && now --token $NOW_TOKEN alias
 
 stages:
+  - build
   - name: deploy
     if: branch = master AND type IN (push)
