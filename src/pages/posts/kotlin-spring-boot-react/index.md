@@ -7,9 +7,8 @@ tags:
   - react
   - spek
 date: 2018-05-07 23:06:48
+banner: ./header.png
 ---
-
-![](./header.png)
 
 In this post we will cover a simple way to get started with developing a full-stack application using Spring Boot 2 with Kotlin, that builds and bundles a React-application and serves it statically. The react application will use [create-react-app](https://github.com/facebook/create-react-app) for a painful way to setup and develop a SPA (single page application).
 

@@ -1,26 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const BlogHeader = styled.h2`
-  margin: 1rem;
-`
+import { Card } from '../../style/elements'
 
-const Excerpt = styled.div`
-  margin: 1rem;
-`
+import BlogHeader from './BlogHeader'
 
-const Timestamp = styled.div`
-  font-size: 0.8rem;
-  color: #666;
-  margin-left: 2rem;
-`
+const Excerpt = styled.div``
 
 export default ({ entry }) => {
+  const frontmatter = entry.frontmatter
+
+  console.log(frontmatter);
+  
+
   return (
     <div>
-      <BlogHeader><a href={entry.fields.slug}>{entry.frontmatter.title}</a></BlogHeader>
-      <Timestamp>{entry.frontmatter.date}</Timestamp>
-      <Excerpt>{entry.excerpt}</Excerpt>
+      <Card>
+        <BlogHeader
+          title={entry.frontmatter.title}
+          slug={entry.fields.slug}
+          date={frontmatter.date}
+          tags={frontmatter.tags}
+          sharpImg={frontmatter.banner}
+          timeToRead={entry.timeToRead}
+        />
+        <Excerpt>{entry.excerpt}</Excerpt>
+      </Card>
     </div>
   )
 }

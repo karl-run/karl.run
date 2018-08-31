@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
-import BlogList from '../components/blog/BlogList';
+import BlogList from '../components/blog/BlogList'
 
 import 'prismjs/themes/prism.css'
 import '../style/baseStyles'
@@ -22,11 +22,23 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
+            tags
+            banner {
+              publicURL
+              childImageSharp {
+                fluid {
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                }
+              }
+            }
           }
           fields {
             slug
           }
-          excerpt
+          timeToRead
+          excerpt(pruneLength: 300)
         }
       }
     }
