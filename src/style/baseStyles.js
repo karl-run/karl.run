@@ -23,6 +23,7 @@ injectGlobal`
     font-weight: bold;
     margin-top: 16px;
     margin-bottom: 8px;
+    color: #333;
   }
 
   h1 {
