@@ -27,6 +27,7 @@ const Tags = () => (
         <TagsGroup>
           {sorted.map(tag => (
             <Tag
+              key={tag.fieldValue}
               name={tag.fieldValue}
               style={{ fontSize: `1.${tag.totalCount}rem` }}
             />

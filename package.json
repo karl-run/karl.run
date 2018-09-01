@@ -5,6 +5,7 @@
   "author": "Karl O. <k@rl.run>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.5.1",
+    "disqus-react": "^1.0.5",
     "gatsby": "^2.0.0-rc.1",
     "gatsby-link": "^2.0.0-rc.1",
     "gatsby-plugin-react-helmet": "^2.0.11",

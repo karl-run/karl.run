@@ -12,7 +12,6 @@ const TagStyle = styled.span`
 
 const Tag = ({ name, style }) => (
   <TagStyle style={style}>
-    {console.log(name)}
     <a href={`/tag/${name}`}>{name}</a>
   </TagStyle>
 )

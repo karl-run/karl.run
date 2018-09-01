@@ -5,7 +5,7 @@ injectGlobal`
   ${reset}
 
   html {
-    font-family: "Open Sans";
+    font-family: "Open Sans", sans-serif;
     background-color: #eee;
   }
 
