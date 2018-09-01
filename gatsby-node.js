@@ -13,6 +13,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       value: `/${datePrefix}${slug}`,
     })
+    createNodeField({
+      node,
+      name: `idName`,
+      value: slug.replace(/\//g, ''),
+    })
   }
 }
 

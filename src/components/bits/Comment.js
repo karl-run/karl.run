@@ -1,25 +1,32 @@
 import React from 'react'
-import Disqus from 'disqus-react'
+import { CommentCount, DiscussionEmbed } from 'disqus-react'
 
-const Comment = (props) => {
+const Short = ({ disqusShortname, disqusConfig }) => (
+  <div>
+    <CommentCount shortname={disqusShortname} config={disqusConfig}>
+      Comments
+    </CommentCount>
+  </div>
+)
+
+const Full = ({ disqusShortname, disqusConfig }) => (
+  <div>
+    <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+  </div>
+)
+
+const Comment = props => {
   const disqusShortname = 'karl-run'
   const disqusConfig = {
-    url: props.slug,
-    identifier: props.slug,
+    url: 'https://karl.now.sh' + props.slug,
+    identifier: props.id,
     title: props.title,
   }
 
-  return (
-    <div className="article">
-      <h1>{props.title}</h1>
-      <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
-        Comments
-      </Disqus.CommentCount>
-      <Disqus.DiscussionEmbed
-        shortname={disqusShortname}
-        config={disqusConfig}
-      />
-    </div>
+  return props.short ? (
+    <Short disqusShortname={disqusShortname} disqusConfig={disqusConfig} />
+  ) : (
+    <Full disqusShortname={disqusShortname} disqusConfig={disqusConfig} />
   )
 }
 

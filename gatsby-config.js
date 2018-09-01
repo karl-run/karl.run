@@ -4,6 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'karl.run',
     version: pkg.version,
+    url: 'https://karl.run'
   },
   plugins: [
     {

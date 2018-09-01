@@ -36,6 +36,7 @@ export const query = graphql`
           }
           fields {
             slug
+            idName
           }
           timeToRead
           excerpt(pruneLength: 300)

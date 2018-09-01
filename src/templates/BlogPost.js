@@ -5,9 +5,11 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import BlogHeader from '../components/blog/BlogHeader'
 import { Card } from '../style/elements'
+import Comment from '../components/bits/Comment'
 
 export default ({ data: { markdownRemark, site } }) => {
   const frontmatter = markdownRemark.frontmatter
+  const fields = markdownRemark.fields
 
   return (
     <Layout>
@@ -19,13 +21,19 @@ export default ({ data: { markdownRemark, site } }) => {
       <Card>
         <BlogHeader
           title={frontmatter.title}
-          slug={markdownRemark.fields.slug}
+          slug={fields.slug}
           date={frontmatter.date}
           tags={frontmatter.tags}
           timeToRead={markdownRemark.timeToRead}
           sharpImg={frontmatter.banner}
         />
         <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+        <Comment
+          id={fields.idName}
+          slug={fields.slug}
+          title={frontmatter.title}
+          short
+        />
       </Card>
     </Layout>
   )
@@ -59,6 +67,7 @@ export const pageQuery = graphql`
       }
       fields {
         slug
+        idName
       }
       timeToRead
     }

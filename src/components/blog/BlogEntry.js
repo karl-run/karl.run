@@ -23,7 +23,12 @@ export default ({ entry }) => {
           timeToRead={entry.timeToRead}
         />
         <Excerpt>{entry.excerpt}</Excerpt>
-        <Comment slug={entry.fields.slug} title={frontmatter.title} />
+        <Comment
+          id={entry.fields.idName}
+          slug={entry.fields.slug}
+          title={frontmatter.title}
+          short
+        />
       </Card>
     </div>
   )
