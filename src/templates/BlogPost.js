@@ -32,7 +32,6 @@ export default ({ data: { markdownRemark, site } }) => {
           id={fields.idName}
           slug={fields.slug}
           title={frontmatter.title}
-          short
         />
       </Card>
     </Layout>
