@@ -4,7 +4,11 @@ import { graphql, StaticQuery } from 'gatsby'
 import Tag from '../bits/Tag'
 
 const TagsGroup = styled.div`
-  color: #eee;
+  color: #36a398;
+
+  h6 {
+    color: #eee;
+  }
 `
 
 const Tags = () => (
@@ -25,11 +29,12 @@ const Tags = () => (
 
       return (
         <TagsGroup>
+          <h6>Tags</h6>
           {sorted.map(tag => (
             <Tag
               key={tag.fieldValue}
               name={tag.fieldValue}
-              style={{ fontSize: `1.${tag.totalCount}rem` }}
+              style={{ fontSize: `1.${tag.totalCount}rem` }} // TODO this logic...
             />
           ))}
         </TagsGroup>

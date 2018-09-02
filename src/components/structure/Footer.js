@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Tags from './Tags';
+import Tags from './Tags'
 
 const FooterBox = styled.div`
   background-color: #262a30;
@@ -10,9 +10,22 @@ const FooterBox = styled.div`
   min-height: 300px;
 `
 
+const Content = styled.div`
+  margin: 0 auto;
+  position: relative;
+  min-height: 300px;
+  max-width: 960px;
+
+  display: flex;
+  justify-content: space-between;
+  justify-content: center;
+`
+
 const Footer = () => (
   <FooterBox>
-    <Tags />
+    <Content>
+      <Tags />
+    </Content>
   </FooterBox>
 )
 
