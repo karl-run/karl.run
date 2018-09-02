@@ -1,32 +1,70 @@
 import React from 'react'
+import styled from 'styled-components'
+import { StaticQuery, graphql } from 'gatsby'
 import { CommentCount, DiscussionEmbed } from 'disqus-react'
 
-const Short = ({ disqusShortname, disqusConfig }) => (
+const Short = ({ disqusShortname, disqusConfig, slug }) => (
   <div>
-    <CommentCount shortname={disqusShortname} config={disqusConfig}>
-      Comments
-    </CommentCount>
+    <a href={slug + '#comments'}>
+      <CommentCount shortname={disqusShortname} config={disqusConfig}>
+        Go to comments
+      </CommentCount>
+    </a>
   </div>
 )
+
+const CommentBox = styled.div`
+  min-height: 400px;
+`
 
 const Full = ({ disqusShortname, disqusConfig }) => (
-  <div>
+  <CommentBox>
     <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
-  </div>
+  </CommentBox>
 )
 
-const Comment = props => {
-  const disqusShortname = 'karl-run'
+const CommentContent = ({ short, site, title, slug, id }) => {
   const disqusConfig = {
-    url: 'https://karl.now.sh' + props.slug,
-    identifier: props.id,
-    title: props.title,
+    url: site.siteMetadata.url + slug,
+    identifier: id,
+    title: title,
   }
 
-  return props.short ? (
-    <Short disqusShortname={disqusShortname} disqusConfig={disqusConfig} />
-  ) : (
-    <Full disqusShortname={disqusShortname} disqusConfig={disqusConfig} />
+  return (
+    <div id="comments">
+      {short ? (
+        <Short
+          disqusShortname={site.siteMetadata.disqus.shortName}
+          disqusConfig={disqusConfig}
+          slug={slug}
+        />
+      ) : (
+        <Full
+          disqusShortname={site.siteMetadata.disqus.shortName}
+          disqusConfig={disqusConfig}
+        />
+      )}
+    </div>
+  )
+}
+
+const Comment = props => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          site {
+            siteMetadata {
+              url
+              disqus {
+                shortName
+              }
+            }
+          }
+        }
+      `}
+      render={data => <CommentContent site={data.site} {...props} />}
+    />
   )
 }
 

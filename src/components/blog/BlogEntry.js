@@ -8,6 +8,11 @@ import Comment from '../bits/Comment'
 
 const Excerpt = styled.div``
 
+const BottomComment = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
 export default ({ entry }) => {
   const frontmatter = entry.frontmatter
 
@@ -23,12 +28,14 @@ export default ({ entry }) => {
           timeToRead={entry.timeToRead}
         />
         <Excerpt>{entry.excerpt}</Excerpt>
-        <Comment
-          id={entry.fields.idName}
-          slug={entry.fields.slug}
-          title={frontmatter.title}
-          short
-        />
+        <BottomComment>
+          <Comment
+            id={entry.fields.idName}
+            slug={entry.fields.slug}
+            title={frontmatter.title}
+            short
+          />
+        </BottomComment>
       </Card>
     </div>
   )

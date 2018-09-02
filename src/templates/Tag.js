@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import BlogEntry from '../components/blog/BlogEntry'
+import { CardSibling } from '../style/elements'
 
 export default props => {
   const {
@@ -15,8 +16,10 @@ export default props => {
 
   return (
     <Layout>
-      <h1>All posts tagged with "{pageContext.tag}"</h1>
-      <div>{pageContext.count} posts found.</div>
+      <CardSibling>
+        <h1>All posts tagged with "{pageContext.tag}"</h1>
+        <div>{pageContext.count} posts found.</div>
+      </CardSibling>
       {posts.map(post => (
         <BlogEntry entry={post} />
       ))}
