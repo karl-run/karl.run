@@ -5,6 +5,7 @@ import Tag from '../bits/Tag'
 
 const TagsGroup = styled.div`
   color: #36a398;
+  max-width: 300px;
 
   h6 {
     color: #eee;
