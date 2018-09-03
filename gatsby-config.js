@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'karl.run',
     version: pkg.version,
-    url: 'https://karl.now.sh',
+    url: 'https://karl.run',
     disqus: {
       shortName: 'karl-run',
     },
