@@ -58,4 +58,8 @@ injectGlobal`
   li {
     margin-bottom: 4px;
   }
+
+  code {
+    word-break: break-all !important;
+  }
 `

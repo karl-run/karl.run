@@ -7,13 +7,17 @@ import Img from '../bits/Img'
 const Timestamp = styled.div`
   font-size: 0.8rem;
   color: #666;
-  margin-left: 2rem;
 `
 
 const SubHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 16px;
+
+  .tag-box {
+    color: #333;
+  }
 `
 
 const BlogHeader = ({ title, slug, date, tags, timeToRead, sharpImg }) => (
@@ -25,7 +29,7 @@ const BlogHeader = ({ title, slug, date, tags, timeToRead, sharpImg }) => (
       <Timestamp>
         {date}, {timeToRead} minute read
       </Timestamp>
-      <div>
+      <div className="tag-box">
         {tags.map(tag => (
           <Tag key={tag} name={tag} />
         ))}

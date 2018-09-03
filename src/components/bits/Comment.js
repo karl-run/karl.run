@@ -3,14 +3,19 @@ import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import { CommentCount, DiscussionEmbed } from 'disqus-react'
 
+const MiniCommentBox = styled.div`
+  margin-top: 16px;
+  margin-bottom: 4px;
+`
+
 const Short = ({ disqusShortname, disqusConfig, slug }) => (
-  <div>
+  <MiniCommentBox>
     <a href={slug + '#comments'}>
       <CommentCount shortname={disqusShortname} config={disqusConfig}>
         Go to comments
       </CommentCount>
     </a>
-  </div>
+  </MiniCommentBox>
 )
 
 const CommentBox = styled.div`

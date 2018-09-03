@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const TagStyle = styled.span`
   display: inline-block;
   margin: 4px;
+  font-size: 0.9rem;
 
   a {
     color: currentColor;
@@ -12,7 +13,7 @@ const TagStyle = styled.span`
 
 const Tag = ({ name, style }) => (
   <TagStyle style={style}>
-    <a href={`/tag/${name}`}>{name}</a>
+    <a href={`/tag/${name}`}>#{name}</a>
   </TagStyle>
 )
 
