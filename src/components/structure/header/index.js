@@ -25,9 +25,11 @@ const Menu = styled.nav`
   position: absolute;
   top: 16px;
   left: 8px;
+  z-index: 1;
 
   a {
     color: white;
+    padding: 16px;
   }
 `
 const Middle = styled.div`
@@ -51,6 +53,7 @@ const Header = ({ siteTitle, version }) => (
     <Content>
       <Menu>
         <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
       </Menu>
       <Middle>
         <div>
