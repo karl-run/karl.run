@@ -28,21 +28,22 @@ injectGlobal`
 
   h1 {
     font-weight: lighter;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
 
   h2 {
     font-weight: lighter;
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 
   h3 {
     font-weight: lighter;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   h4 {
-    font-size: 2rem;
+    font-weight: lighter;
+    font-size: 1.3rem;
   }
 
   p {

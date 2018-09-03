@@ -11,6 +11,8 @@ const FooterBox = styled.div`
   width: 100%;
   min-height: 300px;
   padding-top: 20px;
+  padding: 16px;
+  box-sizing: border-box;
 `
 
 const Content = styled.div`
