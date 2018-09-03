@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import Header from './structure/header'
 import Footer from './structure/Footer'
 
+import './../style/baseStyles'
+
 const RootContainer = styled.div`
   margin: 0 auto;
   max-width: 768px;
@@ -13,18 +15,16 @@ const RootContainer = styled.div`
 `
 
 const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            version
-          }
-        }
+  <StaticQuery query={graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+        version
       }
-    `}
-  >
+    }
+  }
+`}>
     {({ site }) => (
       <div>
         <Helmet

@@ -1,6 +1,6 @@
 {
   "name": "karl.run",
-  "alias": "karl.run",
+  "alias": ["karl.run", "karl.now.sh"],
   "type": "static",
   "public": false
 }

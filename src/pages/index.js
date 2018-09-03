@@ -4,7 +4,6 @@ import Layout from '../components/layout'
 import BlogList from '../components/blog/BlogList'
 
 import 'prismjs/themes/prism.css'
-import '../style/baseStyles'
 
 export default ({ data }) => (
   <Layout>
