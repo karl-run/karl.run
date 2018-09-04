@@ -15,23 +15,38 @@ const RootContainer = styled.div`
 `
 
 const Layout = ({ children }) => (
-  <StaticQuery query={graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        version
+  <StaticQuery
+    query={graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            version
+          }
+        }
+        allMarkdownRemark {
+          group(field: frontmatter___tags) {
+            fieldValue
+          }
+        }
       }
-    }
-  }
-`}>
-    {({ site }) => (
+    `}
+  >
+    {({ site, allMarkdownRemark }) => (
       <div>
         <Helmet
           title={site.siteMetadata.title}
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            {
+              name: 'description',
+              content: 'Tech blog by Karl. Made with Gatsby.',
+            },
+            {
+              name: 'keywords',
+              content: `blog, ${allMarkdownRemark.group
+                .map(v => v.fieldValue)
+                .join(', ')}`,
+            },
           ]}
         />
         <Header
