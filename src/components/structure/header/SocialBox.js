@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import emailsIcon from './icons/email.svg'
 import githubIcon from './icons/github.svg'
@@ -14,7 +15,7 @@ const SocialBoxOuter = styled.nav`
 
 const SocialBox = () => (
   <SocialBoxOuter id="sub-nav">
-    <a
+    <OutboundLink
       rel="noopener noreferrer"
       target="_blank"
       href="https://github.com/karl-run"
@@ -23,8 +24,8 @@ const SocialBox = () => (
       title="Github"
     >
       <img src={githubIcon} alt="github icon link" />
-    </a>
-    <a
+    </OutboundLink>
+    <OutboundLink
       rel="noopener noreferrer"
       target="_blank"
       href="https://www.linkedin.com/in/karloveraa/"
@@ -33,8 +34,8 @@ const SocialBox = () => (
       title="LinkedIn"
     >
       <img src={linkedinIcon} alt="linkedin icon link" />
-    </a>
-    <a
+    </OutboundLink>
+    <OutboundLink
       rel="noopener noreferrer"
       target="_blank"
       href="https://twitter.com/karl_run"
@@ -43,8 +44,8 @@ const SocialBox = () => (
       title="Twitter"
     >
       <img src={twitterIcon} alt="twitter icon link" />
-    </a>
-    <a
+    </OutboundLink>
+    <OutboundLink
       rel="noopener noreferrer"
       target="_blank"
       href="mailto:k@rl.run"
@@ -53,7 +54,7 @@ const SocialBox = () => (
       title="E-mail"
     >
       <img src={emailsIcon} alt="emails icon link" />
-    </a>
+    </OutboundLink>
   </SocialBoxOuter>
 )
 

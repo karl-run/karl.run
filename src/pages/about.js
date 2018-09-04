@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import Logo from 'karl.svg'
 
 import Layout from '../components/layout'
@@ -37,16 +38,10 @@ const About = () => (
         <h4>Who &amp; Why</h4>
         <p>
           Hi. I’m Karl. I quickly threw together this blog using{' '}
-          <a
-            href="https://gatsbyjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            gatsby
-          </a>{' '}
-          as a learning exercise as well as having a place to collect my
-          thoughts around certain topics that I find interesting, or problems I
-          solve that I want to share.
+          <OutboundLink href="https://gatsbyjs.org">gatsby</OutboundLink> as a
+          learning exercise as well as having a place to collect my thoughts
+          around certain topics that I find interesting, or problems I solve
+          that I want to share.
         </p>
         <p>
           I am currently working as a frontend developer in Oslo, Norway. I'm a
@@ -57,35 +52,23 @@ const About = () => (
         <h4>Get in touch</h4>
         <ul>
           <li>
-            <a
-              href="https://github.com/karl-run"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <OutboundLink href="https://github.com/karl-run">
               Github
-            </a>
+            </OutboundLink>
           </li>
           <li>
-            <a
-              href="https://www.linkedin.com/in/karloveraa/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <OutboundLink href="https://www.linkedin.com/in/karloveraa/">
               LinkedIn
-            </a>
+            </OutboundLink>
           </li>
           <li>
-            <a
-              href="https://twitter.com/karl_run"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <OutboundLink href="https://twitter.com/karl_run">
               Twitter
-            </a>
+            </OutboundLink>
           </li>
         </ul>
         <p>
-          Or simply <a href="mailto:k@rl.run">email me</a>
+          Or simply <OutboundLink href="mailto:k@rl.run">email me</OutboundLink>
         </p>
       </AboutWrapper>
     </Card>

@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const MadeByWrapper = styled.div`
+  margin-top: 8px;
+
   > div {
     margin-bottom: 4px;
   }
