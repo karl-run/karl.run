@@ -6322,9 +6322,9 @@ jsx-ast-utils@^2.0.1:
   dependencies:
     array-includes "^3.0.3"
 
-karl.svg@^69.0.0:
-  version "69.0.0"
-  resolved "https://registry.yarnpkg.com/karl.svg/-/karl.svg-69.0.0.tgz#294e47a59313217d55bba62377ad79fee4e272da"
+karl.svg@^69.0.1:
+  version "69.0.1"
+  resolved "https://registry.yarnpkg.com/karl.svg/-/karl.svg-69.0.1.tgz#71621df1b651521bdc919b928d0556f3574304f2"
   dependencies:
     delay "^4.0.0"
     react-spring "5.5.1"
