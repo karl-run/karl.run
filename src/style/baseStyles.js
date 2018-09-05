@@ -9,6 +9,10 @@ injectGlobal`
     background-color: #eee;
   }
 
+  body {
+    line-height: 1.4;
+  }
+
   a {
     color: #36a398;
     text-decoration: none;
@@ -24,6 +28,7 @@ injectGlobal`
     margin-top: 16px;
     margin-bottom: 8px;
     color: #333;
+    line-height: 1.1;
   }
 
   h1 {
