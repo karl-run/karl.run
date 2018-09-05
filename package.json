@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "author": "Karl O. <k@rl.run>",
   "dependencies": {
-    "babel-plugin-styled-components": "^1.6.1",
+    "babel-plugin-styled-components": "^1.6.2",
     "disqus-react": "^1.0.5",
     "gatsby": "^2.0.0-rc.1",
     "gatsby-link": "^2.0.0-rc.1",
@@ -21,7 +21,7 @@
     "gatsby-source-filesystem": "^2.0.1-rc.1",
     "gatsby-transformer-remark": "^2.1.1-rc.1",
     "gatsby-transformer-sharp": "^2.1.1-rc.2",
-    "karl.svg": "^69.2.0",
+    "karl.svg": "^69.2.1",
     "prismjs": "^1.15.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
