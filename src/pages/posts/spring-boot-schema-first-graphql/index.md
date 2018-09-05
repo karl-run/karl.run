@@ -14,7 +14,7 @@ Don't know what GraphQL is but is interested in learning? Have a look at [graphq
 
 ### Schema-first
 
-First of, what do I mean with "schema-first" GraphQL? A lot of the reference implementations of GraphQL force you to define your schema as code, ofter through builders, and sowing them together your self. In that context having a "schema-first" GraphQL server means that you first define your GraphQL-schema in it's own file, using the GraphQL-syntax, ther providing resolvers and objects to match with this schema.
+First of, what do I mean with "schema-first" GraphQL? A lot of the reference implementations of GraphQL force you to define your schema as code, often through builders, and sowing them together your self. In that context having a "schema-first" GraphQL server means that you first define your GraphQL-schema in it's own file, using the GraphQL-syntax, then providing resolvers and objects to match with this schema.
 
 ## Implementation
 
@@ -80,7 +80,7 @@ type Query {
 }
 ```
 
-Now we will quickly provide our first resolver, simply create a new java file, for example `RootQueryResolver.java`.
+Now we will quickly provide our first resolver, simply create a new Java file, for example `RootQueryResolver.java`.
 
 ```java
 package run.karl.graphqlblogpost;
@@ -97,7 +97,7 @@ public class RootQueryResolver implements GraphQLQueryResolver {
 }
 ```
 
-This class is simply a class that implements GraphQLQueryResolver, that provides a function that matches with our schema. The function could also be called just `hello()`, `graphql-java-tools` looks for both.
+This class is simply a class that implements `GraphQLQueryResolver`, that provides a function that matches with our schema. The function could also be called just `hello()`, `graphql-java-tools` looks for both.
 
  It is `@Component` so that Spring Boot picks it up as a bean.
 
@@ -327,7 +327,7 @@ Here you can see that it only resolved this `complexValue` for the query that sp
 
  ## Mutations
 
- Mutations is GraphQL's word for "any query that will change some data". They are very similar to queries, both in how you define them in your schema and how you implement them as resolvers, but they are completely seperate.
+ Mutations is GraphQL's word for "any query that will change some data". They are very similar to queries, both in how you define them in your schema and how you implement them as resolvers, but they are completely separate.
 
  Add the mutation to our schema.
 
@@ -380,4 +380,4 @@ This class provides a `newPerson` function with the correct signature to match w
 
  !["Example of GraphQL stored value query"](./mutation-stored-value.png)
 
-The source code for this blog post can be found at [karl-run/graphql-blogpost](URL) on github.
+The source code for this blog post can be found at [karl-run/graphql-blogpost](URL) on GitHub.
