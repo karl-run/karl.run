@@ -6,7 +6,7 @@ import BlogHeader from '../components/blog/BlogHeader'
 import { Card } from '../style/elements'
 import Comment from '../components/bits/Comment'
 
-const SeoMeta = (frontmatter, excerpt, host) => {
+const SeoMeta = (frontmatter, excerpt, host, slug) => {
   let image = null
   if (frontmatter.banner) {
     image = frontmatter.banner.childImageSharp.fixed.src
@@ -14,7 +14,8 @@ const SeoMeta = (frontmatter, excerpt, host) => {
   return [
     <meta property="og:title" content={frontmatter.title} />,
     <meta property="og:description" content={excerpt} />,
-    <meta property="og:type" content="text/html" />,
+    <meta property="og:type" content="website" />,
+    <meta property="og:url" content={host + slug} />,
     <meta property="og:image" content={image ? host + image : null} />,
     <meta property="og:image:alt" content="blog post header image" />,
   ]
@@ -35,6 +36,7 @@ export default ({ data: { markdownRemark, site } }) => {
         frontmatter,
         markdownRemark.excerpt,
         site.siteMetadata.url,
+        fields.slug,
       )}
     >
       <Card>
