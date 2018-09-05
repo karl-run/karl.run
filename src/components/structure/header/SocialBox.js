@@ -20,7 +20,6 @@ const SocialBox = () => (
       target="_blank"
       href="https://github.com/karl-run"
       id="nav-github-link"
-      class="nav-icon"
       title="Github"
     >
       <img src={githubIcon} alt="github icon link" />
@@ -30,7 +29,6 @@ const SocialBox = () => (
       target="_blank"
       href="https://www.linkedin.com/in/karloveraa/"
       id="nav-linkedin-link"
-      class="nav-icon"
       title="LinkedIn"
     >
       <img src={linkedinIcon} alt="linkedin icon link" />
@@ -40,7 +38,6 @@ const SocialBox = () => (
       target="_blank"
       href="https://twitter.com/karl_run"
       id="nav-twitter-link"
-      class="nav-icon"
       title="Twitter"
     >
       <img src={twitterIcon} alt="twitter icon link" />
@@ -50,7 +47,6 @@ const SocialBox = () => (
       target="_blank"
       href="mailto:k@rl.run"
       id="nav-email-link"
-      class="nav-icon"
       title="E-mail"
     >
       <img src={emailsIcon} alt="emails icon link" />

@@ -51,7 +51,7 @@ const LastPosts = () => (
           <h6>Last three posts</h6>
           <ul>
             {posts.map(post => (
-              <SinglePostLine>
+              <SinglePostLine key={post.fields.slug}>
                 <a href={post.fields.slug}>{post.frontmatter.title}</a>
               </SinglePostLine>
             ))}

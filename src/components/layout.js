@@ -14,7 +14,7 @@ const RootContainer = styled.div`
   padding-top: 0;
 `
 
-const Layout = ({ children }) => (
+const Layout = ({ children, additionalHelmetProps, helmetChildren }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -48,8 +48,10 @@ const Layout = ({ children }) => (
                 .join(', ')}`,
             },
           ]}
+          {...additionalHelmetProps}
         >
           <html lang="en" />
+          {helmetChildren}
         </Helmet>
         <Header
           siteTitle={site.siteMetadata.title}

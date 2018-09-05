@@ -1,5 +1,4 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -7,17 +6,37 @@ import BlogHeader from '../components/blog/BlogHeader'
 import { Card } from '../style/elements'
 import Comment from '../components/bits/Comment'
 
+const SeoMeta = (frontmatter, excerpt, host) => {
+  let image = null
+  if (frontmatter.banner) {
+    image = frontmatter.banner.childImageSharp.fixed.src
+  }
+  return [
+    <meta property="og:title" content={frontmatter.title} />,
+    <meta property="og:description" content={excerpt} />,
+    <meta property="og:type" content="text/html" />,
+    <meta property="og:image" content={image ? host + image : null} />,
+    <meta property="og:image:alt" content="blog post header image" />,
+  ]
+}
+
 export default ({ data: { markdownRemark, site } }) => {
   const frontmatter = markdownRemark.frontmatter
   const fields = markdownRemark.fields
 
   return (
-    <Layout>
-      <Helmet
-        htmlAttributes={{ lang: 'en' }}
-        meta={[{ name: 'description', content: site.title }]} // Todo description
-        title={`${frontmatter.title} | ${site.siteMetadata.title}`}
-      />
+    <Layout
+      additionalHelmetProps={{
+        htmlAttributes: { lang: 'en' },
+        meta: [{ name: 'description', content: site.title }],
+        title: `${frontmatter.title} | ${site.siteMetadata.title}`,
+      }}
+      helmetChildren={SeoMeta(
+        frontmatter,
+        markdownRemark.excerpt,
+        site.siteMetadata.url,
+      )}
+    >
       <Card>
         <BlogHeader
           title={frontmatter.title}
@@ -43,6 +62,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        url
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -56,6 +76,9 @@ export const pageQuery = graphql`
         banner {
           publicURL
           childImageSharp {
+            fixed {
+              src
+            }
             fluid {
               srcSet
               srcWebp
