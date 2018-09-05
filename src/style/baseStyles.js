@@ -10,7 +10,7 @@ injectGlobal`
   }
 
   a {
-    color: #333;
+    color: #36a398;
     text-decoration: none;
 
     &:hover {
