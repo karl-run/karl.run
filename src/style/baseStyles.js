@@ -66,6 +66,6 @@ injectGlobal`
   }
 
   code {
-    word-break: break-all !important;
+    word-break: break-word !important;
   }
 `

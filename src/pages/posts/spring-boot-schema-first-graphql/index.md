@@ -5,31 +5,31 @@ tags:
   - spring boot
   - java
 date: 2018-09-05 18:36:00
-banner: ./header.jpeg
+banner: ./header.png
 ---
 
-There are a lot of ways to run a GraphQL web server. The quickest ways to get started if you are starting a new project is to use something like [Apollo Server](https://www.apollographql.com/docs/apollo-server/) on node. It'll kick you off with a "schema-first" sensible and easy to use way to define your GraphQL resolvers. But if you're in Java-land and want to add GraphQL to your existing Spring Boot server there are a few steps you need to take.
+There are a lot of ways to run a GraphQL web server. The quickest ways to get started if you are starting a new project is to use something like [Apollo Server](https://www.apollographql.com/docs/apollo-server/) on node. It'll kick you off with a "schema-first" sensible and easy way to define your GraphQL schema and resolvers. But if you're in Java-land and want to add GraphQL to your existing Spring Boot server there are a few steps you need to take. But its going to be worth it!
 
 Don't know what GraphQL is but is interested in learning? Have a look at [graphql.org](https://graphql.org/learn/)'s very nice intro to GraphQL.
 
 ### Schema-first
 
-First of, what do I mean with "schema-first" GraphQL? A lot of the reference implementations of GraphQL force you to define your schema as code, often through builders, and sowing them together your self. In that context having a "schema-first" GraphQL server means that you first define your GraphQL-schema in it's own file, using the GraphQL-syntax, then providing resolvers and objects to match with this schema.
+First of, what do I mean with "schema-first" GraphQL? Most implementations of GraphQL expect you to define your schema as code, often through builders, and sowing them together your self. In that context having a "schema-first" GraphQL server means that you first define your GraphQL-schema in it's own file, using the GraphQL-syntax, then providing resolvers and objects to match with this schema.
 
 ## Implementation
 
-I assume that you already have a Spring Boot server running. If you don't, go to [Spring Initializr](https://start.spring.io/) and create a starter. Remember to add the `Web` dependency.
+This post assumes that you already have a Spring Boot server running. If you don't, go to [Spring Initializr](https://start.spring.io/) to quickly get started. Remember to add the `Web` dependency.
 
-There are a few important libraries that we will use that will make this a very simple process (and a short blog post).
+There are a few important libraries that we will use that will make this a very simple process.
 
  - `graphql-spring-boot-starter`
  - `graphiql-spring-boot-starter`
 
 [Documentation for these starters](https://github.com/graphql-java/graphql-spring-boot#requirements-and-downloads).
 
-These two are the bread and butter of GraphQL on spring boot. We need to add them as dependencies and enable them.
+These two are the bread and butter of using GraphQL with Spring Boot. We need to add them as dependencies and enable them.
 
-Let's add them to our dependencies along with your existing dependencies.
+Add them as dependencies along with your existing dependencies.
 
 ```bash
 dependencies {
@@ -39,7 +39,7 @@ dependencies {
 }
 ```
 
-Then to enable it we need to add to your `application.yml` (or properties if you don't use yml):
+Then to enable it we need to add to your `application.yml` (or `.properties` if you don't use `.yml`):
 
 ```yml
 graphql:
@@ -99,7 +99,7 @@ public class RootQueryResolver implements GraphQLQueryResolver {
 
 This class is simply a class that implements `GraphQLQueryResolver`, that provides a function that matches with our schema. The function could also be called just `hello()`, `graphql-java-tools` looks for both.
 
- It is `@Component` so that Spring Boot picks it up as a bean.
+ Remember to make it `@Component` so that Spring Boot picks it up.
 
  Start your server, and go to `http://localhost:8080/graphiql` (or refresh if you still have it open). Try executing a query:
 
@@ -130,7 +130,7 @@ Caused by: org.springframework.beans.BeanInstantiationException: Failed to insta
   run.karl.graphqlblogpost.RootQueryResolver.bye
 ```
 
-As soon as you add a resolver, be in a query resolver, mutation or object resolver, `graphql-java-tools` is going to scan all beans of type `GraphQLQueryResolver`, `GraphQLMutationResolver` and `GraphQLResolver<T>` for your implementation. If it at start-up time can't find it, it's going to fail. Nice! Keep in mind that the more resolvers you have provided, the longer the stack trace is going to be.
+As soon as you add a resolver, whether a query resolver, mutation resolver or object resolver, `graphql-java-tools` is going to scan all components of type `GraphQLQueryResolver`, `GraphQLMutationResolver` and `GraphQLResolver<T>` for your implementation. If it at start-up time can't find it, it's going to fail. Keep in mind that the more resolvers you have provided, the longer the stack trace is going to be.
 
 Let us update our query resolver with `getBye()`
 
@@ -148,11 +148,11 @@ public class RootQueryResolver implements GraphQLQueryResolver {
 }
 ```
 
-Restart your server and try to query for it.
+Restart your server and try to query test it.
 
 ## Working with objects
 
-For GraphQL to be useful you need to be able to define object structures. In a GraphQL-schema it is as easy as providing an additional `type`.
+For GraphQL to be useful you need to be able to define data structures. In a GraphQL-schema it is as easy as providing an additional `type`.
 
 ```graphql
 type Person {
@@ -169,7 +169,7 @@ type Query {
 
 Notice that `age: Int` isn't followed by a exclamation mark? That means that the value is nullable. Dive further into the details of [GraphQL-schemas here](https://graphql.org/learn/schema/).
 
-Now update the query resolver, note the @Data in the example is a [lombok](https://projectlombok.org/) annotation to generate getters and setters. You don't have to use this! But it makes the code a lot more terse for examples. 👨‍💻
+Now update the query resolver, note the @Data in the example is a [lombok](https://projectlombok.org/) annotation to generate getters and setters. You don't have to use this! But it makes the code a lot more terse for examples in blog-posts. 👨‍💻
 
 ```java
 @Component
@@ -185,8 +185,8 @@ public class RootQueryResolver implements GraphQLQueryResolver {
 
   public Person getKarl() {
     Person karl = new Person();
-    karl.name = "Karl O.";
-    karl.age = 29;
+    karl.setName("Karl O.");
+    karl.setAge(29);
 
     return karl;
   }
@@ -230,7 +230,7 @@ type Query {
 }
 ```
 
-When adding parameters to a query, simply add them to your implementation signature.
+When adding parameters to a query, simply add them to the method signature of your implementation.
 
 ```java
 @Component
@@ -254,7 +254,7 @@ public class RootQueryResolver implements GraphQLQueryResolver {
   }
 
   @Data
-  @AllArgsConstructor
+  @AllArgsConstructor // More lombok magic
   public class Person {
 
     private String name;
@@ -379,5 +379,7 @@ This class provides a `newPerson` function with the correct signature to match w
  Now have a fully functional API with both reading and writing!
 
  !["Example of GraphQL stored value query"](./mutation-stored-value.png)
+
+ I hope you learned something from this. If you see any errors or have any questions feel free to comment below, or if you don't like disqus send me a mail at [k@rl.run](mailto:k@rl.run).
 
 The source code for this blog post can be found at [karl-run/graphql-blogpost](https://github.com/karl-run/graphql-blogpost) on GitHub.
