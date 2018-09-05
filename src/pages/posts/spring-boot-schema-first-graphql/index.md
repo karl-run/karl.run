@@ -380,4 +380,4 @@ This class provides a `newPerson` function with the correct signature to match w
 
  !["Example of GraphQL stored value query"](./mutation-stored-value.png)
 
-The source code for this blog post can be found at [karl-run/graphql-blogpost](URL) on GitHub.
+The source code for this blog post can be found at [karl-run/graphql-blogpost](https://github.com/karl-run/graphql-blogpost) on GitHub.
