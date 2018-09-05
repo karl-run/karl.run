@@ -23,7 +23,7 @@ const CommentBox = styled.div`
 `
 
 const Full = ({ disqusShortname, disqusConfig }) => (
-  <CommentBox>
+  <CommentBox id="comments">
     <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
   </CommentBox>
 )
@@ -35,21 +35,17 @@ const CommentContent = ({ short, site, title, slug, id }) => {
     title: title,
   }
 
-  return (
-    <div id="comments">
-      {short ? (
-        <Short
-          disqusShortname={site.siteMetadata.disqus.shortName}
-          disqusConfig={disqusConfig}
-          slug={slug}
-        />
-      ) : (
-        <Full
-          disqusShortname={site.siteMetadata.disqus.shortName}
-          disqusConfig={disqusConfig}
-        />
-      )}
-    </div>
+  return short ? (
+    <Short
+      disqusShortname={site.siteMetadata.disqus.shortName}
+      disqusConfig={disqusConfig}
+      slug={slug}
+    />
+  ) : (
+    <Full
+      disqusShortname={site.siteMetadata.disqus.shortName}
+      disqusConfig={disqusConfig}
+    />
   )
 }
 

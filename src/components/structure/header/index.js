@@ -57,13 +57,7 @@ const Header = ({ siteTitle, version }) => (
       </Menu>
       <Middle>
         <div>
-          <Link
-            to="/"
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
+          <Link to="/" aria-label="Go to start page, clickable image">
             <KarlLogo.Animated />
           </Link>
         </div>

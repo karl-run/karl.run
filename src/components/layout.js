@@ -48,7 +48,9 @@ const Layout = ({ children }) => (
                 .join(', ')}`,
             },
           ]}
-        />
+        >
+          <html lang="en" />
+        </Helmet>
         <Header
           siteTitle={site.siteMetadata.title}
           version={site.siteMetadata.version}

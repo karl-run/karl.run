@@ -18,7 +18,7 @@ const Img = ({ sharpImg }) => {
 
   return (
     <ImgWrapper>
-      <BannerImg srcSet={sharpImg.childImageSharp.fluid.srcSet} />
+      <BannerImg srcSet={sharpImg.childImageSharp.fluid.srcSet} alt="blog post banner image" />
     </ImgWrapper>
   )
 }
