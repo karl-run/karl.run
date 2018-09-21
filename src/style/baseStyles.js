@@ -31,6 +31,19 @@ injectGlobal`
     margin-bottom: 8px;
     color: #333;
     line-height: 1.1;
+    margin-left: 12px;
+
+    > a.anchor {
+      margin-top: -3px;
+    }
+
+    > a.anchor > svg {
+      visibility: visible;
+
+      > path {
+        fill: #333;
+      }
+    }
   }
 
   h1 {
