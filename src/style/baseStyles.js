@@ -1,6 +1,8 @@
 import { injectGlobal } from 'styled-components'
 import reset from 'styled-reset'
 
+import 'prismjs/themes/prism.css'
+
 injectGlobal`
   ${reset}
 
