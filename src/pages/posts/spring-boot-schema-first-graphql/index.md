@@ -34,8 +34,8 @@ Add them as dependencies along with your existing dependencies.
 ```bash
 dependencies {
   ...
-  compile 'com.graphql-java:graphql-spring-boot-starter:5.0.2'
-  compile 'com.graphql-java:graphiql-spring-boot-starter:5.0.2'
+  compile 'com.graphql-java-kickstart:graphql-spring-boot-starter:5.0.5'
+  compile 'com.graphql-java-kickstart:graphiql-spring-boot-starter:5.0.5'
 }
 ```
 
@@ -43,14 +43,18 @@ Then to enable it we need to add to your `application.yml` (or `.properties` if 
 
 ```yml
 graphql:
- servlet:
-  mapping: /api/graphql
-  enabled: true
+  servlet:
+    mapping: /api/graphql
+    enabled: true
 
 graphiql:
- mapping: /graphiql
- endpoint: /api/graphql
- enabled: true
+  enabled: true
+  mapping: /graphiql
+  endpoint:
+    graphql: /api/graphql
+  cdn:
+    enabled: true
+    version: 0.12.0
 ```
 
 If you start your server now, you can visit `http://localhost:8080/graphiql` and you should be met with the interactive GraphQL console.
@@ -66,7 +70,7 @@ Add it to your dependencies.
 ```bash
 dependencies {
   ...
-  compile 'com.graphql-java:graphql-java-tools:5.2.0'
+  compile 'com.graphql-java-kickstart:graphql-java-tools:5.3.4'
 }
 ```
 
