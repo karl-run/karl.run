@@ -1,6 +1,13 @@
 {
   "name": "karl.run",
+  "version": 2,
+  "public": false,
   "alias": ["karl.run", "karl.now.sh"],
-  "type": "static",
-  "public": false
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "public" }
+    }
+  ]
 }
