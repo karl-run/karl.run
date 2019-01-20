@@ -1,6 +1,6 @@
 ---
 title: Spring Boot with Kotlin bundled with a React application as a single
-  deployable actifact
+  deployable artifact
 tags:
   - spring boot
   - kotlin
