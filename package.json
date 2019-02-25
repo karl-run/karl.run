@@ -3,6 +3,11 @@
   "description": "karl.run website",
   "version": "0.0.1",
   "author": "Karl O. <k@rl.run>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karl-run/karl.run"
+  },
   "dependencies": {
     "babel-plugin-styled-components": "^1.7.1",
     "disqus-react": "^1.0.5",
@@ -29,10 +34,6 @@
     "styled-components": "^3.4.9",
     "styled-reset": "^1.4.0"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "now-build": "npm run build",
@@ -42,9 +43,5 @@
   },
   "devDependencies": {
     "prettier": "^1.14.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   }
 }
