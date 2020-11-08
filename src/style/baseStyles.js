@@ -1,9 +1,9 @@
-import { injectGlobal } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 
 import 'prismjs/themes/prism.css'
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   ${reset}
 
   html {
@@ -84,3 +84,5 @@ injectGlobal`
     word-break: break-word !important;
   }
 `
+
+export default GlobalStyle

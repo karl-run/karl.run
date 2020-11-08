@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import Header from './structure/header'
 import Footer from './structure/Footer'
 
-import './../style/baseStyles'
+import BaseStyles from './../style/baseStyles'
 
 const RootContainer = styled.div`
   margin: 0 auto;
@@ -34,6 +34,7 @@ const Layout = ({ children, additionalHelmetProps, helmetChildren }) => (
   >
     {({ site, allMarkdownRemark }) => (
       <div>
+        <BaseStyles />
         <Helmet
           title={site.siteMetadata.title}
           meta={[
@@ -44,7 +45,7 @@ const Layout = ({ children, additionalHelmetProps, helmetChildren }) => (
             {
               name: 'keywords',
               content: `blog, ${allMarkdownRemark.group
-                .map(v => v.fieldValue)
+                .map((v) => v.fieldValue)
                 .join(', ')}`,
             },
           ]}
