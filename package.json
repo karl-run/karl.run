@@ -2,13 +2,16 @@
   "name": "karl.run",
   "packageManager": "yarn@3.2.0",
   "scripts": {
+    "build": "next build",
     "start": "next dev",
     "start:production": "next start",
     "lint": "next lint",
     "postinstall": "husky install"
   },
   "dependencies": {
+    "date-fns": "^2.28.0",
     "next": "^12.1.0",
+    "next-mdx-remote": "^4.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

@@ -1,6 +1,6 @@
 ---
 title: Unit testing React components, 5 basic techniques
-date: 2017-06-30 23:06:48
+date: 2017-06-30T23:06:48+02
 tags: [react, enzyme, jest]
 ---
 
@@ -12,8 +12,6 @@ This post will go through a few simple techniques that are great to know when yo
 - [ **enzyme**](https://github.com/airbnb/enzyme): Testing utility for React components to help us assert, manipulate and traverse our components.
 
 If you want to get a project up and running to try these things just use [create-react-app](https://github.com/facebookincubator/create-react-app) and add enzyme to it.
-
-<!-- more -->
 
 Let's get started. Firstly, all test files are required to have these imports:
 
@@ -63,23 +61,16 @@ Using jests built in `jest.spyOn(...)` and `jest.fn()` will let you do proper as
 describe('Jests function example', () => {
   it('lets you assert your flow', () => {
     const mockFunction = jest.fn();
-    const wrapper = shallow(
-      <Blog someMethodThatsCalledOnMount={mockFuntion} />,
-    );
+    const wrapper = shallow(<Blog someMethodThatsCalledOnMount={mockFuntion} />);
 
     // Expect in different ways
     expect(mockSomeFunction).toHaveBeenCalled();
     expect(mockSomeFunction).toHaveBeenCalledTimes(1);
-    expect(mockSomeFunction).toHaveBeenCalledWith(
-      'some param',
-      'or even two params',
-    );
+    expect(mockSomeFunction).toHaveBeenCalledWith('some param', 'or even two params');
   });
 
   it('lets you assert your flow', () => {
-    const wrapper = shallow(
-      <Blog someFunctionThatsCalledOnMount={mockSomeFunction} />,
-    );
+    const wrapper = shallow(<Blog someFunctionThatsCalledOnMount={mockSomeFunction} />);
     const spy = jest.spyOn(wrapper.instance(), 'someClassMethod');
 
     wrapper.instance().someOtherClassMethodThatInvokesTheFirstOneMaybe();
@@ -106,9 +97,7 @@ const Blog = ConnectedComponent.WrappedComponent;
 describe('Redux connected or similarly prop-heavy component', () => {
   it('should only execute what you need', () => {
     const mockedAction = jest.fn();
-    const wrapper = shallow(
-      <Blog goodAction={mockedAction} otherAction={() => {}} />,
-    );
+    const wrapper = shallow(<Blog goodAction={mockedAction} otherAction={() => {}} />);
 
     // Alternative to calling instance().componentWillRecieveProps() directly.
     wrapper.setProps({ bestProp: true });
@@ -147,9 +136,7 @@ Because of the way JavaScript works when it comes to loading modules, if we impo
 import React from 'react';
 import { someHeavyFunction } from '../myHeavyUtils.js';
 
-export const OurButton = (props) => (
-  <div>Result from heavy method is: {someHeavyFunction(props.data)}</div>
-);
+export const OurButton = (props) => <div>Result from heavy method is: {someHeavyFunction(props.data)}</div>;
 
 // OurButton.test.js
 import React from 'react';
@@ -157,12 +144,10 @@ import * as heavyUtils from '../myHeavyUtils.js'; // Note how we import it
 
 describe('Stubbing methods', () => {
   it('is the best way to remove external complexity', () => {
-    const heavyUtilsSpy = jest
-      .spyOn(heavyUtils, 'someHeavyFunction')
-      .mockImplementation((data) => {
-        // Data is the parameter our method would normally recieve
-        return data + 15;
-      });
+    const heavyUtilsSpy = jest.spyOn(heavyUtils, 'someHeavyFunction').mockImplementation((data) => {
+      // Data is the parameter our method would normally recieve
+      return data + 15;
+    });
     const wrapper = shallow(<Blog data={10} />);
 
     expect(wrapper.text()).toEqual('Result from heavy method is: 25');
@@ -218,9 +203,7 @@ describe('Working with promises', () => {
 
     /* First we need stub out fetch, we do this my providing an
        already resolved promise with our preferred data. */
-    jest
-      .spyOn(window, 'fetch')
-      .mockImplementation(() => Promise.resolve(mockData));
+    jest.spyOn(window, 'fetch').mockImplementation(() => Promise.resolve(mockData));
 
     const wrapper = shallow(<FetchingThing />, {
       disableLifecycleMethods: true,
@@ -242,9 +225,7 @@ describe('Working with promises', () => {
     const mockError = { error: 'boo!' };
 
     // We can even test error paths
-    jest
-      .spyOn(window, 'fetch')
-      .mockImplementation(() => Promise.reject(mockError));
+    jest.spyOn(window, 'fetch').mockImplementation(() => Promise.reject(mockError));
 
     const wrapper = shallow(<FetchingThing />, {
       disableLifecycleMethods: true,

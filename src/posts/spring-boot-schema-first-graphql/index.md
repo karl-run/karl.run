@@ -4,7 +4,7 @@ tags:
   - graphql
   - spring boot
   - java
-date: 2018-09-05 18:36:00
+date: 2018-09-05T18:36:00+02
 banner: ./header.png
 ---
 

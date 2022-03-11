@@ -6,7 +6,7 @@ tags:
   - kotlin
   - react
   - spek
-date: 2018-05-07 23:06:48
+date: 2018-05-07T23:06:48+02
 banner: ./header.png
 ---
 
@@ -23,8 +23,6 @@ The main points of interest will be:
 5.  [Adding Spek for our backend tests](#adding-spek-for-our-backend-tests)
 
 tl;dr: You're not interested in the details and you just want to get started? Clone [this repo](https://github.com/karl-run/spring-boot-kotlin-cra) and get coding, and disregard the rest of this blog post.
-
-<!-- more -->
 
 # Using Spring Initializr to get started with Spring Boot
 

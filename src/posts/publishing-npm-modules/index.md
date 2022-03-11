@@ -6,7 +6,7 @@ tags:
   - modules
   - react
   - rollup
-date: 2017-07-12 20:15:48
+date: 2017-07-12T20:15:48+02
 ---
 
 When I was first looking into publishing npm modules I was a bit overwhelmed with where to start, and I had a few misconceptions. I always thought that _"I had to write ES5 code"_ and that _"everyone is watching you and laughing at your mistakes"_. Turns out it's really simple, and surprisingly quick to do! This post will be covering creating a React component, but if you want to create a plain old JavaScript module you can follow the exact same exact steps. We will be using [Rollup](https://github.com/rollup/rollup) for writing ES6 code, but letting us distribute ES5 code.
@@ -16,8 +16,6 @@ When I was first looking into publishing npm modules I was a bit overwhelmed wit
 1. [Creating a distributable module using Rollup](#creating-a-distributable-module)
 2. [Publishing it to npm](#publishing-it-to-npm)
 3. Oh.. I guess that's it.
-
-<!-- more -->
 
 # Creating a distributable module
 
