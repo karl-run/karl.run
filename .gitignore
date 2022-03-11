@@ -14,3 +14,15 @@ yarn-error.log
 # VS Code
 .vscode
 .vercel
+
+# Yarn
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Next
+.next

@@ -22,8 +22,8 @@ This post assumes that you already have a Spring Boot server running. If you don
 
 There are a few important libraries that we will use that will make this a very simple process.
 
- - `graphql-spring-boot-starter`
- - `graphiql-spring-boot-starter`
+- `graphql-spring-boot-starter`
+- `graphiql-spring-boot-starter`
 
 [Documentation for these starters](https://github.com/graphql-java/graphql-spring-boot#requirements-and-downloads).
 
@@ -59,7 +59,7 @@ graphiql:
 
 If you start your server now, you can visit `http://localhost:8080/graphiql` and you should be met with the interactive GraphQL console.
 
- !["Example of GraphiQL execution"](./graphiql.png)
+!["Example of GraphiQL execution"](src/posts/spring-boot-schema-first-graphql/graphiql.png)
 
 You will see a 404 error in the result view saying that `/api/graphql` could not be found. That's because we need to configure our schema.
 
@@ -103,17 +103,17 @@ public class RootQueryResolver implements GraphQLQueryResolver {
 
 This class is simply a class that implements `GraphQLQueryResolver`, that provides a function that matches with our schema. The function could also be called just `hello()`, `graphql-java-tools` looks for both.
 
- Remember to make it `@Component` so that Spring Boot picks it up.
+Remember to make it `@Component` so that Spring Boot picks it up.
 
- Start your server, and go to `http://localhost:8080/graphiql` (or refresh if you still have it open). Try executing a query:
+Start your server, and go to `http://localhost:8080/graphiql` (or refresh if you still have it open). Try executing a query:
 
- !["Example of GraphQL query"](./query.png)
+!["Example of GraphQL query"](src/posts/spring-boot-schema-first-graphql/query.png)
 
 Success!
 
 ## Defining a bigger schema
 
- Now let's explore on how to extend on this. First add a new root query to your schema:
+Now let's explore on how to extend on this. First add a new root query to your schema:
 
 ```graphql
 type Query {
@@ -203,7 +203,7 @@ public class RootQueryResolver implements GraphQLQueryResolver {
 }
 ```
 
-Restart the server and try this query: 
+Restart the server and try this query:
 
 ```graphql
 query {
@@ -215,11 +215,11 @@ query {
 }
 ```
 
- !["Example of GraphQL object resolve"](./object-resolve.png)
+!["Example of GraphQL object resolve"](src/posts/spring-boot-schema-first-graphql/object-resolve.png)
 
- ## Parameters
+## Parameters
 
- Now asking for a `karl` specifically isn't very interesting. Change `karl` to `person` and add a parameter to it.
+Now asking for a `karl` specifically isn't very interesting. Change `karl` to `person` and add a parameter to it.
 
 ```graphql
 type Person {
@@ -269,16 +269,15 @@ public class RootQueryResolver implements GraphQLQueryResolver {
 
 Restart the server and test out the new query. In this example I'm using query aliases to run multiple of the same query at the same time.
 
-!["Example of GraphQL parameter resolve"](./param-resolve.png)
+!["Example of GraphQL parameter resolve"](src/posts/spring-boot-schema-first-graphql/param-resolve.png)
 
+## Resolving values on objects
 
- ## Resolving values on objects
+So we have a `Person` type that our users can ask for, but let's add a value on `Person` that will only be fetched if the query specifically asks for it.
 
- So we have a `Person` type that our users can ask for, but let's add a value on `Person` that will only be fetched if the query specifically asks for it.
+Add it to your schema:
 
- Add it to your schema:
-
- ```graphql
+```graphql
 type Person {
   name: String!
   age: Int
@@ -319,23 +318,23 @@ When defining object resolvers, you need to implement the interface based on the
 
 Restart the server and test out this new query.
 
-!["Example of GraphQL value resolving"](./resolve-resolve.png)
+!["Example of GraphQL value resolving"](src/posts/spring-boot-schema-first-graphql/resolve-resolve.png)
 
- Take a close look at your server output.
+Take a close look at your server output.
 
- ```bash
- Fetching value for person 'Karl O.'
- ```
+```bash
+Fetching value for person 'Karl O.'
+```
 
 Here you can see that it only resolved this `complexValue` for the query that specifically asked for it.
 
- ## Mutations
+## Mutations
 
- Mutations is GraphQL's word for "any query that will change some data". They are very similar to queries, both in how you define them in your schema and how you implement them as resolvers, but they are completely separate.
+Mutations is GraphQL's word for "any query that will change some data". They are very similar to queries, both in how you define them in your schema and how you implement them as resolvers, but they are completely separate.
 
- Add the mutation to our schema.
+Add the mutation to our schema.
 
- ```graphql
+```graphql
 type Person {
   name: String!
   age: Int
@@ -378,12 +377,12 @@ public class RootMutationResolver implements GraphQLMutationResolver {
 
 This class provides a `newPerson` function with the correct signature to match what we specified in the schema. It simply creates the value, persists it and returns the new value.
 
- !["Example of GraphQL mutation"](./mutation-resolve.png)
+!["Example of GraphQL mutation"](src/posts/spring-boot-schema-first-graphql/mutation-resolve.png)
 
- Now have a fully functional API with both reading and writing!
+Now have a fully functional API with both reading and writing!
 
- !["Example of GraphQL stored value query"](./mutation-stored-value.png)
+!["Example of GraphQL stored value query"](src/posts/spring-boot-schema-first-graphql/mutation-stored-value.png)
 
- I hope you learned something from this. If you see any errors or have any questions feel free to comment below, or if you don't like disqus send me a mail at [k@rl.run](mailto:k@rl.run).
+I hope you learned something from this. If you see any errors or have any questions feel free to comment below, or if you don't like disqus send me a mail at [k@rl.run](mailto:k@rl.run).
 
 The source code for this blog post can be found at [karl-run/graphql-blogpost](https://github.com/karl-run/graphql-blogpost) on GitHub.

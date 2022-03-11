@@ -30,7 +30,7 @@ tl;dr: You're not interested in the details and you just want to get started? Cl
 
 The quickest and easiest way to get started with a Spring Boot application is to use [Spring Initializr](https://start.spring.io/). Let's go through the following options.
 
-![Spring Initializr](./1.png)
+![Spring Initializr](src/posts/kotlin-spring-boot-react/1.png)
 
 1.  Whether or not you want to use Gradle or Maven to build this project is up to you, but in this tutorial we will use Gradle.
 2.  Select `Kotlin` as a programming language.
@@ -177,17 +177,17 @@ Now let's make a request to our backend! In `web/App.js`, let's add a state to s
 class App extends Component {
   state = {
     message: null,
-  }
+  };
 
   componentDidMount() {
     // Make a GET-request to our backend
     fetch('/api/hello')
       // Map the result to a JSON-object
-      .then(response => response.json())
+      .then((response) => response.json())
       // Put the message in the state
-      .then(response => {
-        this.setState({ message: response.message })
-      })
+      .then((response) => {
+        this.setState({ message: response.message });
+      });
   }
 
   render() {
@@ -195,7 +195,7 @@ class App extends Component {
       <div className="App">
         <p>Message from backend: {this.state.message}</p>
       </div>
-    )
+    );
   }
 }
 ```
