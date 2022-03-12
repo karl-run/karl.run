@@ -1,7 +1,9 @@
 {
-  "extends": ["next/core-web-vitals", "prettier"],
+  "extends": ["plugin:@typescript-eslint/recommended", "next/core-web-vitals", "prettier"],
   "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": "warn"
+    "prettier/prettier": "warn",
+    "import/order": ["warn", { "newlines-between": "always" }],
+    "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }]
   }
 }

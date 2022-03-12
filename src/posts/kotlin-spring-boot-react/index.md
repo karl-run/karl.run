@@ -28,7 +28,7 @@ tl;dr: You're not interested in the details and you just want to get started? Cl
 
 The quickest and easiest way to get started with a Spring Boot application is to use [Spring Initializr](https://start.spring.io/). Let's go through the following options.
 
-![Spring Initializr](src/posts/kotlin-spring-boot-react/1.png)
+![Spring Initializr](postslin-spring-boot-react/1.png)
 
 1.  Whether or not you want to use Gradle or Maven to build this project is up to you, but in this tutorial we will use Gradle.
 2.  Select `Kotlin` as a programming language.

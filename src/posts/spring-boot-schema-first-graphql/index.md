@@ -59,7 +59,7 @@ graphiql:
 
 If you start your server now, you can visit `http://localhost:8080/graphiql` and you should be met with the interactive GraphQL console.
 
-!["Example of GraphiQL execution"](src/posts/spring-boot-schema-first-graphql/graphiql.png)
+!["Example of GraphiQL execution"](src/poststs/spring-boot-schema-first-graphql/graphiql.png)
 
 You will see a 404 error in the result view saying that `/api/graphql` could not be found. That's because we need to configure our schema.
 
@@ -107,7 +107,7 @@ Remember to make it `@Component` so that Spring Boot picks it up.
 
 Start your server, and go to `http://localhost:8080/graphiql` (or refresh if you still have it open). Try executing a query:
 
-!["Example of GraphQL query"](src/posts/spring-boot-schema-first-graphql/query.png)
+!["Example of GraphQL query"](src/poststs/spring-boot-schema-first-graphql/query.png)
 
 Success!
 
@@ -215,7 +215,7 @@ query {
 }
 ```
 
-!["Example of GraphQL object resolve"](src/posts/spring-boot-schema-first-graphql/object-resolve.png)
+!["Example of GraphQL object resolve"](src/poststs/spring-boot-schema-first-graphql/object-resolve.png)
 
 ## Parameters
 
@@ -269,7 +269,7 @@ public class RootQueryResolver implements GraphQLQueryResolver {
 
 Restart the server and test out the new query. In this example I'm using query aliases to run multiple of the same query at the same time.
 
-!["Example of GraphQL parameter resolve"](src/posts/spring-boot-schema-first-graphql/param-resolve.png)
+!["Example of GraphQL parameter resolve"](src/poststs/spring-boot-schema-first-graphql/param-resolve.png)
 
 ## Resolving values on objects
 
@@ -318,7 +318,7 @@ When defining object resolvers, you need to implement the interface based on the
 
 Restart the server and test out this new query.
 
-!["Example of GraphQL value resolving"](src/posts/spring-boot-schema-first-graphql/resolve-resolve.png)
+!["Example of GraphQL value resolving"](src/poststs/spring-boot-schema-first-graphql/resolve-resolve.png)
 
 Take a close look at your server output.
 
@@ -377,11 +377,11 @@ public class RootMutationResolver implements GraphQLMutationResolver {
 
 This class provides a `newPerson` function with the correct signature to match what we specified in the schema. It simply creates the value, persists it and returns the new value.
 
-!["Example of GraphQL mutation"](src/posts/spring-boot-schema-first-graphql/mutation-resolve.png)
+!["Example of GraphQL mutation"](src/poststs/spring-boot-schema-first-graphql/mutation-resolve.png)
 
 Now have a fully functional API with both reading and writing!
 
-!["Example of GraphQL stored value query"](src/posts/spring-boot-schema-first-graphql/mutation-stored-value.png)
+!["Example of GraphQL stored value query"](src/poststs/spring-boot-schema-first-graphql/mutation-stored-value.png)
 
 I hope you learned something from this. If you see any errors or have any questions feel free to comment below, or if you don't like disqus send me a mail at [k@rl.run](mailto:k@rl.run).
 

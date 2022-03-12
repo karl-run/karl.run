@@ -1,9 +1,10 @@
 import fs from 'fs';
 import path from 'path';
+
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { SerializeOptions } from 'next-mdx-remote/dist/types';
-import { getYear, getMonth, getDate, parseISO, format } from 'date-fns';
+import { format } from 'date-fns';
 
 type FrontMatter = {
   title: string;
@@ -13,7 +14,7 @@ type FrontMatter = {
 };
 type FileContentTuple = [name: string, content: string];
 type FileMdxTuple = [name: string, content: MDXRemoteSerializeResult];
-type FileFrontmatterTuple = [name: string, content: FrontMatter];
+type FilePageTuple = [name: string, page: { frontmatter: FrontMatter; source: string; scope: unknown }];
 
 const serializeOptions: SerializeOptions = {
   parseFrontmatter: true,
@@ -21,25 +22,30 @@ const serializeOptions: SerializeOptions = {
 
 const docsDirectory = path.join(process.cwd(), 'src/posts');
 
-export async function getPost(slug) {
+export async function getPost(slug): Promise<MDXRemoteSerializeResult> {
   const fileContents = fs.readFileSync(path.join(docsDirectory, slug.slice(11), 'index.md'), 'utf8');
 
   return await serialize(fileContents, { parseFrontmatter: true });
 }
 
-export async function getPosts(): Promise<string[]> {
+export async function getPreviewPosts(): Promise<FilePageTuple[]> {
   const postFolders = fs.readdirSync(docsDirectory);
   const filesContent: FileContentTuple[] = postFolders.map(readPost);
   const parsedFiles = await Promise.all(filesContent.map(serializeFile));
-  const nameAndFrontMatters = parsedFiles.map(
-    ([name, result]): FileFrontmatterTuple => [name, result.frontmatter as unknown as FileFrontmatterTuple[1]],
+  return parsedFiles.map(
+    ([name, result]): FilePageTuple => [
+      name,
+      {
+        frontmatter: result.frontmatter as unknown as FrontMatter,
+        source: result.compiledSource,
+        scope: result.scope,
+      },
+    ],
   );
-
-  return nameAndFrontMatters.map(([name, fm]) => formatSlug(fm, name)).sort();
 }
 
-function formatSlug(fm: FrontMatter, name: string) {
-  return `${format(fm.date, 'yyyy-MM-dd')}-${name}`;
+export function formatSlug(date: Date, name: string): string {
+  return `${format(date, 'yyyy-MM-dd')}-${name}`;
 }
 
 function readPost(name: string): FileContentTuple {
