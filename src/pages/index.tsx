@@ -1,46 +1,34 @@
-import Link from 'next/link';
-import Img from 'next/image';
 import React from 'react';
 import { GetStaticPropsResult } from 'next';
-import { formatISO } from 'date-fns';
 
-import { formatSlug, getPreviewPosts } from '../lib/posts';
-import FancyBackground from '../components/FancyBackground';
-
-interface PreviewPost {
-  slug: string;
-  title: string;
-  banner: string | null;
-  date: string;
-}
+import { getPreviewPosts } from '../lib/posts';
+import { PreviewPostItem } from '../types';
+import PreviewPost from '../components/layout/PreviewPost';
+import PostContainer from '../components/layout/PostContainer';
 
 interface Props {
-  posts: PreviewPost[];
+  posts: PreviewPostItem[];
 }
 
 const Index = ({ posts }: Props): JSX.Element => {
   return (
     <div>
-      <FancyBackground />
-      <ul>
+      <PostContainer>
         {posts.map((it) => (
-          <li key={it.date}>
-            {false && it.banner && <Img src={`/posts/kotlin-spring-boot-react/header.png`} width={340} height={240} />}
-            <Link href={`/posts/${it.slug}`}>{it.title}</Link>
-          </li>
+          <PreviewPost key={it.date} post={it} />
         ))}
-      </ul>
+      </PostContainer>
     </div>
   );
 };
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
-  const posts: PreviewPost[] = (await getPreviewPosts()).map(
-    ([name, post]): PreviewPost => ({
-      slug: formatSlug(post.frontmatter.date, name),
-      title: post.frontmatter.title,
-      date: formatISO(post.frontmatter.date),
-      banner: post.frontmatter.banner ?? null,
+  const posts: PreviewPostItem[] = (await getPreviewPosts()).map(
+    ([name, post]): PreviewPostItem => ({
+      slug: name,
+      title: post.title,
+      date: post.date,
+      banner: post.banner ?? null,
     }),
   );
 

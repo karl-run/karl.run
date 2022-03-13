@@ -1,8 +1,20 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    providerImportSource: '@mdx-js/react',
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
+
 /**
  * @type {import('next').NextConfig}
  */
-module.exports = {
+module.exports = withMDX({
   reactStrictMode: true,
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   eslint: {
     dirs: ['src'],
   },
@@ -30,4 +42,4 @@ module.exports = {
       },
     ];
   },
-};
+});

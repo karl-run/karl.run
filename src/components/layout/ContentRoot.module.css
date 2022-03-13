@@ -1,0 +1,10 @@
+.root {
+  display: flex;
+  justify-content: center;
+  margin: 24px;
+}
+
+.content {
+  width: 100%;
+  max-width: 720px;
+}
