@@ -23,14 +23,18 @@ const Index = ({ posts }: Props): JSX.Element => {
 };
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
-  const posts: PreviewPostItem[] = (await getPreviewPosts()).map(
-    ([name, post]): PreviewPostItem => ({
-      slug: name,
-      title: post.title,
-      date: post.date,
-      banner: post.banner ?? null,
-    }),
-  );
+  const posts: PreviewPostItem[] = (await getPreviewPosts())
+    .map(
+      ([name, post]): PreviewPostItem => ({
+        slug: name,
+        title: post.title,
+        excerpt: post.excerpt,
+        date: post.date,
+        tags: post.tags,
+        wide: post.wide ?? null,
+      }),
+    )
+    .sort((a, b) => b.date.localeCompare(a.date));
 
   return {
     props: {

@@ -1,7 +1,8 @@
 import React from 'react';
 import Img from 'next/image';
 
-import Bg from './6761260.jpg';
+import Bg from '../images/6761260.jpg';
+
 import styles from './FancyBackground.module.css';
 
 function FancyBackground(): JSX.Element {

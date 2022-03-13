@@ -1,9 +1,43 @@
 .root {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 
   flex: 1 1 calc(50% - 24px);
+}
+
+.wide {
+  flex: 1 0 100%;
+}
+
+.postTitle {
+  margin-bottom: 4px;
+}
+
+.postTitle a {
+  text-decoration: none;
+}
+
+.postTitle a:hover {
+  text-decoration: underline;
+}
+
+.excerpt {
+  margin-bottom: 8px;
+}
+
+.metadata {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.date {
+  flex: 0 0 auto;
+}
+
+.tags {
+  flex: 0 0 auto;
+  max-width: 60%;
 }
 
 @media screen and (max-width: 744px) {

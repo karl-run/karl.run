@@ -1,5 +1,5 @@
 .root {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 48px 32px;
 }

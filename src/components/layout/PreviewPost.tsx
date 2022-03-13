@@ -1,6 +1,7 @@
 import React from 'react';
-import Img from 'next/image';
 import Link from 'next/link';
+import { parseISO } from 'date-fns';
+import cn from 'classnames';
 
 import { PreviewPostItem } from '../../types';
 
@@ -12,9 +13,17 @@ interface Props {
 
 function PreviewPost({ post }: Props): JSX.Element {
   return (
-    <div className={styles.root}>
-      {post.banner && <Img src={post.banner} width={200} height={160} objectFit="contain" />}
-      <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+    <div className={cn(styles.root, { [styles.wide]: post.wide })}>
+      <h2 className={styles.postTitle}>
+        <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+      </h2>
+      <p className={styles.excerpt}>{post.excerpt}</p>
+      <div className={styles.metadata}>
+        <div className={styles.date}>
+          {parseISO(post.date).toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' })}
+        </div>
+        <div className={styles.tags}>{post.tags.join(', ')}</div>
+      </div>
     </div>
   );
 }

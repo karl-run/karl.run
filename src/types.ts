@@ -1,8 +1,8 @@
-import { DynamicImage } from './lib/posts';
-
 export interface PreviewPostItem {
   slug: string;
   title: string;
-  banner: DynamicImage | null;
+  excerpt: string;
   date: string;
+  tags: string[];
+  wide: boolean | null;
 }
