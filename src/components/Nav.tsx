@@ -16,7 +16,7 @@ const Nav = (): JSX.Element => {
           </a>
         </Link>
         <div className={styles.right}>
-          <Menu />
+          {/*<Menu />*/}
           <Contact />
         </div>
       </div>
@@ -24,6 +24,7 @@ const Nav = (): JSX.Element => {
   );
 };
 
+/*
 function Menu(): JSX.Element {
   return (
     <div>
@@ -42,6 +43,7 @@ function Menu(): JSX.Element {
     </div>
   );
 }
+*/
 
 function Contact(): JSX.Element {
   return (
