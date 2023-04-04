@@ -996,6 +996,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clsx@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "clsx@npm:1.2.1"
+  checksum: 30befca8019b2eb7dbad38cff6266cf543091dae2825c856a62a8ccf2c3ab9c2907c4d12b288b73101196767f66812365400a227581484a05f968b0307cfaf12
+  languageName: node
+  linkType: hard
+
 "color-convert@npm:^2.0.1":
   version: 2.0.1
   resolution: "color-convert@npm:2.0.1"
@@ -2728,6 +2735,7 @@ __metadata:
     "@types/react": 18.0.33
     "@types/react-dom": 18.0.11
     autoprefixer: 10.4.14
+    clsx: ^1.2.1
     eslint: 8.37.0
     eslint-config-next: 13.2.4
     next: ^13.2.5-canary.28
@@ -2738,6 +2746,7 @@ __metadata:
     react-dom: 18.2.0
     rehype-highlight: ^6.0.0
     remark-frontmatter: ^4.0.1
+    tailwind-merge: ^1.11.0
     tailwindcss: 3.3.1
     typescript: 5.0.3
   languageName: unknown
@@ -4711,6 +4720,13 @@ __metadata:
     "@pkgr/utils": ^2.3.1
     tslib: ^2.5.0
   checksum: 8a9560e5d8f3d94dc3cf5f7b9c83490ffa30d320093560a37b88f59483040771fd1750e76b9939abfbb1b5a23fd6dfbae77f6b338abffe7cae7329cd9b9bb86b
+  languageName: node
+  linkType: hard
+
+"tailwind-merge@npm:^1.11.0":
+  version: 1.11.0
+  resolution: "tailwind-merge@npm:1.11.0"
+  checksum: f106dad1c05c51bb0f884bef297d5796820ca905369f0b365c478da7bc773fb85f00f84ff1587ab49eb33ec507d9009b81c49ca19d00e887028dc64548c31296
   languageName: node
   linkType: hard
 
