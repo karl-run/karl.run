@@ -1,7 +1,5 @@
-import React from 'react';
-
 function Page(): JSX.Element {
-  return <div>blags</div>;
+  return <div>projects</div>;
 }
 
 export default Page;
