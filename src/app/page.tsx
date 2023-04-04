@@ -1,11 +1,19 @@
-import Boio from '../posts/getting-up-and-running-with-testing-react/index.md'
-import Boio2 from '../posts/spring-boot-schema-first-graphql/index.md'
+import fs from 'node:fs';
+import path from 'node:path';
+import Link from 'next/link';
 
 export default function Home() {
-  return <main className=""><Boio components={{
-    wrapper: ({ children, ...rest }) => {
-      console.log(rest);
-      return <div>heh,{children}</div>;
-    },
-  }} /></main>;
+  const posts = fs.readdirSync(path.join(process.cwd(), 'src', 'app', 'blog'));
+
+  console.log(posts);
+
+  return (
+    <main className="">
+      {posts.map((post) => (
+        <Link key={post} href={`/blog/${post}`}>
+          {post}
+        </Link>
+      ))}
+    </main>
+  );
 }

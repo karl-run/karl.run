@@ -1,12 +1,21 @@
----
-title: Creating a schema-first GraphQL server with Spring Boot
-tags:
-  - graphql
-  - spring boot
-  - java
-date: 2018-09-05 18:36:00
-banner: ./header.png
----
+import Image from 'next/image'
+
+import graphiql from './graphiql.png'
+import query from './query.png'
+import objectResolve from './object-resolve.png'
+import paramResolve from './param-resolve.png'
+import resolveResolve from './resolve-resolve.png'
+import mutationResolve from './mutation-resolve.png'
+import mutationStoredValue from './mutation-stored-value.png'
+
+export const meta = {
+  title: 'Creating a schema-first GraphQL server with Spring Boot',
+  excerpt: 'Build a robust API by defining your API shape first, using Spring Boot and GraphQL',
+  tags: ['graphql', 'spring boot', 'java'],
+  date: '2018-09-05T18:36:00+02',
+};
+
+# {meta.title}
 
 There are a lot of ways to run a GraphQL web server. The quickest ways to get started if you are starting a new project is to use something like [Apollo Server](https://www.apollographql.com/docs/apollo-server/) on node. It'll kick you off with a "schema-first" sensible and easy way to define your GraphQL schema and resolvers. But if you're in Java-land and want to add GraphQL to your existing Spring Boot server there are a few steps you need to take. But its going to be worth it!
 
@@ -59,7 +68,7 @@ graphiql:
 
 If you start your server now, you can visit `http://localhost:8080/graphiql` and you should be met with the interactive GraphQL console.
 
-!["Example of GraphiQL execution"](./graphiql.png)
+<Image alt="Example of GraphiQL execution" src={graphiql} />
 
 You will see a 404 error in the result view saying that `/api/graphql` could not be found. That's because we need to configure our schema.
 
@@ -107,7 +116,7 @@ Remember to make it `@Component` so that Spring Boot picks it up.
 
 Start your server, and go to `http://localhost:8080/graphiql` (or refresh if you still have it open). Try executing a query:
 
-!["Example of GraphQL query"](./query.png)
+<Image alt="Example of GraphQL query" src={query} />
 
 Success!
 
@@ -215,7 +224,7 @@ query {
 }
 ```
 
-!["Example of GraphQL object resolve"](./object-resolve.png)
+<Image alt="Example of GraphQL object resolve" src={objectResolve} />
 
 ## Parameters
 
@@ -269,7 +278,7 @@ public class RootQueryResolver implements GraphQLQueryResolver {
 
 Restart the server and test out the new query. In this example I'm using query aliases to run multiple of the same query at the same time.
 
-!["Example of GraphQL parameter resolve"](./param-resolve.png)
+<Image alt="Example of GraphQL parameter resolve" src={paramResolve} />
 
 ## Resolving values on objects
 
@@ -318,7 +327,7 @@ When defining object resolvers, you need to implement the interface based on the
 
 Restart the server and test out this new query.
 
-!["Example of GraphQL value resolving"](./resolve-resolve.png)
+<Image alt="Example of GraphQL value resolving" src={resolveResolve} />
 
 Take a close look at your server output.
 
@@ -377,12 +386,13 @@ public class RootMutationResolver implements GraphQLMutationResolver {
 
 This class provides a `newPerson` function with the correct signature to match what we specified in the schema. It simply creates the value, persists it and returns the new value.
 
-!["Example of GraphQL mutation"](./mutation-resolve.png)
+<Image alt="Example of GraphQL mutation" src={mutationResolve} />
 
 Now have a fully functional API with both reading and writing!
 
-!["Example of GraphQL stored value query"](./mutation-stored-value.png)
+<Image alt="Example of GraphQL stored value query" src={mutationStoredValue} />
 
 I hope you learned something from this. If you see any errors or have any questions feel free to comment below, or if you don't like disqus send me a mail at [k@rl.run](mailto:k@rl.run).
 
-The source code for this blog post can be found at [karl-run/graphql-blogpost](https://github.com/karl-run/graphql-blogpost) on GitHub.
+The source code for this blog post can be found at [karl-run/graphql-blogpost](https://github.com/karl-run/graphql-blogpost) on GitHub.export class meta{
+}
