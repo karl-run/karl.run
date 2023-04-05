@@ -8,14 +8,15 @@ import { cn } from '@/utils/cn';
 function Nav(): JSX.Element {
   const segment = useSelectedLayoutSegment();
 
-  console.log(segment);
-
   return (
-    <nav className="text-shadow-dark mx-4 my-8 flex flex-col justify-between xs:flex-row">
-      <Link href="/" className="text-center font-mono text-2xl xs:text-left">
+    <nav className="text-shadow-dark mx-4 my-8 flex flex-col justify-between min-[420px]:flex-row">
+      <Link
+        href="/"
+        className="flex items-center text-center font-mono text-2xl min-[420px]:text-left"
+      >
         karl.run()
       </Link>
-      <menu className="mt-4 grid grid-cols-3 xs:mt-0 xs:flex xs:justify-start xs:gap-3">
+      <menu className="mt-4 grid grid-cols-3 min-[420px]:mt-0 min-[420px]:flex min-[420px]:justify-start min-[420px]:gap-3">
         <li className="flex-grow">
           <Link
             href="/projects"

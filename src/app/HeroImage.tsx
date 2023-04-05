@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 function HeroImage(): JSX.Element {
   return (
-    <div className="h-screen md:h-auto md:w-screen absolute top-0 left-0 -z-10 opacity-70">
+    <div className="absolute left-0 top-0 -z-10 h-screen select-none opacity-70 md:h-auto md:w-screen">
       <Image
         src={image}
         alt=""
@@ -12,7 +12,7 @@ function HeroImage(): JSX.Element {
         placeholder="blur"
         className="h-full w-full object-cover"
       />
-      <div className="bg-gradient-to-b from-transparent to-[#071726] w-full h-8 absolute bottom-0 left-0"></div>
+      <div className="absolute bottom-0 left-0 h-8 w-full bg-gradient-to-b from-transparent to-[#071726]"></div>
     </div>
   );
 }
