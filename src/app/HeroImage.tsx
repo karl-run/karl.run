@@ -16,7 +16,7 @@ function HeroImage(): JSX.Element {
       className={cn(
         'absolute left-0 top-0 -z-10 h-screen max-h-full w-screen select-none opacity-70 transition-[max-height] duration-700',
         {
-          'max-h-28': isNotRoot,
+          'max-h-36 min-[420px]:max-h-28': isNotRoot,
         },
       )}
     >
