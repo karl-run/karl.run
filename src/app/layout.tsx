@@ -1,5 +1,5 @@
 import './globals.css';
-import 'highlight.js/styles/github.css';
+import 'highlight.js/styles/shades-of-purple.css';
 import { Montserrat } from 'next/font/google';
 
 import { cn } from '@/utils/cn';
