@@ -1,23 +1,20 @@
 import React from 'react';
-import fs from 'node:fs';
-import path from 'node:path';
-import Link from 'next/link';
+import * as R from 'remeda';
+import { Card } from '@/components/EntryCard';
+import { getPostsMetadata } from '@/utils/posts';
 
 function Page(): JSX.Element {
-  const posts = fs
-    .readdirSync(path.join(process.cwd(), 'src', 'app', 'posts'))
-    .filter((it) => !it.includes('.ts'));
+  const posts = getPostsMetadata();
 
   return (
-    <div>
-      <ul>
-        {posts.map((post) => (
-          <li key={post}>
-            <Link href={`/posts/${post}`}>{post}</Link>
-          </li>
+    <main className="mx-4">
+      <h2 className="mb-4 text-xl">Latest posts</h2>
+      <div className="flex flex-row flex-wrap gap-4">
+        {R.sortBy(posts, [(it) => it[1].date, 'desc']).map(([post, metadata]) => (
+          <Card key={metadata.date} post={post} metadata={metadata} />
         ))}
-      </ul>
-    </div>
+      </div>
+    </main>
   );
 }
 
