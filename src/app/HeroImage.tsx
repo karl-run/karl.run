@@ -1,7 +1,7 @@
 'use client';
 
 import { useSelectedLayoutSegments } from 'next/navigation';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import image from '@/images/bg.png';
@@ -14,7 +14,7 @@ function HeroImage(): JSX.Element {
   return (
     <div
       className={cn(
-        'absolute left-0 top-0 -z-10 h-screen max-h-full w-screen select-none opacity-70 transition-[max-height] duration-300',
+        'absolute left-0 top-0 -z-10 h-screen max-h-full w-screen select-none opacity-70 transition-[max-height] duration-700',
         {
           'max-h-28': isNotRoot,
         },
@@ -34,7 +34,7 @@ function HeroImage(): JSX.Element {
       />
       <div
         className={cn(
-          'absolute bottom-0 left-0 h-8 w-full bg-gradient-to-b from-transparent to-[#071726] transition-[height] duration-300',
+          'absolute bottom-0 left-0 h-8 w-full bg-gradient-to-b from-transparent to-[#071726] transition-[height] duration-700',
           {
             'h-2': isNotRoot,
           },
