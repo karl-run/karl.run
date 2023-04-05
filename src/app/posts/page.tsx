@@ -11,7 +11,13 @@ function Page(): JSX.Element {
       <h2 className="mb-4 text-xl">Latest posts</h2>
       <div className="flex flex-row flex-wrap gap-4">
         {R.sortBy(posts, [(it) => it[1].date, 'desc']).map(([post, metadata]) => (
-          <Card key={metadata.date} post={post} metadata={metadata} />
+          <Card
+            key={metadata.date}
+            href={`/posts/${post}`}
+            title={metadata.title}
+            subtitle={metadata.excerpt}
+            date={metadata.date}
+          />
         ))}
       </div>
     </main>
