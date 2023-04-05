@@ -9,7 +9,7 @@ function Nav(): JSX.Element {
   const segment = useSelectedLayoutSegment();
 
   return (
-    <nav className="text-shadow-dark mx-4 my-8 flex flex-col justify-between min-[420px]:flex-row">
+    <nav className="text-shadow-dark mx-4 my-10 flex flex-col justify-between min-[420px]:flex-row">
       <Link
         href="/"
         className="flex items-center text-center font-mono text-2xl min-[420px]:text-left"
