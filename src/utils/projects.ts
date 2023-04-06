@@ -3,7 +3,7 @@ import { meta as project2Meta } from '../app/projects/react-bottom-scroll-listen
 
 export function getProjectsMetadata(): [string, ProjectMDXMetadata][] {
   return [
-    ['among-us-stats-tracker', project1Meta],
-    ['react-bottom-scroll-listener', project2Meta],
+    ['among-us-stats-tracker', project1Meta as ProjectMDXMetadata],
+    ['react-bottom-scroll-listener', project2Meta as ProjectMDXMetadata],
   ];
 }

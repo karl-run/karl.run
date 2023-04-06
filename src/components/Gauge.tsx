@@ -27,9 +27,9 @@ function Gauge({ text, percent }: GaugeProps): JSX.Element {
           d="M 10 50 A 40 40 0 0 1 90 50"
         ></path>
         <path
-          className={cn('fill-none stroke-amber-400 transition-all duration-500', {
-            'stroke-red-400': mountedPercent <= 30,
-            'stroke-green-400': mountedPercent >= 69,
+          className={cn('fill-none stroke-amber-400/80 transition-all duration-1000', {
+            'stroke-red-400/80': mountedPercent <= 30,
+            'stroke-green-400/80': mountedPercent >= 69,
           })}
           strokeWidth="22"
           d="M 10 50 A 40 40 0 0 1 90 50"

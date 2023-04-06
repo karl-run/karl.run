@@ -1,6 +1,7 @@
 import { formatDistanceToNowStrict, parseISO } from 'date-fns';
 import Link from 'next/link';
 import GaugeCollection from '@/components/GaugeCollection';
+import PackageDownloadCount from '@/components/LastUpdatedCommit';
 
 interface CardProps {
   title: string;
@@ -24,9 +25,7 @@ export function Card({ title, subtitle, date, href, projectValues }: CardProps):
       </div>
       {projectValues && (
         <div className="">
-          <GaugeCollection
-            values={projectValues}
-          />
+          <GaugeCollection values={projectValues} />
         </div>
       )}
     </Link>
