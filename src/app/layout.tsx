@@ -4,7 +4,6 @@ import { Montserrat } from 'next/font/google';
 
 import { cn } from '@/utils/cn';
 import Nav from '@/app/Nav';
-import React from 'react';
 import HeroImage from '@/app/HeroImage';
 
 export const metadata = {

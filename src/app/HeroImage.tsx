@@ -1,7 +1,7 @@
 'use client';
 
 import { useSelectedLayoutSegments } from 'next/navigation';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import image from '@/images/bg.png';

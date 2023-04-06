@@ -1,3 +1,9 @@
+type ProjectValues = {
+  usefulness: number;
+  users: number;
+  'fun factor': number;
+};
+
 type PostMDXMetadata = {
   title: string;
   excerpt: string;
@@ -10,6 +16,7 @@ type ProjectMDXMetadata = {
   excerpt: string;
   tags: string[];
   date: string;
+  projectValues: ProjectValues;
 };
 
 type MDXMetadata = PostMDXMetadata | ProjectMDXMetadata;

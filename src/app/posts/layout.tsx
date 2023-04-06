@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 
 function Layout({ children }: PropsWithChildren): JSX.Element {
   return <div>{children}</div>;

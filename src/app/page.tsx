@@ -2,6 +2,7 @@ import * as R from 'remeda';
 import { getPostsMetadata } from '@/utils/posts';
 import { Card } from '@/components/EntryCard';
 import { getProjectsMetadata } from '@/utils/projects';
+import Link from 'next/link';
 
 export default async function Home() {
   const posts = getPostsMetadata();
@@ -24,8 +25,14 @@ export default async function Home() {
             title={metadata.title}
             subtitle={metadata.excerpt}
             date={metadata.date}
+            projectValues={metadata.projectValues}
           />
         ))}
+      </div>
+      <div className="ml-4 mt-4">
+        <Link href={`/projects`} className="underline p-2">
+          All projects ›
+        </Link>
       </div>
       <h2 className="mb-4 mt-8 text-xl">Latest posts</h2>
       <div className="flex flex-row flex-wrap gap-4">
@@ -38,6 +45,11 @@ export default async function Home() {
             date={metadata.date}
           />
         ))}
+      </div>
+      <div className="ml-4 mt-4">
+        <Link href={`/posts`} className="underline p-2">
+          All posts ›
+        </Link>
       </div>
     </main>
   );
