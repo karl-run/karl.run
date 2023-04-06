@@ -18,6 +18,15 @@ export function Card({ title, subtitle, date, href }: CardProps): JSX.Element {
     >
       <h3 className="font-bold">{title}</h3>
       <div className="mb-8">{subtitle}</div>
+      {/*
+      <GaugeCollection
+        values={{
+          aliveness: 70,
+          users: 30,
+          usefullness: 50,
+        }}
+      />
+*/}
       <div className="absolute bottom-4 left-4" title={postedDate.toLocaleDateString()}>
         {formatDistanceToNowStrict(postedDate, { addSuffix: true })}
       </div>
