@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 function Page(): JSX.Element {
   return (
-    <div className="mx-auto mt-16 p-4 flex max-w-md flex-col gap-4">
+    <div className="mx-auto mt-16 flex max-w-md flex-col gap-4 p-4">
       <IconLink
         name="Github"
         link="https://github.com/karl-run"

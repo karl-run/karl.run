@@ -11,14 +11,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h5: (props) => <h5 className="mb-1 text-base font-bold" {...props} />,
     h6: (props) => <h6 className="mb-1 text-sm font-bold" {...props} />,
     p: (props) => <p className="mb-4" {...props} />,
-    ul: (props) => <ul className="mb-4 list-disc list-inside" {...props} />,
-    ol: (props) => <ol className="mb-4 list-decimal list-inside" {...props} />,
+    ul: (props) => <ul className="mb-4 list-inside list-disc" {...props} />,
+    ol: (props) => <ol className="mb-4 list-inside list-decimal" {...props} />,
     li: (props) => <li className="mb-2" {...props} />,
     a: (props) => <a className="text-[#0d9e91] hover:underline" {...props} />,
-    blockquote: (props) => <blockquote className="mb-4 p-4 bg-gray-100 dark:bg-gray-800" {...props} />,
+    blockquote: (props) => (
+      <blockquote className="mb-4 bg-gray-100 p-4 dark:bg-gray-800" {...props} />
+    ),
     hr: (props) => <hr className="my-4" {...props} />,
     pre: (props) => <pre className="mb-4" {...props} />,
-    code: (props) => <code className="p-1 bg-[#2d2b57]" {...props} />,
-    Image: (props) => <Image {...props} className="mordi" />,
+    code: (props) => <code className="bg-[#2d2b57] p-1" {...props} />,
   };
 }

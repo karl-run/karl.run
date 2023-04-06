@@ -1,0 +1,30 @@
+import PackageDownloadCount from '@/components/PackageDownloadCount';
+import { Suspense } from 'react';
+export const meta = {
+  title: 'React Bottom Scroll Listener',
+  excerpt:
+    'A React component that listens for when the user scrolls to the bottom of the page. Both a hook and an old-scool component.',
+  tags: [],
+  date: '2018-07-11T12:00:00Z',
+  repo: 'https://github.com/karl-run/react-bottom-scroll-listener',
+};
+
+# {meta.title}
+
+<Suspense fallback={<div className="mb-4">Loading...</div>}>
+  <PackageDownloadCount name="react-bottom-scroll-listener" />
+</Suspense>
+
+A pretty simple small library that I wrote to solve a problem I had. I wanted to load more data when
+the user scrolled to the bottom of the page. I couldn't find a library that did this so I created one.
+
+The math is pretty simple, so the library isn't more than 100 lines of code, it's mostly just hooking it up to
+scroll elements, and doing some math with some specific rounding to normalize browser behaviour.
+
+It works both on the window and on any other scrollable element (using refs).
+
+Window:
+![window scroll gif](https://github.com/karl-run/react-bottom-scroll-listener/raw/main/example.gif)
+
+Container:
+![container scroll gif](https://github.com/karl-run/react-bottom-scroll-listener/raw/main/example_inner.gif)
