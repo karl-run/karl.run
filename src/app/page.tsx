@@ -3,6 +3,7 @@ import { getPostsMetadata } from '@/utils/posts';
 import { Card } from '@/components/EntryCard';
 import { getProjectsMetadata } from '@/utils/projects';
 import Link from 'next/link';
+import LastUpdatedCommit from '@/components/LastUpdatedCommit';
 
 export default async function Home() {
   const posts = getPostsMetadata();
@@ -25,12 +26,14 @@ export default async function Home() {
             title={metadata.title}
             subtitle={metadata.excerpt}
             date={metadata.date}
+            // @ts-expect-error Async RSC
+            extraDate={<LastUpdatedCommit name={project} />}
             projectValues={metadata.projectValues}
           />
         ))}
       </div>
       <div className="ml-4 mt-4">
-        <Link href={`/projects`} className="underline p-2">
+        <Link href={`/projects`} className="p-2 underline">
           All projects ›
         </Link>
       </div>
@@ -47,7 +50,7 @@ export default async function Home() {
         ))}
       </div>
       <div className="ml-4 mt-4">
-        <Link href={`/posts`} className="underline p-2">
+        <Link href={`/posts`} className="p-2 underline">
           All posts ›
         </Link>
       </div>
