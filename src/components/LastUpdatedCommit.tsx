@@ -71,7 +71,7 @@ async function fetchLastCommitDate(name: string): Promise<string | null> {
     .then((response) => {
       if (response.ok) {
         const responseBody = response.json() as Promise<{
-          commit: { committer: { date: string } };
+          commit: { commit: { committer: { date: string } } };
         }>;
         if (process.env.NODE_ENV !== 'production') {
           console.log('Caching branch metadata');
@@ -82,7 +82,7 @@ async function fetchLastCommitDate(name: string): Promise<string | null> {
 
       throw new Error('Unable to get branch');
     })
-    .then((result) => result.commit.committer.date)
+    .then((result) => result.commit.commit.committer.date)
     .catch((error) => {
       console.error(error);
       return null;
