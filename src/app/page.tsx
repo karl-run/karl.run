@@ -19,18 +19,23 @@ export default async function Home() {
       </div>
       <h2 className="mb-4 text-xl">Latest projects</h2>
       <div className="flex flex-row flex-wrap gap-4">
-        {R.sortBy(projects, [(it) => it[1].date, 'desc']).map(([project, metadata]) => (
-          <Card
-            key={metadata.date}
-            href={`/projects/${project}`}
-            title={metadata.title}
-            subtitle={metadata.excerpt}
-            date={metadata.date}
-            // @ts-expect-error Async RSC
-            extraDate={<LastUpdatedCommit name={project} />}
-            projectValues={metadata.projectValues}
-          />
-        ))}
+        {R.pipe(
+          projects,
+          R.sortBy([(it) => it[1].date, 'desc']),
+          R.take(4),
+          R.map(([project, metadata]) => (
+            <Card
+              key={metadata.date}
+              href={`/projects/${project}`}
+              title={metadata.title}
+              subtitle={metadata.excerpt}
+              date={metadata.date}
+              // @ts-expect-error Async RSC
+              extraDate={<LastUpdatedCommit name={project} />}
+              projectValues={metadata.projectValues}
+            />
+          )),
+        )}
       </div>
       <div className="ml-4 mt-4">
         <Link href={`/projects`} className="p-2 underline">
