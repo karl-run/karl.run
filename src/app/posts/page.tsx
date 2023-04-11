@@ -7,7 +7,7 @@ function Page(): JSX.Element {
 
   return (
     <main className="mx-4">
-      <h2 className="mb-4 text-xl">Latest posts</h2>
+      <h2 className="mb-4 text-3xl text-shadow-dark">All posts</h2>
       <div className="flex flex-row flex-wrap gap-4">
         {R.sortBy(posts, [(it) => it[1].date, 'desc']).map(([post, metadata]) => (
           <Card
