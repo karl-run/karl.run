@@ -17,7 +17,7 @@ export default async function Home() {
           My hobby projects and other stuff I have done that will never pay the bills.
         </p>
       </div>
-      <h2 className="mb-4 text-xl">Latest projects</h2>
+      <h2 className="text-shadow-dark mb-4 text-2xl">Latest projects</h2>
       <div className="flex flex-row flex-wrap gap-4">
         {R.pipe(
           projects,
@@ -42,7 +42,7 @@ export default async function Home() {
           All projects ›
         </Link>
       </div>
-      <h2 className="mb-4 mt-8 text-xl">Latest posts</h2>
+      <h2 className="text-shadow-dark mb-4 mt-8 text-2xl">Latest posts</h2>
       <div className="flex flex-row flex-wrap gap-4">
         {R.sortBy(posts, [(it) => it[1].date, 'desc']).map(([post, metadata]) => (
           <Card
