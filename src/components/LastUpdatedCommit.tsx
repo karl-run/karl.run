@@ -1,7 +1,7 @@
 import { formatDistanceToNowStrict, parseISO } from 'date-fns';
 import NodeCache from 'node-cache';
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production' && (global as any).fetchCache != null) {
   (global as any).fetchCache = new NodeCache();
 }
 
@@ -17,7 +17,7 @@ async function PackageDownloadCount({ name }: { name: string }): Promise<JSX.Ele
   }
 
   return (
-    <div className="mb-4">
+    <div className="text-xs">
       Last updated: {formatDistanceToNowStrict(parseISO(lastCommitDate), { addSuffix: true })}
     </div>
   );
@@ -75,7 +75,11 @@ async function fetchLastCommitDate(name: string): Promise<string | null> {
         }>;
         if (process.env.NODE_ENV !== 'production') {
           console.log('Caching branch metadata');
-          responseBody.then((result) => getDevCache().set('branch-metadata', result));
+          responseBody.then((result) => {
+            console.log(result);
+
+            return getDevCache().set('branch-metadata', result);
+          });
         }
         return responseBody;
       }

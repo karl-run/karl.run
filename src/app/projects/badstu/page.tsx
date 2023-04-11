@@ -4,7 +4,7 @@ import Post, { meta } from './index.mdx';
 
 function Page(): JSX.Element {
   return (
-    <MarkdownPage slug="among-us-stats" meta={meta}>
+    <MarkdownPage slug="badstu" meta={meta}>
       <Post />
     </MarkdownPage>
   );
