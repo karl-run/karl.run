@@ -1,0 +1,17 @@
+import GaugeCollection from '@/components/GaugeCollection';
+export const meta = {
+  title: 'Hot Shop Booking Alerts',
+  excerpt: 'Alerts when tables open up at a constantly booked restaurant in Oslo',
+  tags: [],
+  date: '2023-02-11T12:00:00Z',
+  repo: 'https://github.com/karl-run/hot-shop-booking-alerts',
+  projectValues: {
+    usefulness: 80,
+    users: 20,
+    'fun factor': 30,
+  },
+};
+
+# {meta.title}
+
+<GaugeCollection values={meta.projectValues} direction="row" />
