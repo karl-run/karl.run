@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !== 'production' && (global as any).fetchCache != null)
   (global as any).fetchCache = new NodeCache();
 }
 
-function getDevCache(): NodeCache {
+function getDevCache(): NodeCache | null | undefined {
   return (global as any).fetchCache;
 }
 
@@ -27,9 +27,9 @@ function fetchRepoMetadata(name: string) {
   const url = `https://api.github.com/repos/karl-run/${name}`;
   console.log(`Fetching ${url}`);
 
-  if (process.env.NODE_ENV !== 'production' && getDevCache().get('repo-metadata') != null) {
+  if (process.env.NODE_ENV !== 'production' && getDevCache()?.get('repo-metadata') != null) {
     console.log('Using cached repo metadata');
-    return Promise.resolve(new Response(getDevCache().get('repo-metadata')));
+    return Promise.resolve(new Response(getDevCache()?.get('repo-metadata')));
   }
 
   return fetch(url);
@@ -39,9 +39,9 @@ function fetchMainBranch(name: string, default_branch: string) {
   const url = `https://api.github.com/repos/karl-run/${name}/branches/${default_branch}`;
   console.log(`Fetching ${url}`);
 
-  if (process.env.NODE_ENV !== 'production' && getDevCache().get('branch-metadata') != null) {
+  if (process.env.NODE_ENV !== 'production' && getDevCache()?.get('branch-metadata') != null) {
     console.log('Using cached branch metadata');
-    return Promise.resolve(new Response(getDevCache().get('branch-metadata')));
+    return Promise.resolve(new Response(getDevCache()?.get('branch-metadata')));
   }
 
   return fetch(url, {
@@ -58,7 +58,7 @@ async function fetchLastCommitDate(name: string): Promise<string | null> {
         const responseBody = response.json() as Promise<{ default_branch: string }>;
         if (process.env.NODE_ENV !== 'production') {
           console.log('Caching repo metadata');
-          responseBody.then((result) => getDevCache().set('repo-metadata', result));
+          responseBody.then((result) => getDevCache()?.set('repo-metadata', result));
         }
         return responseBody;
       }
@@ -76,9 +76,7 @@ async function fetchLastCommitDate(name: string): Promise<string | null> {
         if (process.env.NODE_ENV !== 'production') {
           console.log('Caching branch metadata');
           responseBody.then((result) => {
-            console.log(result);
-
-            return getDevCache().set('branch-metadata', result);
+            return getDevCache()?.set('branch-metadata', result);
           });
         }
         return responseBody;
