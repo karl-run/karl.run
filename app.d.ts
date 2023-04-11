@@ -16,6 +16,7 @@ type ProjectMDXMetadata = {
   excerpt: string;
   tags: string[];
   date: string;
+  repo: string;
   projectValues: ProjectValues;
 };
 

@@ -1,10 +1,10 @@
 import MarkdownPage from '@/components/MarkdownPage';
 
-import Post from './index.mdx';
+import Post, { meta } from './index.mdx';
 
 function Page(): JSX.Element {
   return (
-    <MarkdownPage>
+    <MarkdownPage slug="react-bottom-scroll-listener" meta={meta}>
       <Post />
     </MarkdownPage>
   );

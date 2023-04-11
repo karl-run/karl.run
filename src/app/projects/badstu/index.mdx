@@ -1,0 +1,38 @@
+import image1 from './badstu1.png';
+import image2 from './badstu2.png';
+
+import Image from 'next/image';
+import GaugeCollection from '@/components/GaugeCollection';
+export const meta = {
+  title: 'Booking Overview for Saunas in Oslo',
+  excerpt:
+    "A quicker and faster overview of Oslo Badstuforening's in Oslo created out of frustration of the current booking system (Planyo).",
+  tags: [],
+  date: '2023-03-23T12:00:00Z',
+  repo: 'https://github.com/karl-run/among-us-stats',
+  projectValues: {
+    usefulness: 60,
+    users: 5,
+    'fun factor': 50,
+  },
+};
+
+# {meta.title}
+
+<GaugeCollection values={meta.projectValues} direction="row" />
+
+[Oslo Badstuforening](oslobadstuforening.no/) is a great non-profit Sauna association in Oslo. They have multiple saunas
+in Oslo, and you can book them online. However, the booking system is not very user-friendly (they use something called Planyo),
+and it's hard to get an overview of the saunas. So I created this website to make it easier to get an overview of the saunas.
+
+<Image src={image1} alt="screenshot of sauna overview" />
+
+The scrapes the data from the Planyo iframe that is normally embedded on the Oslo Badstuforening website. This data is
+stored in a [PlanetScale](https://planetscale.com/) database, and the website fetches the data from there. The website is
+a Next.js app, and is hosted on [Vercel](https://vercel.com/). It uses the app router.
+
+<Image src={image2} alt="a booking overview example" />
+
+Every minute a cron job will trigger a serverles function to scrape the Planyo iframe. It's pretty simple JSDOM-based
+scraping, and works pretty well. The Planyo iframe is very slow, sometimes takes several seconds to load. So I've had
+to be weary of the 10 second timeout on serverless functions on Vercel.

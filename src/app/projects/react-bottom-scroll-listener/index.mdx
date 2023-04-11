@@ -1,5 +1,6 @@
 import PackageDownloadCount from '@/components/PackageDownloadCount';
 import { Suspense } from 'react';
+import GaugeCollection from '@/components/GaugeCollection';
 
 export const meta = {
   title: 'React Bottom Scroll Listener',
@@ -20,6 +21,8 @@ export const meta = {
 <Suspense fallback={<div className="mb-4">Loading...</div>}>
   <PackageDownloadCount name="react-bottom-scroll-listener" />
 </Suspense>
+
+<GaugeCollection values={meta.projectValues} direction="row" />
 
 A pretty simple small library that I wrote to solve a problem I had. I wanted to load more data when
 the user scrolled to the bottom of the page. I couldn't find a library that did this so I created one.
