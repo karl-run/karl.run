@@ -10,13 +10,18 @@ interface Props {
 
 function MarkdownPage({ slug, meta, children }: PropsWithChildren<Props>): JSX.Element {
   return (
-    <div className="mx-auto max-w-3xl p-2 [&>img]:mb-4">
+    <div className="mx-auto mb-16 max-w-3xl p-2 [&>img]:mb-4">
       {'repo' in meta ? (
         <ProjectMetaHeading slug={slug} meta={meta} />
       ) : (
         <PostMetaHeading slug={slug} meta={meta} />
       )}
       {children}
+      {'repo' in meta && (
+        <a className="underline" href={meta.repo}>
+          Github Source
+        </a>
+      )}
     </div>
   );
 }
