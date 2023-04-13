@@ -1,4 +1,7 @@
+import image1 from './image1.png';
+
 import GaugeCollection from '@/components/GaugeCollection';
+import Image from 'next/image';
 export const meta = {
   title: 'Hot Shop Booking Alerts',
   excerpt: 'Alerts when tables open up at a constantly booked restaurant in Oslo',
@@ -15,3 +18,13 @@ export const meta = {
 # {meta.title}
 
 <GaugeCollection values={meta.projectValues} direction="row" />
+
+A quick [Deno](https://deno.land/) script to check if there are any available tables at the Oslo based restaurant [Hot Shop](https://www.restauranthotshop.no). It has been fully booked since it won a [Michelin star](https://guide.michelin.com/no/en/oslo-region/oslo/restaurant/hot-shop) in 2022.
+
+The script is pretty simple since the restaurant has a nice API that it's own booking system uses. It's just a matter of checking if there are any available tables at a given day. If there are, it sends a message to a Slack channel.
+
+<Image src={image1} alt="Hot Shop slack bot" />
+
+Then it's a race too book the table.
+
+The CRON part of the script is just a Github Action with a cron trigger.
