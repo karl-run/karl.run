@@ -1,3 +1,4 @@
+import PostOldAsHeck from '@/components/PostOldAsHeck';
 export const meta = {
   title: 'Unit testing React components, 5 basic techniques',
   excerpt: 'Quick intro to testing React components with enzyme',
@@ -6,6 +7,20 @@ export const meta = {
 };
 
 # {meta.title}
+
+<PostOldAsHeck
+  date={meta.date}
+  text={
+    <>
+      Especially when it comes to testing in React, I strongly discourage using enzyme. Instead look
+      at something like{' '}
+      <a target="_blank" href="https://testing-library.com/docs/react-testing-library/intro/">
+        React Testing Library
+      </a>
+      .
+    </>
+  }
+/>
 
 This post will go through a few simple techniques that are great to know when you are testing your React _components_.
 

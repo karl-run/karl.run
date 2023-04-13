@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import PostOldAsHeck from '@/components/PostOldAsHeck';
+
 import graphiql from './graphiql.png';
 import query from './query.png';
 import objectResolve from './object-resolve.png';
@@ -16,6 +18,8 @@ export const meta = {
 };
 
 # {meta.title}
+
+<PostOldAsHeck date={meta.date} />
 
 There are a lot of ways to run a GraphQL web server. The quickest ways to get started if you are starting a new project is to use something like [Apollo Server](https://www.apollographql.com/docs/apollo-server/) on node. It'll kick you off with a "schema-first" sensible and easy way to define your GraphQL schema and resolvers. But if you're in Java-land and want to add GraphQL to your existing Spring Boot server there are a few steps you need to take. But its going to be worth it!
 

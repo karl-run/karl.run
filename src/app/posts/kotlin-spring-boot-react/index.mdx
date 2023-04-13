@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import image1 from './1.png';
+import PostOldAsHeck from '@/components/PostOldAsHeck';
 
 export const meta = {
   title: 'Spring Boot with Kotlin bundled with a React application as a single deployable artifact',
@@ -11,6 +12,8 @@ export const meta = {
 };
 
 # {meta.title}
+
+<PostOldAsHeck date={meta.date} />
 
 In this post we will cover a simple way to get started with developing a full-stack application using Spring Boot 2 with Kotlin, that builds and bundles a React-application and serves it statically. The react application will use [create-react-app](https://github.com/facebook/create-react-app) for a simple way to setup and develop a SPA (single page application).
 
