@@ -1,0 +1,37 @@
+import Image from 'next/image';
+
+import GaugeCollection from '@/components/GaugeCollection';
+
+import image1 from './image1.png';
+import image2 from './image2.png';
+
+export const meta = {
+  title: 'Haikubot',
+  excerpt: 'Posts Haikus to Slack from the descriptions of pull requests',
+  tags: [],
+  date: '2016-10-12T12:00:00Z',
+  repo: 'haikubot',
+  projectValues: {
+    usefulness: 1,
+    users: 2,
+    'fun factor': 97,
+  },
+};
+
+# {meta.title}
+
+<GaugeCollection values={meta.projectValues} direction="row" />
+
+As a team building exercise, I made a Slack bot that posts Haikus to a Slack channel from the descriptions of pull requests.
+
+Every single pull request had to have a somewhat relevant haiku in the description. The bot would then post the haiku to a Slack channel.
+
+This was in 2016, so the bot was specifically made for a self-hosted "Stash" (by Atlassian) instance. It lived for roughly 5 years, posting almost 4000 haikus before it was decommissioned.
+
+<Image src={image1} alt="A haiku posted to Slack" />
+
+It had a few features, such as being able to create word clouds from the haikus.
+
+<Image src={image2} alt="A image showing a word cloud of the most used words" />
+
+As well as manually adding haikus, show some stats for longest word, most used words, etc. It also had a score board showing who had the most haikus.

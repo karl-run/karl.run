@@ -1,7 +1,9 @@
+import Image from 'next/image';
+
 import image1 from './image1.png';
 
 import GaugeCollection from '@/components/GaugeCollection';
-import Image from 'next/image';
+
 export const meta = {
   title: 'Hot Shop Booking Alerts',
   excerpt: 'Alerts when tables open up at a constantly booked restaurant in Oslo',
@@ -25,6 +27,6 @@ The script is pretty simple since the restaurant has a nice API that it's own bo
 
 <Image src={image1} alt="Hot Shop slack bot" />
 
-Then it's a race too book the table.
+Then it's a race to book the table.
 
-The CRON part of the script is just a Github Action with a cron trigger.
+The CRON part of the script is just a GitHub Action with a cron trigger.

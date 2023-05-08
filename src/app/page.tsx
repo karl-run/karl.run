@@ -39,7 +39,7 @@ export default async function Home() {
       </div>
       <div className="ml-4 mt-4">
         <Link href={`/projects`} className="p-2 underline">
-          All projects ›
+          All projects ({projects.length}) ›
         </Link>
       </div>
       <h2 className="text-shadow-dark mb-4 mt-8 text-2xl">Latest posts</h2>
