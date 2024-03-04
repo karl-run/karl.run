@@ -1,10 +1,12 @@
 import './globals.css';
 import 'highlight.js/styles/shades-of-purple.css';
 import { Montserrat } from 'next/font/google';
+import Script from 'next/script';
 
 import { cn } from '@/utils/cn';
 import Nav from '@/app/Nav';
 import HeroImage from '@/app/HeroImage';
+
 
 export const metadata = {
   title: 'karl.run()',
@@ -21,6 +23,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <HeroImage />
         {children}
       </body>
+      <Script
+        strategy="afterInteractive"
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "7cabd57ba1c042d8bed037d2ec016475"}'
+      />
     </html>
   );
 }
