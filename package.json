@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "upgrade-interactive": "bunx npm-check-updates --format group -i"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
