@@ -33,7 +33,6 @@ function ProjectMetaHeading({ slug, meta }: { slug: string; meta: ProjectMDXMeta
         <div className="text-xs">
           Created {formatDistanceToNowStrict(parseISO(meta.date), { addSuffix: true })}
         </div>
-        {/* @ts-expect-error Async RSC */}
         <LastUpdatedCommit name={slug} />
       </div>
     </div>

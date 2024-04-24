@@ -21,5 +21,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     hr: (props) => <hr className="my-4" {...props} />,
     pre: (props) => <pre className="mb-4" {...props} />,
     code: (props) => <code className="bg-[#2d2b57] p-1" {...props} />,
+    Image: (props) => <Image {...props} />,
   };
 }

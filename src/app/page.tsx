@@ -30,7 +30,6 @@ export default async function Home() {
               title={metadata.title}
               subtitle={metadata.excerpt}
               date={metadata.date}
-              // @ts-expect-error Async RSC
               extraDate={<LastUpdatedCommit name={project} />}
               projectValues={metadata.projectValues}
             />
