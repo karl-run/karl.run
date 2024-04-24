@@ -1,0 +1,37 @@
+import image1 from './karaoke1.webp';
+import image2 from './karaoke2.webp';
+
+import GaugeCollection from '@/components/GaugeCollection';
+export const meta = {
+  title: 'Karaoke song matching app',
+  excerpt:
+    "A social app to find what songs you and your friends both like, and can sing together. It's like Tinder, but for karaoke.",
+  tags: [],
+  date: '2024-03-30T12:00:00Z',
+  repo: 'https://github.com/karl-run/karaoke',
+  projectValues: {
+    usefulness: 69,
+    users: 8,
+    'fun factor': 99,
+  },
+};
+
+# {meta.title}
+
+<GaugeCollection values={meta.projectValues} direction="row" />
+
+Try it out: [Karaoke Match](https://karaoke.karl.run)
+
+I wanted a better way for me and my friends to find songs that two or more people both love. So I created a social app
+that lets us individually build our favorite song lists, and then see which songs we have in common. You can then join
+one or more groups, and within each group you basically see a venn-diagram of songs that you and the other group members
+all like. This way, you can easily find songs that you can sing together.
+
+<Image src={image1} alt="Screenshot of the app" />
+
+The app is built with Next.js (app dir), Turso as database with Drizzle as ORM.
+
+<Image src={image2} alt="Screenshot of the app" />
+
+Very fun app to build, but the amount of time spent on it is probably not worth the usefulness of the app. :) But that's
+true for most of my projects.
