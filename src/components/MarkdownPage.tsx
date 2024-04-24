@@ -10,7 +10,7 @@ interface Props {
 
 function MarkdownPage({ slug, meta, children }: PropsWithChildren<Props>): ReactElement {
   return (
-    <div className="mx-auto mb-16 max-w-3xl p-2 [&>img]:mb-4">
+    <div className="mx-auto mb-16 max-w-3xl p-4 [&>img]:mb-4">
       {'repo' in meta ? (
         <ProjectMetaHeading slug={slug} meta={meta} />
       ) : (
