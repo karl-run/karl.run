@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactElement } from 'react';
 import { formatDistanceToNowStrict, parseISO } from 'date-fns';
 
 interface Props {
@@ -6,7 +6,7 @@ interface Props {
   text?: React.ReactNode;
 }
 
-function PostOldAsHeck({ date, text }: Props): JSX.Element {
+function PostOldAsHeck({ date, text }: Props): ReactElement {
   return (
     <div className="my-4 flex w-full rounded-lg bg-amber-50 p-4 text-slate-800">
       <div className="items-top mr-4 flex shrink-0 justify-center pt-2 text-4xl">⚠️</div>

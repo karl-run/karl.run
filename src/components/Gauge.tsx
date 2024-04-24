@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, ReactElement } from 'react';
 import { cn } from '@/utils/cn';
 
 interface GaugeProps {
@@ -8,7 +8,7 @@ interface GaugeProps {
   percent: number;
 }
 
-function Gauge({ text, percent }: GaugeProps): JSX.Element {
+function Gauge({ text, percent }: GaugeProps): ReactElement {
   const [hasMounted, setHasMounted] = useState(false);
   const mountedPercent = hasMounted ? percent : 0;
   const offset = 126 - (126 * mountedPercent) / 100;

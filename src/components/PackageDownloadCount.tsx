@@ -1,5 +1,6 @@
+import { ReactElement } from 'react';
 
-async function PackageDownloadCount({ name }: { name: string }): Promise<JSX.Element> {
+async function PackageDownloadCount({ name }: { name: string }): Promise<ReactElement> {
   const result = await fetch(`https://api.npmjs.org/downloads/point/last-month/${name}`, {
     cache: 'no-store',
   });

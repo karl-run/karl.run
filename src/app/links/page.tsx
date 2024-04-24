@@ -1,6 +1,7 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 
-function Page(): JSX.Element {
+function Page(): ReactElement {
   return (
     <div className="mx-auto mt-16 flex max-w-md flex-col gap-4 p-4">
       <IconLink
@@ -35,7 +36,7 @@ function IconLink({
   name: string;
   imageHash: string;
   link: string;
-}): JSX.Element {
+}): ReactElement {
   return (
     <a
       rel="noopener noreferrer"

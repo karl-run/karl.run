@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { cn } from '@/utils/cn';
 
-function Nav(): JSX.Element {
+function Nav(): ReactElement {
   const segment = useSelectedLayoutSegment();
 
   return (

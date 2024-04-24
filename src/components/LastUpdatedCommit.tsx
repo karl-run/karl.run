@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import { formatDistanceToNowStrict, parseISO } from 'date-fns';
 import NodeCache from 'node-cache';
 
@@ -9,7 +10,7 @@ function getDevCache(): NodeCache | null | undefined {
   return (global as any).fetchCache;
 }
 
-async function PackageDownloadCount({ name }: { name: string }): Promise<JSX.Element> {
+async function PackageDownloadCount({ name }: { name: string }): Promise<ReactElement> {
   const lastCommitDate = await fetchLastCommitDate(name);
 
   if (lastCommitDate == null) {

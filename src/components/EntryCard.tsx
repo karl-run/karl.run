@@ -1,7 +1,7 @@
+import { ReactNode, ReactElement } from 'react';
 import { formatDistanceToNowStrict, parseISO } from 'date-fns';
 import Link from 'next/link';
 import GaugeCollection from '@/components/GaugeCollection';
-import { ReactNode } from 'react';
 
 interface CardProps {
   title: string;
@@ -19,7 +19,7 @@ export function Card({
   extraDate,
   href,
   projectValues,
-}: CardProps): JSX.Element {
+}: CardProps): ReactElement {
   const postedDate = parseISO(date);
 
   return (

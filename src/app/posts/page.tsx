@@ -1,12 +1,13 @@
+import { ReactElement } from 'react';
 import * as R from 'remeda';
 import { Card } from '@/components/EntryCard';
 import { getPostsMetadata } from '@/utils/posts';
 
-function Page(): JSX.Element {
+function Page(): ReactElement {
   const posts = getPostsMetadata();
 
   return (
-    <main className="mx-4">
+    <main className="mx-4 pb-16">
       <h2 className="mb-4 text-3xl text-shadow-dark">All posts</h2>
       <div className="flex flex-row flex-wrap gap-4">
         {R.sortBy(posts, [(it) => it[1].date, 'desc']).map(([post, metadata]) => (

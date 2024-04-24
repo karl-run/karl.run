@@ -7,7 +7,6 @@ import { cn } from '@/utils/cn';
 import Nav from '@/app/Nav';
 import HeroImage from '@/app/HeroImage';
 
-
 export const metadata = {
   title: 'karl.run()',
   description: 'The home of Karl J. Overå and his useless projects',

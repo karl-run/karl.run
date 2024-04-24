@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import Gauge from '@/components/Gauge';
 import { cn } from '@/utils/cn';
 
@@ -6,7 +7,7 @@ interface Props {
   direction?: 'row' | 'column';
 }
 
-function GaugeCollection({ values, direction = 'column' }: Props): JSX.Element {
+function GaugeCollection({ values, direction = 'column' }: Props): ReactElement {
   return (
     <div
       className={cn({

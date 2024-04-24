@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, ReactElement } from 'react';
 import LastUpdatedCommit from '@/components/LastUpdatedCommit';
 import { formatDistanceToNowStrict, parseISO } from 'date-fns';
 import GaugeCollection from '@/components/GaugeCollection';
@@ -8,7 +8,7 @@ interface Props {
   meta: MDXMetadata;
 }
 
-function MarkdownPage({ slug, meta, children }: PropsWithChildren<Props>): JSX.Element {
+function MarkdownPage({ slug, meta, children }: PropsWithChildren<Props>): ReactElement {
   return (
     <div className="mx-auto mb-16 max-w-3xl p-2 [&>img]:mb-4">
       {'repo' in meta ? (

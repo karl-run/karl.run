@@ -6,7 +6,7 @@ import Image from 'next/image';
 import image from '@/images/bg.png';
 import { cn } from '@/utils/cn';
 
-function HeroImage(): JSX.Element {
+function HeroImage(): ReactElement {
   const segments = useSelectedLayoutSegments();
   const isNotRoot = segments.length > 1;
 

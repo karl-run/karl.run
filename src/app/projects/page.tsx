@@ -1,12 +1,13 @@
+import { ReactElement } from 'react';
 import { getProjectsMetadata } from '@/utils/projects';
 import LastUpdatedCommit from '@/components/LastUpdatedCommit';
 import { Card } from '@/components/EntryCard';
 import * as R from 'remeda';
 
-function Page(): JSX.Element {
+function Page(): ReactElement {
   const projects = getProjectsMetadata();
   return (
-    <main className="mx-4">
+    <main className="mx-4 pb-16">
       <h2 className="text-shadow-dark mb-4 text-3xl">All projects</h2>
       <div className="flex flex-row flex-wrap gap-4">
         {R.pipe(

@@ -23,7 +23,7 @@ type ProjectMDXMetadata = {
 type MDXMetadata = PostMDXMetadata | ProjectMDXMetadata;
 
 declare module '*.mdx' {
-  let MDXComponent: (props: any) => JSX.Element;
+  let MDXComponent: (props: any) => ReactElement;
   export default MDXComponent;
 
   export const meta: MDXMetadata;
