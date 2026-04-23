@@ -1,11 +1,11 @@
 import { type ReactElement } from 'react';
-import MarkdownPage from '@/components/MarkdownPage';
+import MarkdownPage from '@/components/MarkdownPage.tsx';
 
 import Post, { meta } from './index.mdx';
 
 function Page(): ReactElement {
   return (
-    <MarkdownPage slug="spring-boot-schema-first-graphql" meta={meta}>
+    <MarkdownPage slug="among-us-stats" meta={meta}>
       <Post />
     </MarkdownPage>
   );

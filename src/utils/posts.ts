@@ -1,10 +1,10 @@
-const postModules = import.meta.glob<{ meta: PostMDXMetadata }>('../posts/**/index.mdx', {
+const postModules = import.meta.glob<{ meta: PostMDXMetadata }>('../content/posts/**/index.mdx', {
   eager: true,
 });
 
 export const postsMetadata: [string, PostMDXMetadata][] = Object.entries(postModules)
   .map(([path, postModule]) => {
-    const slug = path.match(/\.\.\/posts\/(.+)\/index\.mdx$/)?.[1];
+    const slug = path.match(/\.\.\/content\/posts\/(.+)\/index\.mdx$/)?.[1];
 
     if (!slug) {
       throw new Error(`Unexpected post path: ${path}`);
