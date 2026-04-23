@@ -9,6 +9,7 @@ interface CardProps {
   extraDate?: ReactNode;
   href: string;
   projectValues?: ProjectValues;
+  children?: ReactNode;
 }
 
 export function Card({
@@ -18,6 +19,7 @@ export function Card({
   extraDate,
   href,
   projectValues,
+  children,
 }: CardProps): ReactElement {
   const postedDate = parseISO(date);
 
@@ -31,9 +33,9 @@ export function Card({
           {extraDate}
         </div>
       </div>
-      {projectValues && (
+      {(children != null || projectValues) && (
         <div className="">
-          <GaugeCollection values={projectValues} />
+          {children ?? (projectValues != null ? <GaugeCollection values={projectValues} /> : null)}
         </div>
       )}
     </a>

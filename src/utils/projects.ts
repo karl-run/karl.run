@@ -1,19 +1,18 @@
-import * as R from 'remeda';
+const projectModules = import.meta.glob<{ meta: ProjectMDXMetadata }>(
+  '../content/projects/**/index.mdx',
+  {
+    eager: true,
+  },
+);
 
-import { meta as project1Meta } from '@/app/projects/among-us-stats/index.mdx';
-import { meta as project2Meta } from '../app/projects/react-bottom-scroll-listener/index.mdx';
-import { meta as project3Meta } from '../app/projects/badstu/index.mdx';
-import { meta as project4Meta } from '../app/projects/hot-shop-booking-alerts/index.mdx';
-import { meta as project5Meta } from '../app/projects/haikubot/index.mdx';
-import { meta as project6Meta } from '../app/projects/karaoke/index.mdx';
+export const projectsMetadata: [string, ProjectMDXMetadata][] = Object.entries(projectModules)
+  .map(([path, projectModule]) => {
+    const slug = path.match(/\.\.\/content\/projects\/(.+)\/index\.mdx$/)?.[1];
 
-export function getProjectsMetadata(): [string, ProjectMDXMetadata][] {
-  return [
-    ['among-us-stats', project1Meta as ProjectMDXMetadata],
-    ['react-bottom-scroll-listener', project2Meta as ProjectMDXMetadata],
-    ['badstu', project3Meta as ProjectMDXMetadata],
-    ['hot-shop-booking-alerts', project4Meta as ProjectMDXMetadata],
-    ['haikubot', project5Meta as ProjectMDXMetadata],
-    ['karaoke', project6Meta as ProjectMDXMetadata],
-  ];
-}
+    if (!slug) {
+      throw new Error(`Unexpected project path: ${path}`);
+    }
+
+    return [slug, projectModule.meta] as [string, ProjectMDXMetadata];
+  })
+  .sort((left, right) => Date.parse(right[1].date) - Date.parse(left[1].date));

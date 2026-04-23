@@ -1,7 +1,7 @@
 import { type ReactElement } from 'react';
-import { getProjectsMetadata } from '@/utils/projects';
-import LastUpdatedCommit from '@/components/LastUpdatedCommit';
-import { Card } from '@/components/EntryCard';
+import { getProjectsMetadata } from '@/utils/projects.ts';
+import LastUpdatedCommit from '@/components/LastUpdatedCommit.tsx';
+import { Card } from '@/components/EntryCard.tsx';
 import * as R from 'remeda';
 
 function Page(): ReactElement {
