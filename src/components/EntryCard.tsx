@@ -1,6 +1,5 @@
-import { ReactNode, ReactElement } from 'react';
+import type { ReactNode, ReactElement } from 'react';
 import { formatDistanceToNowStrict, parseISO } from 'date-fns';
-import Link from 'next/link';
 import GaugeCollection from '@/components/GaugeCollection';
 
 interface CardProps {
@@ -23,7 +22,7 @@ export function Card({
   const postedDate = parseISO(date);
 
   return (
-    <Link href={href} className="relative flex grow rounded border p-4 backdrop-blur md:w-1/3">
+    <a href={href} className="relative flex grow rounded border p-4 backdrop-blur md:w-1/3">
       <div className="grow">
         <h3 className="font-bold">{title}</h3>
         <div className="mb-8">{subtitle}</div>
@@ -37,6 +36,6 @@ export function Card({
           <GaugeCollection values={projectValues} />
         </div>
       )}
-    </Link>
+    </a>
   );
 }

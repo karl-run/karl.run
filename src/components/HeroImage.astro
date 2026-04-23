@@ -1,0 +1,33 @@
+---
+import { cn } from '@/utils/cn';
+import image from '@/images/bg.png';
+
+const pathname = Astro.url.pathname;
+const isCondensedHeader = /^\/posts\/[^/]+\/?$/.test(pathname);
+---
+
+<div
+  class={cn(
+    'absolute left-0 top-0 -z-10 h-screen max-h-full w-screen select-none opacity-70 transition-[max-height] duration-700',
+    {
+      'max-h-36 min-[420px]:max-h-28': isCondensedHeader,
+    },
+  )}
+  aria-hidden="true"
+>
+  <img
+    src={image.src}
+    alt=""
+    class={cn('h-full w-full object-cover transition-[object-position] delay-1000 duration-[2.5s]', {
+      'md:object-[50%_-132px]': isCondensedHeader,
+    })}
+  />
+  <div
+    class={cn(
+      'absolute bottom-0 left-0 h-8 w-full bg-gradient-to-b from-transparent to-[#071726] transition-[height] duration-700',
+      {
+        'h-2': isCondensedHeader,
+      },
+    )}
+  ></div>
+</div>
