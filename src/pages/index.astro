@@ -1,9 +1,42 @@
 ---
+import { Card } from '@/components/EntryCard';
+import GaugeCollection from '@/components/GaugeCollection';
 import RootLayout from '@/layouts/RootLayout.astro';
+import { postsMetadata } from '@/utils/posts';
+import { projectsMetadata } from '@/utils/projects';
+
+const latestProjects = projectsMetadata.slice(0, 4);
 ---
 
 <RootLayout>
   <main class="mx-4 pb-16">
-    <h1 class="text-shadow-dark my-20 text-4xl font-bold sm:text-7xl">karl.run()</h1>
+    <div class="text-shadow-dark my-20 font-bold">
+      <h1 class="text-4xl sm:text-7xl">Useless projects and wasted time</h1>
+      <p class="mt-8">
+        My hobby projects and other stuff I have done that will never pay the bills.
+      </p>
+    </div>
+
+    <h2 class="text-shadow-dark mb-4 text-2xl">Latest projects</h2>
+    <div class="flex flex-row flex-wrap gap-4">
+      {latestProjects.map(([project, metadata]) => (
+        <Card href={`/projects/${project}`} title={metadata.title} subtitle={metadata.excerpt} date={metadata.date}>
+          <GaugeCollection client:load values={metadata.projectValues} />
+        </Card>
+      ))}
+    </div>
+    <div class="ml-4 mt-4">
+      <a href="/projects" class="p-2 underline">
+        All projects ({projectsMetadata.length}) &rsaquo;
+      </a>
+    </div>
+
+    <h2 class="text-shadow-dark mb-4 mt-8 text-2xl">Latest posts</h2>
+    <div class="flex flex-row flex-wrap gap-4">
+      {postsMetadata.map(([post, metadata]) => (
+        <Card href={`/posts/${post}`} title={metadata.title} subtitle={metadata.excerpt} date={metadata.date} />
+      ))}
+    </div>
+    <div class="ml-4 mt-4"><a href="/posts" class="p-2 underline">All posts &rsaquo;</a></div>
   </main>
 </RootLayout>
