@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactElement } from 'react';
+import type { PropsWithChildren, ReactElement } from 'react';
 import LastUpdatedCommit from '@/components/LastUpdatedCommit';
 import { formatDistanceToNowStrict, parseISO } from 'date-fns';
 import GaugeCollection from '@/components/GaugeCollection';

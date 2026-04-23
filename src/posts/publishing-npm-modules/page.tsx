@@ -1,11 +1,11 @@
-import { ReactElement } from 'react';
+import { type ReactElement } from 'react';
 import MarkdownPage from '@/components/MarkdownPage';
 
 import Post, { meta } from './index.mdx';
 
 function Page(): ReactElement {
   return (
-    <MarkdownPage slug="kotlin-spring-boot-react" meta={meta}>
+    <MarkdownPage slug="react-bottom-scroll-listener" meta={meta}>
       <Post />
     </MarkdownPage>
   );

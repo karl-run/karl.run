@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { type ReactElement } from 'react';
 import { getProjectsMetadata } from '@/utils/projects';
 import LastUpdatedCommit from '@/components/LastUpdatedCommit';
 import { Card } from '@/components/EntryCard';

@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { type ReactElement } from 'react';
 import * as R from 'remeda';
 import { Card } from '@/components/EntryCard';
 import { getPostsMetadata } from '@/utils/posts';

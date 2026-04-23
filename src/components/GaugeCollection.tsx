@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { type ReactElement } from 'react';
 import Gauge from '@/components/Gauge';
 import { cn } from '@/utils/cn';
 

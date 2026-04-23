@@ -1,13 +1,15 @@
-import { meta as post1Meta } from '../app/posts/getting-up-and-running-with-testing-react/index.mdx';
-import { meta as post2Meta } from '../app/posts/kotlin-spring-boot-react/index.mdx';
-import { meta as post3Meta } from '../app/posts/publishing-npm-modules/index.mdx';
-import { meta as post4Meta } from '../app/posts/spring-boot-schema-first-graphql/index.mdx';
+const postModules = import.meta.glob<{ meta: PostMDXMetadata }>('../posts/**/index.mdx', {
+  eager: true,
+});
 
-export function getPostsMetadata(): [string, PostMDXMetadata][] {
-  return [
-    ['getting-up-and-running-with-testing-react', post1Meta],
-    ['kotlin-spring-boot-react', post2Meta],
-    ['publishing-npm-modules', post3Meta],
-    ['spring-boot-schema-first-graphql', post4Meta],
-  ];
-}
+export const postsMetadata: [string, PostMDXMetadata][] = Object.entries(postModules)
+  .map(([path, postModule]) => {
+    const slug = path.match(/\.\.\/posts\/(.+)\/index\.mdx$/)?.[1];
+
+    if (!slug) {
+      throw new Error(`Unexpected post path: ${path}`);
+    }
+
+    return [slug, postModule.meta] as [string, PostMDXMetadata];
+  })
+  .sort((left, right) => Date.parse(right[1].date) - Date.parse(left[1].date));
