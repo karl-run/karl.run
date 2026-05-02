@@ -1,15 +1,9 @@
-const postModules = import.meta.glob<{ meta: PostMDXMetadata }>('../content/posts/**/index.mdx', {
-  eager: true,
-});
+import { getCollection } from 'astro:content';
 
-export const postsMetadata: [string, PostMDXMetadata][] = Object.entries(postModules)
-  .map(([path, postModule]) => {
-    const slug = path.match(/\.\.\/content\/posts\/(.+)\/index\.mdx$/)?.[1];
+export async function getPostsMetadata(): Promise<[string, PostMDXMetadata][]> {
+  const posts = await getCollection('posts');
 
-    if (!slug) {
-      throw new Error(`Unexpected post path: ${path}`);
-    }
-
-    return [slug, postModule.meta] as [string, PostMDXMetadata];
-  })
-  .sort((left, right) => Date.parse(right[1].date) - Date.parse(left[1].date));
+  return posts
+    .map((post) => [post.id, post.data] as [string, PostMDXMetadata])
+    .sort((left, right) => Date.parse(right[1].date) - Date.parse(left[1].date));
+}

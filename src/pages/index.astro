@@ -2,9 +2,11 @@
 import { Card } from '@/components/EntryCard';
 import GaugeCollection from '@/components/GaugeCollection';
 import RootLayout from '@/layouts/RootLayout.astro';
-import { postsMetadata } from '@/utils/posts';
-import { projectsMetadata } from '@/utils/projects';
+import { getPostsMetadata } from '@/utils/posts';
+import { getProjectsMetadata } from '@/utils/projects';
 
+const postsMetadata = await getPostsMetadata();
+const projectsMetadata = await getProjectsMetadata();
 const latestProjects = projectsMetadata.slice(0, 4);
 ---
 
