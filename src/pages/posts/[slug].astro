@@ -1,0 +1,31 @@
+---
+import { formatDistanceToNowStrict, parseISO } from 'date-fns';
+import { getCollection, getEntry, render } from 'astro:content';
+
+import { mdxComponents } from '@/mdx-components';
+import RootLayout from '@/layouts/RootLayout.astro';
+
+export function getStaticPaths() {
+  return getCollection('posts').then((posts) => posts.map((post) => ({ params: { slug: post.id } })));
+}
+
+const { slug } = Astro.params;
+
+const post = await getEntry('posts', slug);
+
+if (!post) {
+  throw new Error(`Unable to find post for slug: ${slug}`);
+}
+
+const { Content } = await render(post);
+const meta = post.data;
+---
+
+<RootLayout>
+  <main class="mx-auto mb-16 max-w-3xl p-4 [&>img]:mb-4">
+    <div class="mb-1 flex items-center justify-between">
+      <div class="text-xs">Posted {formatDistanceToNowStrict(parseISO(meta.date), { addSuffix: true })}</div>
+    </div>
+    <Content components={mdxComponents} />
+  </main>
+</RootLayout>

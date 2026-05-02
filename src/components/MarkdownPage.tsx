@@ -1,5 +1,4 @@
 import type { PropsWithChildren, ReactElement } from 'react';
-import LastUpdatedCommit from '@/components/LastUpdatedCommit';
 import { formatDistanceToNowStrict, parseISO } from 'date-fns';
 import GaugeCollection from '@/components/GaugeCollection';
 
@@ -33,7 +32,6 @@ function ProjectMetaHeading({ slug, meta }: { slug: string; meta: ProjectMDXMeta
         <div className="text-xs">
           Created {formatDistanceToNowStrict(parseISO(meta.date), { addSuffix: true })}
         </div>
-        <LastUpdatedCommit name={slug} />
       </div>
     </div>
   );

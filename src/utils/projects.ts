@@ -1,18 +1,18 @@
-const projectModules = import.meta.glob<{ meta: ProjectMDXMetadata }>(
-  '../content/projects/**/index.mdx',
-  {
-    eager: true,
-  },
-);
+const projectModules = import.meta.glob<{ meta: ProjectMDXMetadata }>('../content/projects/**/index.mdx');
 
-export const projectsMetadata: [string, ProjectMDXMetadata][] = Object.entries(projectModules)
-  .map(([path, projectModule]) => {
-    const slug = path.match(/\.\.\/content\/projects\/(.+)\/index\.mdx$/)?.[1];
+export async function getProjectsMetadata(): Promise<[string, ProjectMDXMetadata][]> {
+  const projectsMetadata = await Promise.all(
+    Object.entries(projectModules).map(async ([path, loadProjectModule]) => {
+      const slug = path.match(/\.\.\/content\/projects\/(.+)\/index\.mdx$/)?.[1];
 
-    if (!slug) {
-      throw new Error(`Unexpected project path: ${path}`);
-    }
+      if (!slug) {
+        throw new Error(`Unexpected project path: ${path}`);
+      }
 
-    return [slug, projectModule.meta] as [string, ProjectMDXMetadata];
-  })
-  .sort((left, right) => Date.parse(right[1].date) - Date.parse(left[1].date));
+      const projectModule = await loadProjectModule();
+      return [slug, projectModule.meta] as [string, ProjectMDXMetadata];
+    }),
+  );
+
+  return projectsMetadata.sort((left, right) => Date.parse(right[1].date) - Date.parse(left[1].date));
+}
