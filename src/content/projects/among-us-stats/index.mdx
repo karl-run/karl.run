@@ -1,26 +1,26 @@
+---
+title: Stats tracker for Among Us games with friends
+excerpt: Manually input stats that would give you win-rates and impostor-rates.
+tags: []
+date: '2020-10-08T12:00:00Z'
+repo: https://github.com/karl-run/among-us-stats
+projectValues:
+  usefulness: 5
+  users: 16
+  "fun factor": 69
+---
+
+import Image from '@/components/ContentImage';
 import image1 from './image1.png';
 import image2 from './image2.png';
 import image3 from './image3.png';
 import image4 from './image4.png';
 
 import GaugeCollection from '@/components/GaugeCollection';
-import Image from 'next/image';
-export const meta = {
-  title: 'Stats tracker for Among Us games with friends',
-  excerpt: 'Manually input stats that would give you win-rates and impostor-rates.',
-  tags: [],
-  date: '2020-10-08T12:00:00Z',
-  repo: 'https://github.com/karl-run/among-us-stats',
-  projectValues: {
-    usefulness: 5,
-    users: 16,
-    'fun factor': 69,
-  },
-};
 
-# {meta.title}
+# {frontmatter.title}
 
-<GaugeCollection values={meta.projectValues} direction="row" />
+<GaugeCollection client:load values={frontmatter.projectValues} direction="row" />
 
 During the lockdown in 2020 most of our "team building" and socializing was done on Discord.
 

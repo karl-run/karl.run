@@ -1,24 +1,24 @@
+---
+title: Karaoke song matching app
+excerpt: "A social app to find what songs you and your friends both like, and can sing together. It's like Tinder, but for karaoke."
+tags: []
+date: '2024-03-30T12:00:00Z'
+repo: https://github.com/karl-run/karaoke
+projectValues:
+  usefulness: 69
+  users: 8
+  "fun factor": 99
+---
+
+import Image from '@/components/ContentImage';
 import image1 from './karaoke1.webp';
 import image2 from './karaoke2.webp';
 
 import GaugeCollection from '@/components/GaugeCollection';
-export const meta = {
-  title: 'Karaoke song matching app',
-  excerpt:
-    "A social app to find what songs you and your friends both like, and can sing together. It's like Tinder, but for karaoke.",
-  tags: [],
-  date: '2024-03-30T12:00:00Z',
-  repo: 'https://github.com/karl-run/karaoke',
-  projectValues: {
-    usefulness: 69,
-    users: 8,
-    'fun factor': 99,
-  },
-};
 
-# {meta.title}
+# {frontmatter.title}
 
-<GaugeCollection values={meta.projectValues} direction="row" />
+<GaugeCollection client:load values={frontmatter.projectValues} direction="row" />
 
 Try it out: [Karaoke Match](https://karaoke.karl.run)
 

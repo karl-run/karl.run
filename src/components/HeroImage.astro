@@ -3,7 +3,7 @@ import { cn } from '@/utils/cn';
 import image from '@/images/bg.png';
 
 const pathname = Astro.url.pathname;
-const isCondensedHeader = /^\/posts\/[^/]+\/?$/.test(pathname);
+const isCondensedHeader = /^\/(posts|projects)\/[^/]+\/?$/.test(pathname);
 ---
 
 <div
