@@ -18,7 +18,7 @@ const projectsMetadata = await getProjectsMetadata();
           subtitle={metadata.excerpt}
           date={metadata.date}
         >
-          <GaugeCollection client:load values={metadata.projectValues} />
+          <GaugeCollection values={metadata.projectValues} />
         </Card>
       ))}
     </div>
