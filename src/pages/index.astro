@@ -34,7 +34,7 @@ const latestProjects = projectsMetadata.slice(0, 4);
 
     <h2 class="text-shadow-dark mb-4 mt-8 text-2xl">Latest posts</h2>
     <div class="flex flex-row flex-wrap gap-4">
-      {postsMetadata.map(([post, metadata]) => (
+      {postsMetadata.slice(0, 4).map(([post, metadata]) => (
         <Card href={`/posts/${post}`} title={metadata.title} subtitle={metadata.excerpt} date={metadata.date} />
       ))}
     </div>

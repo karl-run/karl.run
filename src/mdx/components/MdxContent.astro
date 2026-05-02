@@ -78,8 +78,40 @@
   }
 
   .content :global(blockquote) {
-    background-color: rgb(243 244 246);
-    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    border-left: 0.35rem solid #0d9e91;
+    border-radius: 0.75rem;
+    background:
+      linear-gradient(135deg, rgb(255 251 235 / 95%), rgb(240 249 255 / 92%));
+    color: #1f2937;
+    padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+    box-shadow:
+      0 10px 30px rgb(13 158 145 / 10%),
+      inset 0 1px 0 rgb(255 255 255 / 45%);
+  }
+
+  .content :global(blockquote)::before {
+    content: "“";
+    position: absolute;
+    right: 0.75rem;
+    top: -0.6rem;
+    font-size: 4.5rem;
+    line-height: 1;
+    color: rgb(13 158 145 / 18%);
+    font-family: Georgia, serif;
+    pointer-events: none;
+  }
+
+  .content :global(blockquote > p) {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  .content :global(blockquote > :last-child) {
+    margin-bottom: 0;
   }
 
   .content :global(hr) {
@@ -103,6 +135,15 @@
   }
 
   :global(.dark) .content :global(blockquote) {
-    background-color: rgb(31 41 55);
+    background:
+      linear-gradient(135deg, rgb(30 41 59 / 96%), rgb(15 23 42 / 94%));
+    color: rgb(226 232 240);
+    box-shadow:
+      0 10px 30px rgb(2 6 23 / 45%),
+      inset 0 1px 0 rgb(255 255 255 / 5%);
+  }
+
+  :global(.dark) .content :global(blockquote)::before {
+    color: rgb(45 212 191 / 14%);
   }
 </style>
