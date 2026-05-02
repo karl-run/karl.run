@@ -10,11 +10,7 @@ projectValues:
   "fun factor": 97
 ---
 
-import Image from '@mdx-components/ContentImage.astro';
 import GaugeCollection from '@components/GaugeCollection.astro';
-
-import image1 from './image1.png';
-import image2 from './image2.png';
 
 # {frontmatter.title}
 
@@ -26,10 +22,10 @@ Every single pull request had to have a somewhat relevant haiku in the descripti
 
 This was in 2016, so the bot was specifically made for a self-hosted "Stash" (by Atlassian) instance. It lived for roughly 5 years, posting almost 4000 haikus before it was decommissioned.
 
-<Image src={image1} alt="A haiku posted to Slack" />
+![A haiku posted to Slack](./image1.png)
 
 It had a few features, such as being able to create word clouds from the haikus.
 
-<Image src={image2} alt="A image showing a word cloud of the most used words" />
+![A image showing a word cloud of the most used words](./image2.png)
 
 As well as manually adding haikus, show some stats for longest word, most used words, etc. It also had a score board showing who had the most haikus.

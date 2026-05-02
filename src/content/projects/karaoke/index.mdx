@@ -10,10 +10,6 @@ projectValues:
   "fun factor": 99
 ---
 
-import Image from '@mdx-components/ContentImage.astro';
-import image1 from './karaoke1.webp';
-import image2 from './karaoke2.webp';
-
 import GaugeCollection from '@components/GaugeCollection.astro';
 
 # {frontmatter.title}
@@ -27,11 +23,11 @@ that lets us individually build our favorite song lists, and then see which song
 one or more groups, and within each group you basically see a venn-diagram of songs that you and the other group members
 all like. This way, you can easily find songs that you can sing together.
 
-<Image src={image1} alt="Screenshot of the app" />
+![Screenshot of the app](./karaoke1.webp)
 
 The app is built with Next.js (app dir), Turso as database with Drizzle as ORM.
 
-<Image src={image2} alt="Screenshot of the app" />
+![Screenshot of the app](./karaoke2.webp)
 
 Very fun app to build, but the amount of time spent on it is probably not worth the usefulness of the app. :) But that's
 true for most of my projects.

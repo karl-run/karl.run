@@ -10,10 +10,6 @@ projectValues:
   "fun factor": 50
 ---
 
-import Image from '@mdx-components/ContentImage.astro';
-import image1 from './badstu1.png';
-import image2 from './badstu2.png';
-
 import GaugeCollection from '@components/GaugeCollection.astro';
 
 # {frontmatter.title}
@@ -24,13 +20,13 @@ import GaugeCollection from '@components/GaugeCollection.astro';
 in Oslo, and you can book them online. However, the booking system is not very user-friendly (they use something called Planyo),
 and it's hard to get an overview of the saunas. So I created this website to make it easier to get an overview of the saunas.
 
-<Image src={image1} alt="screenshot of sauna overview" />
+![screenshot of sauna overview](./badstu1.png)
 
 The scrapes the data from the Planyo iframe that is normally embedded on the Oslo Badstuforening website. This data is
 stored in a [PlanetScale](https://planetscale.com/) database, and the website fetches the data from there. The website is
 a Next.js app, and is hosted on [Vercel](https://vercel.com/). It uses the app router.
 
-<Image src={image2} alt="a booking overview example" />
+![a booking overview example](./badstu2.png)
 
 Every minute a cron job will trigger a serverles function to scrape the Planyo iframe. It's pretty simple JSDOM-based
 scraping, and works pretty well. The Planyo iframe is very slow, sometimes takes several seconds to load. So I've had
