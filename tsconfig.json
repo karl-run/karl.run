@@ -1,14 +1,12 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
-      "@mdx-components/*": ["src/mdx/components/*"],
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@utils/*": ["src/utils/*"]
+      "@mdx-components/*": ["./src/mdx/components/*"],
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
-  "include": [".astro/types.d.ts", "src/**/*.ts", "src/**/*.d.ts"],
   "exclude": ["dist"]
 }
