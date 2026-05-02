@@ -18,7 +18,7 @@ export const mdxComponents: MDXComponents = {
     <blockquote className="mb-4 bg-gray-100 p-4 dark:bg-gray-800" {...props} />
   ),
   hr: (props) => <hr className="my-4" {...props} />,
-  pre: (props) => <pre className="mb-4" {...props} />,
-  code: (props) => <code className="bg-[#2d2b57] p-1" {...props} />,
+  pre: (props) => <pre className="p-2 mb-4 *:bg-transparent" {...props} />,
+  code: (props) => <code className="bg-[#2d2b57] p-0.5" {...props} />,
   img: ContentImage,
 };
