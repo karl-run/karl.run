@@ -1,15 +1,17 @@
 ---
 import './styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 
 import Nav from './components/Nav.astro';
 import HeroImage from './components/HeroImage.astro';
 
 ---
 
-<html lang="en" class="bg-[#071726]">
+<html lang="en" class="bg-[#071726]" transition:animate="none">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <ClientRouter />
   </head>
   <body class="container mx-auto w-full text-slate-100">
     <Nav />
