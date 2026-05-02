@@ -3,7 +3,7 @@ import { formatDistanceToNowStrict, parseISO } from 'date-fns';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 
 import RootLayout from '@layouts/RootLayout.astro';
-import { mdxComponents } from '@mdx-components/mdx-components';
+import MdxContent from '@mdx-components/MdxContent.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -28,6 +28,8 @@ const meta = post.data;
     <div class="mb-1 flex items-center justify-between">
       <div class="text-xs">Posted {formatDistanceToNowStrict(parseISO(meta.date), { addSuffix: true })}</div>
     </div>
-    <Content components={mdxComponents} />
+    <MdxContent>
+      <Content />
+    </MdxContent>
   </main>
 </RootLayout>

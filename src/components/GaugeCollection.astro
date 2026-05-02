@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import Gauge from '@components/Gauge.astro';
+
+type ProjectValues = CollectionEntry<'projects'>['data']['projectValues'];
+
+interface Props {
+  values: ProjectValues;
+  direction?: 'row' | 'column';
+}
+
+const { values, direction = 'column' } = Astro.props;
+---
+
+<div
+  class:list={[
+    {
+      'grid-row-3 grid gap-3': direction === 'column',
+      'my-8 flex justify-around gap-8 sm:justify-start': direction === 'row',
+    },
+  ]}
+>
+  {Object.entries(values).map(([key, value]) => <Gauge text={key} percent={value} />)}
+</div>
