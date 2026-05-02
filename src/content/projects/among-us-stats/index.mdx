@@ -10,12 +10,6 @@ projectValues:
   "fun factor": 69
 ---
 
-import Image from '@mdx-components/ContentImage.astro';
-import image1 from './image1.png';
-import image2 from './image2.png';
-import image3 from './image3.png';
-import image4 from './image4.png';
-
 import GaugeCollection from '@components/GaugeCollection.astro';
 
 # {frontmatter.title}
@@ -32,21 +26,21 @@ _Still playing Among Us? Try it out for your self! [impostor.rl.run/](https://im
 
 The app is a Single Page Application, everything is stored in a Redux state. The Redux state is persisted in the browser's local storage and configured to be able to migrate data whenever I needed to change the structure of the state.
 
-<Image src={image1} />
+![Score entry screen](./image1.png)
 
 The UI was nothing to write home about, with UX goodies such as tri-state checkboxes and horizontal scrolling if you played to many rounds.
 
 But it was pretty feature packed, you could group your gaming sessions, play as many rounds as you wanted. Even mark players as AFK for specific rounds to make sure that the stats were accurate.
 
-<Image src={image2} />
+![Session overview with round stats](./image2.png)
 
 Of course it boasted a very screenshot friendly scoreboard for your current gaming session.
 
-<Image src={image3} />
+![Scoreboard for the current gaming session](./image3.png)
 
 It even supported posting screenshots directly to Discord with the press of a button. Discord's API is pretty good, so this was a breeze to implement.
 
-<Image src={image4} />
+![Discord sharing flow for session screenshots](./image4.png)
 
 You also had global statistics for every single game played, so over time certain players would rise to the top of the leaderboard. Very fun!
 

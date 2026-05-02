@@ -10,9 +10,6 @@ projectValues:
   "fun factor": 30
 ---
 
-import Image from '@mdx-components/ContentImage.astro';
-import image1 from './image1.png';
-
 import GaugeCollection from '@components/GaugeCollection.astro';
 
 # {frontmatter.title}
@@ -23,7 +20,7 @@ A quick [Deno](https://deno.land/) script to check if there are any available ta
 
 The script is pretty simple since the restaurant has a nice API that it's own booking system uses. It's just a matter of checking if there are any available tables at a given day. If there are, it sends a message to a Slack channel.
 
-<Image src={image1} alt="Hot Shop slack bot" />
+![Hot Shop slack bot](./image1.png)
 
 Then it's a race to book the table.
 
