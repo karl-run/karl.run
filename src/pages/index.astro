@@ -22,7 +22,7 @@ const latestProjects = projectsMetadata.slice(0, 4);
     <div class="flex flex-row flex-wrap gap-4">
       {latestProjects.map(([project, metadata]) => (
         <Card href={`/projects/${project}`} title={metadata.title} subtitle={metadata.excerpt} date={metadata.date}>
-          <GaugeCollection client:load values={metadata.projectValues} />
+          <GaugeCollection values={metadata.projectValues} />
         </Card>
       ))}
     </div>

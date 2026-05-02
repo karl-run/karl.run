@@ -1,7 +1,7 @@
-'use client';
-
-import { useEffect, useState, type ReactElement } from 'react';
+import type { CSSProperties, ReactElement } from 'react';
 import { cn } from '@utils/cn';
+
+import styles from './Gauge.module.css';
 
 interface GaugeProps {
   text: string;
@@ -9,13 +9,10 @@ interface GaugeProps {
 }
 
 function Gauge({ text, percent }: GaugeProps): ReactElement {
-  const [hasMounted, setHasMounted] = useState(false);
-  const mountedPercent = hasMounted ? percent : 0;
-  const offset = 126 - (126 * mountedPercent) / 100;
-
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
+  const offset = 126 - (126 * percent) / 100;
+  const gaugeStyle: CSSProperties & { '--gauge-offset': number } = {
+    '--gauge-offset': offset,
+  };
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -27,14 +24,15 @@ function Gauge({ text, percent }: GaugeProps): ReactElement {
           d="M 10 50 A 40 40 0 0 1 90 50"
         ></path>
         <path
-          className={cn('fill-none stroke-amber-400/80 transition-all duration-1000', {
-            'stroke-red-400/80': mountedPercent <= 30,
-            'stroke-green-400/80': mountedPercent >= 69,
+          className={cn(styles.fill, 'fill-none stroke-amber-400/80', {
+            'stroke-red-400/80': percent <= 30,
+            'stroke-green-400/80': percent >= 69,
           })}
+          style={gaugeStyle}
           strokeWidth="22"
           d="M 10 50 A 40 40 0 0 1 90 50"
           strokeDasharray="126"
-          strokeDashoffset={offset}
+          strokeDashoffset="126"
         ></path>
       </svg>
       <div className="mt-1 text-sm capitalize">{text}</div>

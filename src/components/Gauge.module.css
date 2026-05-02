@@ -1,0 +1,20 @@
+@keyframes gauge-fill {
+  from {
+    stroke-dashoffset: 126;
+  }
+
+  to {
+    stroke-dashoffset: var(--gauge-offset);
+  }
+}
+
+.fill {
+  animation: gauge-fill 1s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill {
+    animation: none;
+    stroke-dashoffset: var(--gauge-offset);
+  }
+}
