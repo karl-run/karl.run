@@ -1,4 +1,5 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
+import * as R from 'remeda';
 
 type PostMetadata = CollectionEntry<'posts'>['data'];
 type ProjectMetadata = CollectionEntry<'projects'>['data'];
@@ -6,15 +7,19 @@ type ProjectMetadata = CollectionEntry<'projects'>['data'];
 export async function getPostsMetadata(): Promise<[string, PostMetadata][]> {
   const posts = await getCollection('posts');
 
-  return posts
-    .map((post) => [post.id, post.data] as [string, PostMetadata])
-    .sort((left, right) => Date.parse(right[1].date) - Date.parse(left[1].date));
+  return R.pipe(
+    posts,
+    R.map((post) => [post.id, post.data] as [string, PostMetadata]),
+    R.sortBy([([, it]) => it.date, 'desc']),
+  );
 }
 
 export async function getProjectsMetadata(): Promise<[string, ProjectMetadata][]> {
   const projects = await getCollection('projects');
 
-  return projects
-    .map((project) => [project.id, project.data] as [string, ProjectMetadata])
-    .sort((left, right) => Date.parse(right[1].date) - Date.parse(left[1].date));
+  return R.pipe(
+    projects,
+    R.map((project) => [project.id, project.data] as [string, ProjectMetadata]),
+    R.sortBy([([, it]) => it.date, 'desc']),
+  );
 }
