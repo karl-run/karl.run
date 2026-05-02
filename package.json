@@ -11,26 +11,24 @@
   "dependencies": {
     "@astrojs/mdx": "^5.0.4",
     "@astrojs/react": "^5.0.4",
-    "@mdx-js/loader": "^3.0.1",
-    "@mdx-js/react": "^3.0.1",
     "@types/mdx": "^2.0.13",
     "clsx": "^2.1.1",
-    "date-fns": "^3.6.0",
+    "date-fns": "^4.1.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "remeda": "^2.34.0",
-    "tailwind-merge": "^2.3.0",
+    "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.4"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.2.4",
-    "@types/node": "20.12.7",
+    "@types/node": "24.12.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "astro": "^6.1.9",
-    "prettier": "^3.2.5",
-    "rehype-highlight": "^7.0.0",
+    "astro": "^6.2.1",
+    "prettier": "^3.8.3",
+    "rehype-highlight": "^7.0.2",
     "remark-frontmatter": "^5.0.0",
-    "typescript": "5.4.5"
+    "typescript": "6.0.3"
   }
 }
