@@ -1,0 +1,5 @@
+# Legacy post redirects for Cloudflare Pages/Workers static assets.
+/2018/09/05/spring-boot-schema-first-graphql /posts/spring-boot-schema-first-graphql 301
+/2018/05/07/kotlin-spring-boot-react /posts/kotlin-spring-boot-react 301
+/2017/07/12/publishing-npm-modules /posts/publishing-npm-modules 301
+/2017/06/30/getting-up-and-running-with-testing-react /posts/getting-up-and-running-with-testing-react 301
