@@ -3,7 +3,7 @@ import { formatDistanceToNowStrict, parseISO } from 'date-fns';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 
 import RootLayout from '@layouts/RootLayout.astro';
-import { mdxComponents } from '@mdx-components/mdx-components';
+import MdxContent from '@mdx-components/MdxContent.astro';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -29,6 +29,8 @@ const meta = project.data;
       <div>Created {formatDistanceToNowStrict(parseISO(meta.date), { addSuffix: true })}</div>
       <a class="underline" href={meta.repo}>Github Source</a>
     </div>
-    <Content components={mdxComponents} />
+    <MdxContent>
+      <Content />
+    </MdxContent>
   </main>
 </RootLayout>

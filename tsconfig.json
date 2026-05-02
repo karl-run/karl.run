@@ -1,8 +1,6 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
       "@mdx-components/*": ["src/mdx/components/*"],
@@ -11,6 +9,6 @@
       "@utils/*": ["src/utils/*"]
     }
   },
-  "include": [".astro/types.d.ts", "src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
+  "include": [".astro/types.d.ts", "src/**/*.ts", "src/**/*.d.ts"],
   "exclude": ["dist"]
 }

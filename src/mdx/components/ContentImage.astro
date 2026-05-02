@@ -1,0 +1,18 @@
+---
+type ImageSource = string | { src: string; width?: number; height?: number };
+
+interface Props {
+  src: ImageSource;
+  alt?: string;
+  placeholder?: string;
+  width?: number | string;
+  height?: number | string;
+}
+
+const { src, alt = '', placeholder: _placeholder, width, height, ...props } = Astro.props;
+const imageSource = typeof src === 'string' ? src : src.src;
+const resolvedWidth = width ?? (typeof src === 'string' ? undefined : src.width);
+const resolvedHeight = height ?? (typeof src === 'string' ? undefined : src.height);
+---
+
+<img {...props} src={imageSource} alt={alt} width={resolvedWidth} height={resolvedHeight} />
