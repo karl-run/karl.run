@@ -1,30 +1,24 @@
 ---
 import { formatDistanceToNowStrict, parseISO } from 'date-fns';
-import { getCollection, getEntry, render } from 'astro:content';
+import { type CollectionEntry, getCollection, render } from 'astro:content';
 
 import RootLayout from '@layouts/RootLayout.astro';
 import { mdxComponents } from '@mdx-components/mdx-components';
 
-export function getStaticPaths() {
-  return getCollection('projects').then((projects) =>
-    projects.map((project) => ({
-      params: { slug: project.id },
-    })),
-  );
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
 }
 
-const { slug } = Astro.params;
-
-if (!slug) {
-  throw new Error('Missing project slug');
+interface Props {
+  project: CollectionEntry<'projects'>;
 }
 
-const project = await getEntry('projects', slug);
-
-if (!project) {
-  throw new Error(`Unable to find project for slug: ${slug}`);
-}
-
+const { project } = Astro.props;
 const { Content } = await render(project);
 const meta = project.data;
 ---
