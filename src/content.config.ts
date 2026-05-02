@@ -2,6 +2,10 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
+const percentageSchema = z.number().int().min(0).max(100);
+
+const dateSchema = z.string().refine((value) => !Number.isNaN(Date.parse(value)), 'Invalid date');
+
 const posts = defineCollection({
   loader: glob({
     base: './src/content/posts',
@@ -12,7 +16,7 @@ const posts = defineCollection({
     title: z.string(),
     excerpt: z.string(),
     tags: z.array(z.string()),
-    date: z.string(),
+    date: dateSchema,
     wide: z.boolean().optional(),
   }),
 });
@@ -27,9 +31,13 @@ const projects = defineCollection({
     title: z.string(),
     excerpt: z.string(),
     tags: z.array(z.string()),
-    date: z.string(),
-    repo: z.string(),
-    projectValues: z.record(z.string(), z.number()),
+    date: dateSchema,
+    repo: z.url(),
+    projectValues: z.object({
+      usefulness: percentageSchema,
+      users: percentageSchema,
+      'fun factor': percentageSchema,
+    }),
   }),
 });
 
