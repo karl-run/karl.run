@@ -1,24 +1,24 @@
+---
+title: Booking Overview for Saunas in Oslo
+excerpt: "A quicker and faster overview of Oslo Badstuforening's in Oslo created out of frustration of the current booking system (Planyo)."
+tags: []
+date: '2023-03-23T12:00:00Z'
+repo: https://github.com/karl-run/among-us-stats
+projectValues:
+  usefulness: 60
+  users: 5
+  "fun factor": 50
+---
+
+import Image from '@/components/ContentImage';
 import image1 from './badstu1.png';
 import image2 from './badstu2.png';
 
 import GaugeCollection from '@/components/GaugeCollection';
-export const meta = {
-  title: 'Booking Overview for Saunas in Oslo',
-  excerpt:
-    "A quicker and faster overview of Oslo Badstuforening's in Oslo created out of frustration of the current booking system (Planyo).",
-  tags: [],
-  date: '2023-03-23T12:00:00Z',
-  repo: 'https://github.com/karl-run/among-us-stats',
-  projectValues: {
-    usefulness: 60,
-    users: 5,
-    'fun factor': 50,
-  },
-};
 
-# {meta.title}
+# {frontmatter.title}
 
-<GaugeCollection values={meta.projectValues} direction="row" />
+<GaugeCollection client:load values={frontmatter.projectValues} direction="row" />
 
 [Oslo Badstuforening](oslobadstuforening.no/) is a great non-profit Sauna association in Oslo. They have multiple saunas
 in Oslo, and you can book them online. However, the booking system is not very user-friendly (they use something called Planyo),

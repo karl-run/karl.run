@@ -1,24 +1,24 @@
+---
+title: Haikubot
+excerpt: Posts Haikus to Slack from the descriptions of pull requests
+tags: []
+date: '2016-10-12T12:00:00Z'
+repo: haikubot
+projectValues:
+  usefulness: 1
+  users: 2
+  "fun factor": 97
+---
+
+import Image from '@/components/ContentImage';
 import GaugeCollection from '@/components/GaugeCollection';
 
 import image1 from './image1.png';
 import image2 from './image2.png';
 
-export const meta = {
-  title: 'Haikubot',
-  excerpt: 'Posts Haikus to Slack from the descriptions of pull requests',
-  tags: [],
-  date: '2016-10-12T12:00:00Z',
-  repo: 'haikubot',
-  projectValues: {
-    usefulness: 1,
-    users: 2,
-    'fun factor': 97,
-  },
-};
+# {frontmatter.title}
 
-# {meta.title}
-
-<GaugeCollection values={meta.projectValues} direction="row" />
+<GaugeCollection client:load values={frontmatter.projectValues} direction="row" />
 
 As a team building exercise, I made a Slack bot that posts Haikus to a Slack channel from the descriptions of pull requests.
 

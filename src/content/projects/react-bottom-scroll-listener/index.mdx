@@ -1,28 +1,26 @@
+---
+title: React Bottom Scroll Listener
+excerpt: A React component that listens for when the user scrolls to the bottom of the page. Both a hook and an old-scool component.
+tags: []
+date: '2018-07-11T12:00:00Z'
+repo: https://github.com/karl-run/react-bottom-scroll-listener
+projectValues:
+  usefulness: 80
+  users: 85
+  "fun factor": 10
+---
+
 import PackageDownloadCount from '@/components/PackageDownloadCount';
 import { Suspense } from 'react';
 import GaugeCollection from '@/components/GaugeCollection';
 
-export const meta = {
-  title: 'React Bottom Scroll Listener',
-  excerpt:
-    'A React component that listens for when the user scrolls to the bottom of the page. Both a hook and an old-scool component.',
-  tags: [],
-  date: '2018-07-11T12:00:00Z',
-  repo: 'https://github.com/karl-run/react-bottom-scroll-listener',
-  projectValues: {
-    usefulness: 80,
-    users: 85,
-    'fun factor': 10,
-  },
-};
-
-# {meta.title}
+# {frontmatter.title}
 
 <Suspense fallback={<div className="mb-4">Loading...</div>}>
   <PackageDownloadCount name="react-bottom-scroll-listener" />
 </Suspense>
 
-<GaugeCollection values={meta.projectValues} direction="row" />
+<GaugeCollection client:load values={frontmatter.projectValues} direction="row" />
 
 A pretty simple small library that I wrote to solve a problem I had. I wanted to load more data when
 the user scrolled to the bottom of the page. I couldn't find a library that did this so I created one.

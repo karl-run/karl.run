@@ -2,8 +2,7 @@
 import { Card } from '@/components/EntryCard';
 import GaugeCollection from '@/components/GaugeCollection';
 import RootLayout from '@/layouts/RootLayout.astro';
-import { getPostsMetadata } from '@/utils/posts';
-import { getProjectsMetadata } from '@/utils/projects';
+import { getPostsMetadata, getProjectsMetadata } from '../content/collections';
 
 const postsMetadata = await getPostsMetadata();
 const projectsMetadata = await getProjectsMetadata();

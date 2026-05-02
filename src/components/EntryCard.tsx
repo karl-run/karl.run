@@ -1,6 +1,9 @@
 import type { ReactNode, ReactElement } from 'react';
+import type { CollectionEntry } from 'astro:content';
 import { formatDistanceToNowStrict, parseISO } from 'date-fns';
 import GaugeCollection from '@/components/GaugeCollection';
+
+type ProjectValues = CollectionEntry<'projects'>['data']['projectValues'];
 
 interface CardProps {
   title: string;

@@ -1,7 +1,7 @@
 ---
 import { Card } from '@/components/EntryCard';
 import RootLayout from '@/layouts/RootLayout.astro';
-import { getPostsMetadata } from '@/utils/posts';
+import { getPostsMetadata } from '../content/collections';
 
 const postsMetadata = await getPostsMetadata();
 ---
