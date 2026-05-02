@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, type ReactElement } from 'react';
-import { cn } from '@/utils/cn';
+import { cn } from '@utils/cn';
 
 interface GaugeProps {
   text: string;

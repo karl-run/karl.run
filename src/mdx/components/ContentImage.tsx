@@ -7,12 +7,15 @@ interface ContentImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 's
   placeholder?: string;
 }
 
-function ContentImage({ src, alt = '', placeholder: _placeholder, ...props }: ContentImageProps): ReactElement {
+export default function ContentImage({
+  src,
+  alt = '',
+  placeholder: _placeholder,
+  ...props
+}: ContentImageProps): ReactElement {
   const imageSource = typeof src === 'string' ? src : src.src;
   const width = props.width ?? (typeof src === 'string' ? undefined : src.width);
   const height = props.height ?? (typeof src === 'string' ? undefined : src.height);
 
   return <img {...props} src={imageSource} alt={alt} width={width} height={height} />;
 }
-
-export default ContentImage;
