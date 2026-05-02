@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   output: "static",
+  site: 'https://karl.run',
   integrations: [mdx()],
   markdown: {
     shikiConfig: { theme: 'synthwave-84' },

@@ -23,7 +23,7 @@ const { Content } = await render(post);
 const meta = post.data;
 ---
 
-<RootLayout>
+<RootLayout title={meta.title} description={meta.excerpt}>
   <main class="mx-auto mb-16 max-w-3xl p-4 [&>img]:mb-4">
     <div class="mb-1 flex items-center justify-between">
       <div class="text-xs">Posted {formatDistanceToNowStrict(parseISO(meta.date), { addSuffix: true })}</div>
