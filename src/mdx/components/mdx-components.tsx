@@ -1,6 +1,6 @@
 import type { MDXComponents } from 'mdx/types';
 
-import ContentImage from '@/components/ContentImage';
+import ContentImage from './ContentImage';
 
 export const mdxComponents: MDXComponents = {
   h1: (props) => <h1 className="mb-4 text-4xl font-bold" {...props} />,

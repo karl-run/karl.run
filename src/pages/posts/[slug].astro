@@ -2,8 +2,8 @@
 import { formatDistanceToNowStrict, parseISO } from 'date-fns';
 import { getCollection, getEntry, render } from 'astro:content';
 
-import { mdxComponents } from '@/mdx-components';
-import RootLayout from '@/layouts/RootLayout.astro';
+import RootLayout from '@layouts/RootLayout.astro';
+import { mdxComponents } from '@mdx-components/mdx-components';
 
 export function getStaticPaths() {
   return getCollection('posts').then((posts) => posts.map((post) => ({ params: { slug: post.id } })));

@@ -1,7 +1,7 @@
 import { type ReactElement } from 'react';
 import type { CollectionEntry } from 'astro:content';
-import Gauge from '@/components/Gauge';
-import { cn } from '@/utils/cn';
+import Gauge from '@components/Gauge';
+import { cn } from '@utils/cn';
 
 type ProjectValues = CollectionEntry<'projects'>['data']['projectValues'];
 

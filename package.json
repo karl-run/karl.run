@@ -1,7 +1,8 @@
 {
   "name": "karl.run",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
+  "packageManager": "yarn@4.14.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -28,7 +29,6 @@
     "tailwind-merge": "^2.3.0",
     "tailwindcss": "^4.2.4"
   },
-  "packageManager": "yarn@4.14.1",
   "devDependencies": {
     "@types/node": "20.12.7",
     "@types/react": "^19.2.14",

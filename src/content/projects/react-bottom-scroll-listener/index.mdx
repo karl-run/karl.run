@@ -10,15 +10,9 @@ projectValues:
   "fun factor": 10
 ---
 
-import PackageDownloadCount from '@/components/PackageDownloadCount';
-import { Suspense } from 'react';
-import GaugeCollection from '@/components/GaugeCollection';
+import GaugeCollection from '@components/GaugeCollection';
 
 # {frontmatter.title}
-
-<Suspense fallback={<div className="mb-4">Loading...</div>}>
-  <PackageDownloadCount name="react-bottom-scroll-listener" />
-</Suspense>
 
 <GaugeCollection client:load values={frontmatter.projectValues} direction="row" />
 
