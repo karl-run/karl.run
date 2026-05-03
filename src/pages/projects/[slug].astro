@@ -4,6 +4,7 @@ import { type CollectionEntry, getCollection, render } from 'astro:content';
 
 import RootLayout from '@layouts/RootLayout.astro';
 import MdxContent from '@mdx-components/MdxContent.astro';
+import GaugeCollection from '@components/GaugeCollection.astro';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -30,6 +31,8 @@ const meta = project.data;
       <a class="underline" href={meta.repo}>Github Source</a>
     </div>
     <MdxContent>
+      <h1>{meta.title}</h1>
+      <GaugeCollection values={meta.projectValues} direction="row" />
       <Content />
     </MdxContent>
   </main>
