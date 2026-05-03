@@ -17,58 +17,95 @@ import PostInfo from '@mdx-components/PostInfo.astro';
     This was originally written for and posted on the Medium in 2020. [Original post can be found here](https://medium.com/systek/de-st%C3%B8rste-tech-forbedringene-i-min-hverdag-som-fullstackutvikler-f20e2a1e4a17).
 
     It is also worth noting that this post reflects on the technology at the time (in 2020), and should be read with that in mind. :)
+
 </PostInfo>
 
-En del av jobben som utvikler er å være nysgjerrig, men selvfølgelig innenfor visse rammer. Når man utforsker teknologi, være seg et nytt frontend-rammeverk eller et lite bibliotek til backenden, ender man noen ganger opp med en løsning for et spesifikt problem der og da. Men en gang i blant finner man noe som endrer hvordan man jobber. Her er mine største funn som har forbedret min hverdag.
-Testing Library
+En del av jobben som utvikler er å være nysgjerrig, men selvfølgelig innenfor visse rammer. Når man utforsker teknologi,
+være seg et nytt frontend-rammeverk eller et lite bibliotek til backenden, ender man noen ganger opp med en løsning for
+et spesifikt problem der og da. Men en gang i blant finner man noe som endrer hvordan man jobber. Her er mine største
+funn som har forbedret min hverdag.
 
-Det har vært en pivotering i frontend-miljøet de siste årene. Man har gått vekk fra å teste kode som enhet og gått over til å teste gjennom øynene til brukeren. Dette har også ført til mye sterkere fokus på tilgjengelighet, for dersom testene dine ikke klarer å navigere på nettsiden din, hvordan skal en skjermleser gjøre det?
+## Testing Library
 
-Nei, vi snakker ikke om full ende-til-ende testing med Selenium/Puppeteer/Cypress hvor du må spinne opp hele stacken din, og til syvende og sist ender du opp med tester som er flaky som bare rakkern.
+Det har vært en pivotering i frontend-miljøet de siste årene. Man har gått vekk fra å teste kode som enhet og gått over
+til å teste gjennom øynene til brukeren. Dette har også ført til mye sterkere fokus på tilgjengelighet, for dersom
+testene dine ikke klarer å navigere på nettsiden din, hvordan skal en skjermleser gjøre det?
 
-Testing Library er en rammeverk-agnostisk verktøykasse for å teste komponentene dine. Det lar deg rendre, traversere og interagere med komponenter på en måte som oppfordrer til gode tester og tilgjengelighet.
+Nei, vi snakker ikke om full ende-til-ende testing med Selenium/Puppeteer/Cypress hvor du må spinne opp hele stacken
+din, og til syvende og sist ender du opp med tester som er flaky som bare rakkern.
+
+Testing Library er en rammeverk-agnostisk verktøykasse for å teste komponentene dine. Det lar deg rendre, traversere og
+interagere med komponenter på en måte som oppfordrer til gode tester og tilgjengelighet.
 
 > The more your tests resemble the way your software is used, the more confidence they can give you.
 
-Det kan være litt tungt å komme i gang med Testing Library om du er vant med å tenke på frontend-testene dine som enheter, der du tester kun det som ligger i komponenten og alt annet fjernes fra regnestykket (f.eks shallow rendering med enzyme) eller mockes vekk. Med Testing Library så mocker man ut eksterne avhengigheter, men man rendrer hele komponent-treet for å kunne nøyaktig gjenskape brukerinteraksjon som en bruker ville gjort.
+Det kan være litt tungt å komme i gang med Testing Library om du er vant med å tenke på frontend-testene dine som
+enheter, der du tester kun det som ligger i komponenten og alt annet fjernes fra regnestykket (f.eks shallow rendering
+med enzyme) eller mockes vekk. Med Testing Library så mocker man ut eksterne avhengigheter, men man rendrer hele
+komponent-treet for å kunne nøyaktig gjenskape brukerinteraksjon som en bruker ville gjort.
 
-Anbefaler å lese intro og “guiding principles”. Når du har kommet i gang er det også et veldig bra blogginnlegg fra forfatteren av Testing Library jeg har fått mye nytte ut av, “Common mistakes with React Testing Library”.
-TypeScript
+Anbefaler å lese intro og “guiding principles”. Når du har kommet i gang er det også et veldig bra blogginnlegg fra
+forfatteren av Testing Library jeg har fått mye nytte ut av, “Common mistakes with React Testing Library”.
 
-Om du liker det eller ikke, så kommer vi oss ikke unna JavaScript når vi jobber med web. TypeScript har gjort meg mye mer selvsikker i frontend-koden jeg skriver. Ofte så ender jeg opp med å figurativt ta en titt i speilet og spørre meg selv “er dette egentlig en god måte å løse det på?”, for om det er vanskelig å representere med sterke typer, da er det nok vanskelig for en annen utvikler å sette seg inn i det.
+## TypeScript
 
-TypeScript er ikke noe nytt, men de siste årene har det virkelig tatt feste i økosystemet. Flere og flere biblioteker kommer med førsteklasses støtte, og TypeScript i seg selv blir bare bedre og raskere. Jeg tok meg selv i å virkelig sette pris på Optional Chaining da jeg gravde i et ekstra dypt objekt med mange nullable verdier her om dagen, det ga noen vonde minner om hvor jævlig den koden hadde vært uten Optional Chaining og Nullish Coalescing operatoren.
+Om du liker det eller ikke, så kommer vi oss ikke unna JavaScript når vi jobber med web. TypeScript har gjort meg mye
+mer selvsikker i frontend-koden jeg skriver. Ofte så ender jeg opp med å figurativt ta en titt i speilet og spørre meg
+selv “er dette egentlig en god måte å løse det på?”, for om det er vanskelig å representere med sterke typer, da er det
+nok vanskelig for en annen utvikler å sette seg inn i det.
+
+TypeScript er ikke noe nytt, men de siste årene har det virkelig tatt feste i økosystemet. Flere og flere biblioteker
+kommer med førsteklasses støtte, og TypeScript i seg selv blir bare bedre og raskere. Jeg tok meg selv i å virkelig
+sette pris på Optional Chaining da jeg gravde i et ekstra dypt objekt med mange nullable verdier her om dagen, det ga
+noen vonde minner om hvor jævlig den koden hadde vært uten Optional Chaining og Nullish Coalescing operatoren.
 
 > TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
 
-Men det sterkeste argumentet til fordel for TypeScript kommer når man jobber i team. Vi snakker hele tiden om “selvdokumenterende”-kode, og med TypeScript er det i hvert fall et steg nærmere realiteten. Spesielt når man jobber på noe som kan endre seg så raskt som en web-app. Programmeringspråk med sterk typing er ikke en ny ting, så jeg trenger sikkert ikke å overbevise deg om hvorfor det er bra, men når vi for et par år siden satt å skrev milevis med PropTypes, hvorfor ikke ta steget videre og få all koden din trygg?
+Men det sterkeste argumentet til fordel for TypeScript kommer når man jobber i team. Vi snakker hele tiden om
+“selvdokumenterende”-kode, og med TypeScript er det i hvert fall et steg nærmere realiteten. Spesielt når man jobber på
+noe som kan endre seg så raskt som en web-app. Programmeringspråk med sterk typing er ikke en ny ting, så jeg trenger
+sikkert ikke å overbevise deg om hvorfor det er bra, men når vi for et par år siden satt å skrev milevis med PropTypes,
+hvorfor ikke ta steget videre og få all koden din trygg?
 
-Sterk typing lar deg også fokusere på å skrive tester rundt funksjonalitet, isteden for å skrive tester for alle mulige permutasjoner av input og output. JavaScript kan ha noen… interessante resultater til tider. Anbefaler videoen “wat” fra CodeMash 2012.
+Sterk typing lar deg også fokusere på å skrive tester rundt funksjonalitet, isteden for å skrive tester for alle mulige
+permutasjoner av input og output. JavaScript kan ha noen… interessante resultater til tider. Anbefaler videoen “wat” fra
+CodeMash 2012.
 
-Kanskje du allerede jobber på en React applikasjon og bruker create-react-app? Visste du at CRA støtter TypeScript rett ut av boksen?
-Kotlin
+Kanskje du allerede jobber på en React applikasjon og bruker create-react-app? Visste du at CRA støtter TypeScript rett
+ut av boksen? Kotlin
 
-Mange fullstackutviklere kommer fra backend og våger seg forsiktig inn i frontend-verden. Jeg gikk andre veien og måtte våge meg inn i et land av traurig og verbos Java-kode. Under utdanningen hadde jeg en kort flørt med C# og har i ettertid sett på C# “som en bedre Java”. Nå som jeg har brukt Kotlin en stund kan jeg kaste de nostalgiske brillene på dynga, for Kotlin er en bedre C#.
+Mange fullstackutviklere kommer fra backend og våger seg forsiktig inn i frontend-verden. Jeg gikk andre veien og måtte
+våge meg inn i et land av traurig og verbos Java-kode. Under utdanningen hadde jeg en kort flørt med C# og har i
+ettertid sett på C# “som en bedre Java”. Nå som jeg har brukt Kotlin en stund kan jeg kaste de nostalgiske brillene på
+dynga, for Kotlin er en bedre C#.
 
-Det er et språk som føles ut som det er laget for utviklere først og fremst, med nullsikkerhet, råbra interop med Java, extension functions, data-klasser, funksjonell programmering funker bare så mye bedre, og mye mer.
+Det er et språk som føles ut som det er laget for utviklere først og fremst, med nullsikkerhet, råbra interop med Java,
+extension functions, data-klasser, funksjonell programmering funker bare så mye bedre, og mye mer.
 
-Lista er lang, men man trenger ikke å bry seg med alt. Det som er viktig å vite er at det er lett å komme i gang, det er lett å gå over fra Java til Kotlin, selv litt og litt, og de som har tatt i bruk Kotlin elsker det. Kotlin er det #4 mest “Loved” programmeringsspråket på StackOverflow Developer Survey 2020 (TypeScript er #2 😉).
+Lista er lang, men man trenger ikke å bry seg med alt. Det som er viktig å vite er at det er lett å komme i gang, det er
+lett å gå over fra Java til Kotlin, selv litt og litt, og de som har tatt i bruk Kotlin elsker det. Kotlin er det #4
+mest “Loved” programmeringsspråket på StackOverflow Developer Survey 2020 (TypeScript er #2 😉).
 
-Mine favoritter er extension functions og null safety. Tenk at nullabiliteten til en variabel kan være en del av typen, utrolig nyvinnende idé som vil spare oss for mange bugs! Eneste vi mangler nå er en god måte å ha sterk typing i kommunikasjonen mellom frontend og backend…
-GraphQL & Apollo
+Mine favoritter er extension functions og null safety. Tenk at nullabiliteten til en variabel kan være en del av typen,
+utrolig nyvinnende idé som vil spare oss for mange bugs! Eneste vi mangler nå er en god måte å ha sterk typing i
+kommunikasjonen mellom frontend og backend…
 
-Dersom du har lest ned hit og ikke bare hoppet, så har du sikkert skjønt at jeg er en sucker for litt god og sterk typing.
+## GraphQL & Apollo
 
-> GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+Dersom du har lest ned hit og ikke bare hoppet, så har du sikkert skjønt at jeg er en sucker for litt god og sterk
+typing.
 
-Litt tungt sitat kanskje? Jeg digger GraphQL fordi det typer API-et ditt sterkt, gir deg en måte å knyte sammen data på (som en graf…) uten å måtte nødvendigvis endre på hvordan du modellerer dataen din.
-Get Karl Jørgen Overå’s stories in your inbox
+> GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL
+> provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly
+> what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
 
-Join Medium for free to get updates from this writer.
+Litt tungt sitat kanskje? Jeg digger GraphQL fordi det typer API-et ditt sterkt, gir deg en måte å knyte sammen data på
+(som en graf…) uten å måtte nødvendigvis endre på hvordan du modellerer dataen din. Get Karl Jørgen Overå’s stories in
+your inbox
 
-Remember me for faster sign in
-
-Helt enkelt kan man se på GraphQL som en erstatning for REST-kontrollerene. Du definerer opp hvordan API-et ditt skal se ut med med “GraphQL Schema”, en syntaks som er enkel og grei å sette seg inn i. Resultatet et et selvdokumenterende og sterkt typet API. Et lite eksempel:
+Helt enkelt kan man se på GraphQL som en erstatning for REST-kontrollerene. Du definerer opp hvordan API-et ditt skal se
+ut med med “GraphQL Schema”, en syntaks som er enkel og grei å sette seg inn i. Resultatet et et selvdokumenterende og
+sterkt typet API. Et lite eksempel:
 
 ```graphql
 type Bok {
@@ -110,31 +147,49 @@ Og hele interaksjonen er sterkt typet. Det er digg det!
 
 Noen andre som får litt angst av å se kode på Norsk? Nei? Bare meg?
 
-Nå kan vi ta dette et steg videre og bruke den sterke typingen av API-et vårt til å generere opp typer for alle “queries” mellom frontend og backend. Her kan vi for eksempel bruke GraphQL Code Generator eller Apollo CLI. Med dette har vi faktisk typing hele veien fra datalaget vårt, gjennom backenden, over tråden til frontenden, og gjennom hele vår TypeScript-baserte web-app.
+Nå kan vi ta dette et steg videre og bruke den sterke typingen av API-et vårt til å generere opp typer for alle
+“queries” mellom frontend og backend. Her kan vi for eksempel bruke GraphQL Code Generator eller Apollo CLI. Med dette
+har vi faktisk typing hele veien fra datalaget vårt, gjennom backenden, over tråden til frontenden, og gjennom hele vår
+TypeScript-baserte web-app.
 
-Å ha den røde tråden av typing gjør ting som refaktorering og onboarding av nye utviklere så mye lettere og raskere. For å ikke snakke om hvor mange unødvendige småbugs den plukker opp før du i det hele tatt får opprettet en pull request.
+Å ha den røde tråden av typing gjør ting som refaktorering og onboarding av nye utviklere så mye lettere og raskere. For
+å ikke snakke om hvor mange unødvendige småbugs den plukker opp før du i det hele tatt får opprettet en pull request.
 
-Kjent med Spring Boot og vil teste GraphQL? Ta en titt på mitt andre blogginnlegg om hvordan å kickstarte GraphQL på Spring Boot.
+Kjent med Spring Boot og vil teste GraphQL? Ta en titt på mitt andre blogginnlegg om hvordan å kickstarte GraphQL på
+Spring Boot.
 
-Apollo Client er et bibliotek til web-appen din som tar seg av kommunikasjon og caching av responser mellom frontend og backend. Den offisielle implementasjonen er til React, men det finnes gode versjoner til Vue, Angular, Svelte og mange fler.
+Apollo Client er et bibliotek til web-appen din som tar seg av kommunikasjon og caching av responser mellom frontend og
+backend. Den offisielle implementasjonen er til React, men det finnes gode versjoner til Vue, Angular, Svelte og mange
+fler.
 
-> Simply write a GraphQL query, and Apollo Client will take care of requesting and caching your data, as well as updating your UI.
+> Simply write a GraphQL query, and Apollo Client will take care of requesting and caching your data, as well as
+> updating your UI.
 
-Fordi GraphQL er sterkt typet, betyr det at med litt hjelp, så kan Apollo automatisk kjenne igjen et objekt og oppdatere det i sin normaliserte cache. Alle komponenter som har dette objektet vil automatisk oppdatere seg.
+Fordi GraphQL er sterkt typet, betyr det at med litt hjelp, så kan Apollo automatisk kjenne igjen et objekt og oppdatere
+det i sin normaliserte cache. Alle komponenter som har dette objektet vil automatisk oppdatere seg.
 
-Etter vi tok i bruk Apollo så har vi spart flere titalls tusen kodelinjer med Redux reducere som skal ta i mot, lagre og oppdatere data fra et API, og vi savner det ikke. Det er også utrolig tilfredsstillende å implementere et skjema eller en knapp som endrer på noe data, og så se at endringene automatisk propageres til andre steder i UI-en.
+Etter vi tok i bruk Apollo så har vi spart flere titalls tusen kodelinjer med Redux reducere som skal ta i mot, lagre og
+oppdatere data fra et API, og vi savner det ikke. Det er også utrolig tilfredsstillende å implementere et skjema eller
+en knapp som endrer på noe data, og så se at endringene automatisk propageres til andre steder i UI-en.
 
-PS: Skulle du hive deg over Apollo med en eneste gang (noe du burde gjøre!) så vil jeg anbefale å hoppe rett på 3.0-betaen. I skrivende stund er betaen fin og stabil, og blir nok sluppet som stabil ganske snart.
-Redux Toolkit
+PS: Skulle du hive deg over Apollo med en eneste gang (noe du burde gjøre!) så vil jeg anbefale å hoppe rett på
+3.0-betaen. I skrivende stund er betaen fin og stabil, og blir nok sluppet som stabil ganske snart.
 
-Som jeg nevnte mot slutten av Apollo-seksjonen, har du brukt Redux er du sikkert drittlei av å skrive reducers og all annen boilerplate Redux kommer med. Det viser seg at de som står bak Redux er lei av akkurat de samme tingene, derfor har de laget Redux Toolkit.
+## Redux Toolkit
+
+Som jeg nevnte mot slutten av Apollo-seksjonen, har du brukt Redux er du sikkert drittlei av å skrive reducers og all
+annen boilerplate Redux kommer med. Det viser seg at de som står bak Redux er lei av akkurat de samme tingene, derfor
+har de laget Redux Toolkit.
 
 > The official, opinionated, batteries-included toolset for efficient Redux development
 
-Det er mye enklere å sette opp, og har utrolig behagelige API-er som for eksempel createSlice, og ikke minst, det kommer med kjempebra TypeScript-støtte ut av boksen.
+Det er mye enklere å sette opp, og har utrolig behagelige API-er som for eksempel createSlice, og ikke minst, det kommer
+med kjempebra TypeScript-støtte ut av boksen.
 
-Jeg anbefaler å lese gjennom Redux Style Guide, den går gjennom hva som skaper god Redux-kode, og hvordan RTK gjør mye av den jobben.
+Jeg anbefaler å lese gjennom Redux Style Guide, den går gjennom hva som skaper god Redux-kode, og hvordan RTK gjør mye
+av den jobben.
 
 Så enten om du er nybegynner, erfaren eller en ekspert på Redux, så har RTK en tutorial for deg.
 
-Sterkt uenig i noe av det over eller har du noen andre teknologier som for deg har endret hvordan du skriver koden din? Fyr av en kommentar under, jeg er nysgjerrig.
+Sterkt uenig i noe av det over eller har du noen andre teknologier som for deg har endret hvordan du skriver koden din?
+Fyr av en kommentar under, jeg er nysgjerrig.

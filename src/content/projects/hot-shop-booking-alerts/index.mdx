@@ -7,7 +7,7 @@ repo: https://github.com/karl-run/hot-shop-booking-alerts
 projectValues:
   usefulness: 80
   users: 20
-  "fun factor": 30
+  'fun factor': 30
 ---
 
 import GaugeCollection from '@components/GaugeCollection.astro';
@@ -16,9 +16,12 @@ import GaugeCollection from '@components/GaugeCollection.astro';
 
 <GaugeCollection values={frontmatter.projectValues} direction="row" />
 
-A quick [Deno](https://deno.land/) script to check if there are any available tables at the Oslo based restaurant [Hot Shop](https://www.restauranthotshop.no). It has been fully booked since it won a [Michelin star](https://guide.michelin.com/no/en/oslo-region/oslo/restaurant/hot-shop) in 2022.
+A quick [Deno](https://deno.land/) script to check if there are any available tables at the Oslo based restaurant
+[Hot Shop](https://www.restauranthotshop.no). It has been fully booked since it won a
+[Michelin star](https://guide.michelin.com/no/en/oslo-region/oslo/restaurant/hot-shop) in 2022.
 
-The script is pretty simple since the restaurant has a nice API that it's own booking system uses. It's just a matter of checking if there are any available tables at a given day. If there are, it sends a message to a Slack channel.
+The script is pretty simple since the restaurant has a nice API that it's own booking system uses. It's just a matter of
+checking if there are any available tables at a given day. If there are, it sends a message to a Slack channel.
 
 ![Hot Shop slack bot](./image1.png)
 

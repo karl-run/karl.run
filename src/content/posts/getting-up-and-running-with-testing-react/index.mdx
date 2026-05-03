@@ -13,19 +13,21 @@ import PostOldAsHeck from '@mdx-components/PostOldAsHeck.astro';
 # {frontmatter.title}
 
 <PostOldAsHeck date={frontmatter.date}>
-Especially when it comes to testing in React, I strongly discourage using enzyme.
-Instead look at something like
-[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
+  Especially when it comes to testing in React, I strongly discourage using enzyme. Instead look at something like
+  [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
 </PostOldAsHeck>
 
 This post will go through a few simple techniques that are great to know when you are testing your React _components_.
 
 ### What packages will be used, and what do they do.
 
-- [**Jest**](https://facebook.github.io/jest/): Jest is a test runner, it will execute our tests and provide some utility for spying and stubbing functions.
-- [**enzyme**](https://github.com/airbnb/enzyme): Testing utility for React components to help us assert, manipulate and traverse our components.
+- [**Jest**](https://facebook.github.io/jest/): Jest is a test runner, it will execute our tests and provide some
+  utility for spying and stubbing functions.
+- [**enzyme**](https://github.com/airbnb/enzyme): Testing utility for React components to help us assert, manipulate and
+  traverse our components.
 
-If you want to get a project up and running to try these things just use [create-react-app](https://github.com/facebookincubator/create-react-app) and add enzyme to it.
+If you want to get a project up and running to try these things just use
+[create-react-app](https://github.com/facebookincubator/create-react-app) and add enzyme to it.
 
 Let's get started. Firstly, all test files are required to have these imports:
 
@@ -35,9 +37,13 @@ import { shallow } from 'enzyme';
 
 ### 1. Almost everything should be `shallow(<Component />)`
 
-For the most part we want to create **unit** tests, which means we are not interested in life cycle or deep rendering of components. Anything that is not directly related to the logic we are testing is either stubbed out or simply not executed.
+For the most part we want to create **unit** tests, which means we are not interested in life cycle or deep rendering of
+components. Anything that is not directly related to the logic we are testing is either stubbed out or simply not
+executed.
 
-By default, [shallow](https://github.com/airbnb/enzyme/blob/master/docs/api/shallow.md) will call `componentDidMount` on mount and `componentDidUpdate` after setting props via `setProps`. This can be disabled by passing in `disableLifeCycleMethods: true`. Usually you don't have to worry about this.
+By default, [shallow](https://github.com/airbnb/enzyme/blob/master/docs/api/shallow.md) will call `componentDidMount` on
+mount and `componentDidUpdate` after setting props via `setProps`. This can be disabled by passing in
+`disableLifeCycleMethods: true`. Usually you don't have to worry about this.
 
 ```javascript
 describe('Simple example', () => {
@@ -51,7 +57,8 @@ describe('Simple example', () => {
 
 ### 2. Executing only what you are testing
 
-Use the `.instance()` method to access class methods. Any stateful component's class methods will be accessible here as well as most React life cycle methods. This is very useful for making sure you're only testing what you need.
+Use the `.instance()` method to access class methods. Any stateful component's class methods will be accessible here as
+well as most React life cycle methods. This is very useful for making sure you're only testing what you need.
 
 ```javascript
 describe('Execute example', () => {
@@ -95,11 +102,13 @@ describe('Jests function example', () => {
 
 ### 4. Mock, stub and otherwise remove execution of code that you're not testing
 
-This can range from something simple as passing in a `jest.fn()` as a prop, to mutating the instance object of the component to stubbing out imported libraries.
+This can range from something simple as passing in a `jest.fn()` as a prop, to mutating the instance object of the
+component to stubbing out imported libraries.
 
 #### 4.1 Passing props
 
-Especially when working with a **Redux** connected component you will have to pass in a lot of empty functions (if you don't care whether they are executed or not) or `jest.fn()` if you need to assert that they have been executed.
+Especially when working with a **Redux** connected component you will have to pass in a lot of empty functions (if you
+don't care whether they are executed or not) or `jest.fn()` if you need to assert that they have been executed.
 
 ```javascript
 import ConnectedBlog from './MyConnectedBlog';
@@ -122,7 +131,9 @@ describe('Redux connected or similarly prop-heavy component', () => {
 
 #### 4.2 Overwriting instance methods
 
-In some scenarios you only want to test `MethodA()` which also calls `MethodB()`, but B is heavy and cumbersome and you don't want to mock everything B is using and then some. The easiest thing is to just remove B from the equation all together.
+In some scenarios you only want to test `MethodA()` which also calls `MethodB()`, but B is heavy and cumbersome and you
+don't want to mock everything B is using and then some. The easiest thing is to just remove B from the equation all
+together.
 
 ```javascript
 describe('Overwriting methods', () => {
@@ -140,17 +151,19 @@ describe('Overwriting methods', () => {
 
 #### 4.3 Stubbing out libraries
 
-Some times external code can be a big complexity in our tests, and might even slow them down if we let them execute (even though they don't do any other harm). But we can very simply stop them from executing, and even mock the result if our code is dependent on it.
+Some times external code can be a big complexity in our tests, and might even slow them down if we let them execute
+(even though they don't do any other harm). But we can very simply stop them from executing, and even mock the result if
+our code is dependent on it.
 
-Because of the way JavaScript works when it comes to loading modules, if we import a module in our test and then mutate it, those changes will also apply to the import in our module. This can be used for stubbing external libraries or even other files that our component uses.
+Because of the way JavaScript works when it comes to loading modules, if we import a module in our test and then mutate
+it, those changes will also apply to the import in our module. This can be used for stubbing external libraries or even
+other files that our component uses.
 
 ```javascript
 // OurButton.js
 import { someHeavyFunction } from '../myHeavyUtils.js';
 
-export const OurButton = (props) => (
-  <div>Result from heavy method is: {someHeavyFunction(props.data)}</div>
-);
+export const OurButton = (props) => <div>Result from heavy method is: {someHeavyFunction(props.data)}</div>;
 
 // OurButton.test.js
 import * as heavyUtils from '../myHeavyUtils.js'; // Note how we import it
@@ -170,7 +183,9 @@ describe('Stubbing methods', () => {
 
 #### 5 Working with Promises (not React components specific)
 
-I like to keep fetching and data transformation out of my components, but [you don't always need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367), so here are a few tips for working with Promises. These tips also apply to test execution around promises in general.
+I like to keep fetching and data transformation out of my components, but
+[you don't always need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367), so here are a few
+tips for working with Promises. These tips also apply to test execution around promises in general.
 
 ```javascript
 // FetchingThing.js
@@ -207,7 +222,9 @@ class FetchingThing extends Component {
 }
 ```
 
-You might think that testing this is _impossible_ because of the fetch and the promise, but in reality it is very simple. Step one is to remove the fetch from the equation, step two is to tell the test runner that we are waiting for a promise!
+You might think that testing this is _impossible_ because of the fetch and the promise, but in reality it is very
+simple. Step one is to remove the fetch from the equation, step two is to tell the test runner that we are waiting for a
+promise!
 
 ```javascript
 describe('Working with promises', () => {

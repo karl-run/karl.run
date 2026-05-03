@@ -4,7 +4,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  output: "static",
+  output: 'static',
   site: 'https://karl.run',
   integrations: [mdx()],
   markdown: {
