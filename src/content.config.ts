@@ -32,6 +32,7 @@ const projects = defineCollection({
     tags: z.array(z.string()),
     date: dateSchema,
     repo: z.url(),
+    app: z.url().optional(),
     projectValues: z.object({
       usefulness: percentageSchema,
       users: percentageSchema,

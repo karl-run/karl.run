@@ -10,23 +10,26 @@
     "fmt:check": "oxfmt --check"
   },
   "dependencies": {
-    "@astrojs/mdx": "^5.0.4",
-    "@types/mdx": "^2.0.13",
+    "@lucide/astro": "^1.16.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
-    "remeda": "^2.34.0",
-    "tailwind-merge": "^3.5.0",
-    "tailwindcss": "^4.2.4"
+    "remeda": "^2.34.0"
   },
   "devDependencies": {
+    "@astrojs/mdx": "^5.0.4",
+    "@karl-run/prettier-config": "^1.1.0",
     "@tailwindcss/vite": "^4.2.4",
+    "@types/mdx": "^2.0.13",
     "@types/node": "24.12.2",
-    "astro": "^6.2.1",
+    "astro": "^6.3.5",
     "oxfmt": "^0.47.0",
     "prettier": "^3.8.3",
+    "prettier-plugin-astro": "^0.14.1",
     "rehype-external-links": "^3.0.0",
     "rehype-highlight": "^7.0.2",
     "remark-frontmatter": "^5.0.0",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.4",
     "typescript": "6.0.3"
   },
   "packageManager": "yarn@4.14.1"

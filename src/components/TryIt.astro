@@ -1,0 +1,24 @@
+---
+import { ExternalLinkIcon } from '@lucide/astro'
+
+interface Props {
+  url: string | undefined
+}
+
+const { url } = Astro.props
+---
+
+{
+  url != null && (
+    <div class="flex items-center justify-center">
+      <a
+        href={url}
+        target="_blank"
+        class="border p-2 px-4 rounded-md text-xl border:bg-green-400 hover:bg-green-900/10 flex gap-2 items-center"
+      >
+        Try it at {url.replace('https://', '')}!
+        <ExternalLinkIcon />
+      </a>
+    </div>
+  )
+}

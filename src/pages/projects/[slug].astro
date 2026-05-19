@@ -1,27 +1,28 @@
 ---
-import { formatDistanceToNowStrict, parseISO } from 'date-fns';
-import { type CollectionEntry, getCollection, render } from 'astro:content';
+import { formatDistanceToNowStrict, parseISO } from 'date-fns'
+import { type CollectionEntry, getCollection, render } from 'astro:content'
 
-import RootLayout from '@layouts/RootLayout.astro';
-import MdxContent from '@mdx-components/MdxContent.astro';
-import GaugeCollection from '@components/GaugeCollection.astro';
+import RootLayout from '@layouts/RootLayout.astro'
+import MdxContent from '@mdx-components/MdxContent.astro'
+import GaugeCollection from '@components/GaugeCollection.astro'
+import TryIt from '@components/TryIt.astro'
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
+  const projects = await getCollection('projects')
 
   return projects.map((project) => ({
     params: { slug: project.id },
     props: { project },
-  }));
+  }))
 }
 
 interface Props {
-  project: CollectionEntry<'projects'>;
+  project: CollectionEntry<'projects'>
 }
 
-const { project } = Astro.props;
-const { Content } = await render(project);
-const meta = project.data;
+const { project } = Astro.props
+const { Content } = await render(project)
+const meta = project.data
 ---
 
 <RootLayout title={meta.title} description={meta.excerpt}>
@@ -32,7 +33,10 @@ const meta = project.data;
     </div>
     <MdxContent>
       <h1>{meta.title}</h1>
-      <GaugeCollection values={meta.projectValues} direction="row" />
+      <div class="grid gap-6 grid-cols-1 sm:gap-2 sm:grid-cols-2 mb-6 mt-8">
+        <GaugeCollection values={meta.projectValues} direction="row" />
+        <TryIt url={meta.app} />
+      </div>
       <Content />
     </MdxContent>
   </main>
