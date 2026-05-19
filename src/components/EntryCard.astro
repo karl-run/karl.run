@@ -1,16 +1,16 @@
 ---
-import { formatDistanceToNowStrict, parseISO } from 'date-fns';
+import { formatDistanceToNowStrict, parseISO } from 'date-fns'
 
 interface Props {
-  title: string;
-  subtitle: string;
-  date: string;
-  href: string;
+  title: string
+  subtitle: string
+  date: string
+  href: string
 }
 
-const { title, subtitle, date, href } = Astro.props;
-const postedDate = parseISO(date);
-const hasDefaultSlot = Astro.slots.has('default');
+const { title, subtitle, date, href } = Astro.props
+const postedDate = parseISO(date)
+const hasDefaultSlot = Astro.slots.has('default')
 ---
 
 <a href={href} class="relative flex grow rounded border p-4 backdrop-blur md:w-1/3">
@@ -21,9 +21,11 @@ const hasDefaultSlot = Astro.slots.has('default');
       {formatDistanceToNowStrict(postedDate, { addSuffix: true })}
     </div>
   </div>
-  {hasDefaultSlot && (
-    <div>
-      <slot />
-    </div>
-  )}
+  {
+    hasDefaultSlot && (
+      <div>
+        <slot />
+      </div>
+    )
+  }
 </a>

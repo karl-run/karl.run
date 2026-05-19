@@ -1,20 +1,20 @@
 ---
-import { cn } from '@utils/cn';
+import { cn } from '@utils/cn'
 
-import styles from './Gauge.module.css';
+import styles from './Gauge.module.css'
 
 interface Props {
-  text: string;
-  percent: number;
+  text: string
+  percent: number
 }
 
-const { text, percent } = Astro.props;
-const offset = 126 - (126 * percent) / 100;
+const { text, percent } = Astro.props
+const offset = 126 - (126 * percent) / 100
 ---
 
 <div class="flex flex-col items-center justify-center">
   <svg viewBox="-2 -2 104 52" width="68" height="32">
-    <path class="fill-none stroke-zinc-50/30" fill="none" stroke-width="20" d="M 10 50 A 40 40 0 0 1 90 50" />
+    <path class="fill-none stroke-zinc-50/30" fill="none" stroke-width="20" d="M 10 50 A 40 40 0 0 1 90 50"></path>
     <path
       class:list={[
         cn(styles.fill, 'fill-none stroke-amber-400/80'),
@@ -27,8 +27,7 @@ const offset = 126 - (126 * percent) / 100;
       stroke-width="22"
       d="M 10 50 A 40 40 0 0 1 90 50"
       stroke-dasharray="126"
-      stroke-dashoffset="126"
-    />
+      stroke-dashoffset="126"></path>
   </svg>
   <div class="mt-1 text-sm capitalize">{text}</div>
 </div>

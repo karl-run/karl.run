@@ -1,12 +1,12 @@
 ---
-import Card from '@components/EntryCard.astro';
-import GaugeCollection from '@components/GaugeCollection.astro';
-import RootLayout from '@layouts/RootLayout.astro';
-import { getPostsMetadata, getProjectsMetadata } from '../content/collections';
+import Card from '@components/EntryCard.astro'
+import GaugeCollection from '@components/GaugeCollection.astro'
+import RootLayout from '@layouts/RootLayout.astro'
+import { getPostsMetadata, getProjectsMetadata } from '../content/collections'
 
-const postsMetadata = await getPostsMetadata();
-const projectsMetadata = await getProjectsMetadata();
-const latestProjects = projectsMetadata.slice(0, 4);
+const postsMetadata = await getPostsMetadata()
+const projectsMetadata = await getProjectsMetadata()
+const latestProjects = projectsMetadata.slice(0, 4)
 ---
 
 <RootLayout
@@ -16,18 +16,18 @@ const latestProjects = projectsMetadata.slice(0, 4);
   <main class="mx-4 pb-16">
     <div class="text-shadow-dark my-20 font-bold">
       <h1 class="text-4xl sm:text-7xl">Useless projects and wasted time</h1>
-      <p class="mt-8">
-        My hobby projects and other stuff I have done that will never pay the bills.
-      </p>
+      <p class="mt-8">My hobby projects and other stuff I have done that will never pay the bills.</p>
     </div>
 
     <h2 class="text-shadow-dark mb-4 text-2xl">Latest projects</h2>
     <div class="flex flex-row flex-wrap gap-4">
-      {latestProjects.map(([project, metadata]) => (
-        <Card href={`/projects/${project}`} title={metadata.title} subtitle={metadata.excerpt} date={metadata.date}>
-          <GaugeCollection values={metadata.projectValues} />
-        </Card>
-      ))}
+      {
+        latestProjects.map(([project, metadata]) => (
+          <Card href={`/projects/${project}`} title={metadata.title} subtitle={metadata.excerpt} date={metadata.date}>
+            <GaugeCollection values={metadata.projectValues} />
+          </Card>
+        ))
+      }
     </div>
     <div class="ml-4 mt-4">
       <a href="/projects" class="p-2 underline">
@@ -37,9 +37,13 @@ const latestProjects = projectsMetadata.slice(0, 4);
 
     <h2 class="text-shadow-dark mb-4 mt-8 text-2xl">Latest posts</h2>
     <div class="flex flex-row flex-wrap gap-4">
-      {postsMetadata.slice(0, 4).map(([post, metadata]) => (
-        <Card href={`/posts/${post}`} title={metadata.title} subtitle={metadata.excerpt} date={metadata.date} />
-      ))}
+      {
+        postsMetadata
+          .slice(0, 4)
+          .map(([post, metadata]) => (
+            <Card href={`/posts/${post}`} title={metadata.title} subtitle={metadata.excerpt} date={metadata.date} />
+          ))
+      }
     </div>
     <div class="ml-4 mt-4"><a href="/posts" class="p-2 underline">All posts &rsaquo;</a></div>
   </main>

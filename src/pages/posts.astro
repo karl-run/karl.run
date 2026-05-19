@@ -1,24 +1,21 @@
 ---
-import Card from '@components/EntryCard.astro';
-import RootLayout from '@layouts/RootLayout.astro';
+import Card from '@components/EntryCard.astro'
+import RootLayout from '@layouts/RootLayout.astro'
 
-import { getPostsMetadata } from '../content/collections';
+import { getPostsMetadata } from '../content/collections'
 
-const postsMetadata = await getPostsMetadata();
+const postsMetadata = await getPostsMetadata()
 ---
 
 <RootLayout title="Posts" description="Technical posts about projects, tooling, and software development.">
   <main class="mx-4 pb-16">
     <h2 class="mb-4 text-3xl text-shadow-dark">All posts</h2>
     <div class="flex flex-row flex-wrap gap-4">
-      {postsMetadata.map(([post, metadata]) => (
-        <Card
-          href={`/posts/${post}`}
-          title={metadata.title}
-          subtitle={metadata.excerpt}
-          date={metadata.date}
-        />
-      ))}
+      {
+        postsMetadata.map(([post, metadata]) => (
+          <Card href={`/posts/${post}`} title={metadata.title} subtitle={metadata.excerpt} date={metadata.date} />
+        ))
+      }
     </div>
   </main>
 </RootLayout>

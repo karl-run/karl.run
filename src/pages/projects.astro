@@ -1,26 +1,23 @@
 ---
-import Card from '@components/EntryCard.astro';
-import GaugeCollection from '@components/GaugeCollection.astro';
-import RootLayout from '@layouts/RootLayout.astro';
-import { getProjectsMetadata } from '../content/collections';
+import Card from '@components/EntryCard.astro'
+import GaugeCollection from '@components/GaugeCollection.astro'
+import RootLayout from '@layouts/RootLayout.astro'
+import { getProjectsMetadata } from '../content/collections'
 
-const projectsMetadata = await getProjectsMetadata();
+const projectsMetadata = await getProjectsMetadata()
 ---
 
 <RootLayout title="Projects" description="A collection of hobby projects, experiments, and side quests.">
   <main class="mx-4 pb-16">
     <h2 class="mb-4 text-3xl text-shadow-dark">All projects</h2>
     <div class="flex flex-row flex-wrap gap-4">
-      {projectsMetadata.map(([project, metadata]) => (
-        <Card
-          href={`/projects/${project}`}
-          title={metadata.title}
-          subtitle={metadata.excerpt}
-          date={metadata.date}
-        >
-          <GaugeCollection values={metadata.projectValues} />
-        </Card>
-      ))}
+      {
+        projectsMetadata.map(([project, metadata]) => (
+          <Card href={`/projects/${project}`} title={metadata.title} subtitle={metadata.excerpt} date={metadata.date}>
+            <GaugeCollection values={metadata.projectValues} />
+          </Card>
+        ))
+      }
     </div>
   </main>
 </RootLayout>

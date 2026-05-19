@@ -1,25 +1,25 @@
 ---
-import './styles/global.css';
-import { ClientRouter } from 'astro:transitions';
+import './styles/global.css'
+import { ClientRouter } from 'astro:transitions'
 
-import Nav from './components/Nav.astro';
-import HeroImage from './components/HeroImage.astro';
+import Nav from './components/Nav.astro'
+import HeroImage from './components/HeroImage.astro'
 
 interface Props {
-  title: string;
-  description: string;
+  title: string
+  description: string
 }
 
-const siteTitle = 'karl.run';
+const siteTitle = 'karl.run'
 
-const { title, description } = Astro.props;
+const { title, description } = Astro.props
 
 if (title == null || description == null) {
-  throw new Error('RootLayout requires both `title` and `description` props.');
+  throw new Error('RootLayout requires both `title` and `description` props.')
 }
 
-const pageTitle = `${title} | ${siteTitle}`;
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? 'https://karl.run').toString();
+const pageTitle = `${title} | ${siteTitle}`
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? 'https://karl.run').toString()
 ---
 
 <html lang="en" class="bg-[#071726]" transition:animate="none">

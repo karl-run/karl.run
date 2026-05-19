@@ -1,33 +1,32 @@
 ---
-import { cn } from '@utils/cn';
+import { cn } from '@utils/cn'
 
-const pathname = Astro.url.pathname;
+const pathname = Astro.url.pathname
 const navItems = [
   { href: '/projects', label: 'Projects' },
   { href: '/posts', label: 'Posts' },
   { href: '/links', label: 'Links' },
-];
+]
 
-const isActive = (href: string): boolean =>
-  pathname === href || (href !== '/' && pathname.startsWith(`${href}/`));
+const isActive = (href: string): boolean => pathname === href || (href !== '/' && pathname.startsWith(`${href}/`))
 ---
 
 <nav class="text-shadow-dark mx-4 my-10 flex flex-col justify-between min-[420px]:flex-row">
-  <a href="/" class="flex items-center justify-center font-mono text-2xl min-[420px]:text-left">
-    karl.run()
-  </a>
+  <a href="/" class="flex items-center justify-center font-mono text-2xl min-[420px]:text-left"> karl.run() </a>
   <menu class="mt-4 grid grid-cols-3 min-[420px]:mt-0 min-[420px]:flex min-[420px]:justify-start min-[420px]:gap-3">
-    {navItems.map(({ href, label }) => (
-      <li class="flex-grow">
-        <a
-          href={href}
-          class={cn('block p-2 text-center', {
-            'border-b': isActive(href),
-          })}
-        >
-          {label}
-        </a>
-      </li>
-    ))}
+    {
+      navItems.map(({ href, label }) => (
+        <li class="flex-grow">
+          <a
+            href={href}
+            class={cn('block p-2 text-center', {
+              'border-b': isActive(href),
+            })}
+          >
+            {label}
+          </a>
+        </li>
+      ))
+    }
   </menu>
 </nav>

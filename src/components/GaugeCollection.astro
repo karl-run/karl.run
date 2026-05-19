@@ -1,16 +1,16 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content'
 
-import Gauge from '@components/Gauge.astro';
+import Gauge from '@components/Gauge.astro'
 
-type ProjectValues = CollectionEntry<'projects'>['data']['projectValues'];
+type ProjectValues = CollectionEntry<'projects'>['data']['projectValues']
 
 interface Props {
-  values: ProjectValues;
-  direction?: 'row' | 'column';
+  values: ProjectValues
+  direction?: 'row' | 'column'
 }
 
-const { values, direction = 'column' } = Astro.props;
+const { values, direction = 'column' } = Astro.props
 ---
 
 <div
